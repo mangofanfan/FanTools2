@@ -1,0 +1,11 @@
+SOURCES += app/view/main_window.py \
+        app/view/setting_interface.py \
+        app/view/register_window.py \
+        app/view/main_interface.py \
+        app/view/tool_interface.py \
+        app/view/widgets/tool_widget.py \
+        app/tool/hashCalculator/widgets/file_hash_widget.py \
+        app/tool/hashCalculator/run.py \
+
+TRANSLATIONS += app/resource/i18n/app.zh_CN.ts \
+                app/resource/i18n/app.zh_HK.ts

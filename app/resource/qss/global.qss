@@ -1,0 +1,3 @@
+QScrollArea { background: transparent; border: none; }
+QWidget#scrollAreaWidgetContents { background: transparent; }
+QFrame { background: transparent; border: none; }

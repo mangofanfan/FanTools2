@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/app">
+        <file>images/icons/SettingsFilled_white.svg</file>
+        <file>images/icons/SettingsFilled_black.svg</file>
+        <file>images/icons/Settings_white.svg</file>
+        <file>images/icons/Settings_black.svg</file>
+        <file>images/logo.png</file>
+        <file>images/background.jpg</file>
+        <file>images/avatar.png</file>
+
+        <file>i18n/app.zh_CN.qm</file>
+        <file>i18n/app.zh_HK.qm</file>
+
+        <file>qss/light/setting_interface.qss</file>
+        <file>qss/dark/setting_interface.qss</file>
+        <file>qss/global.qss</file>
+
+        <file>texts/main_tip.md</file>
+        <file>images/icons/IconDownload.png</file>
+        <file>images/icons/IconHash.png</file>
+        <file>images/icons/IconTranslate.png</file>
+    </qresource>
+</RCC>
