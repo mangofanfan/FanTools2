@@ -1,18 +1,8 @@
-from dataclasses import dataclass
-from typing import Union
-
 from PySide6.QtCore import QSize
-from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout
 from qfluentwidgets import CardWidget, SubtitleLabel, PrimaryPushButton, ToolTipFilter, BodyLabel, IconWidget
 
-
-@dataclass
-class Tool:
-    name: str
-    module: str
-    icon: str
-    tip: str
+from .tool_load import Tool
 
 
 class ToolWidget(CardWidget):

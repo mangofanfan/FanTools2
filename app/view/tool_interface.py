@@ -8,6 +8,7 @@ from PySide6.QtWidgets import QWidget, QVBoxLayout
 from qfluentwidgets import SmoothScrollArea, TitleLabel, FlowLayout, LargeTitleLabel
 
 from app.view.widgets.tool_info_box import ToolInfoBox
+from app.view.widgets.tool_load import load_all_tools
 from app.view.widgets.tool_widget import ToolWidget, Tool
 from app.common import resource
 
@@ -38,10 +39,14 @@ class ToolInterface(SmoothScrollArea):
         self.scrollLayout.addStretch()
 
     def __initToolInfo(self):
-        self.toolInfoList.append(Tool(name=self.tr("Hash Calculator"),
-                                      module="hashCalculator",
-                                      icon=":/app/images/icons/IconHash.png",
-                                      tip=self.tr("Calculate Hash of anything.")))
+        n = 0
+        try:
+            tools = load_all_tools()
+            while True:
+                self.toolInfoList.append(next(tools))
+                n += 1
+        except StopIteration:
+            pass
         return None
 
     def __initToolList(self):

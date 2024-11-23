@@ -8,11 +8,11 @@ class basicFunc:
 
 
     @staticmethod
-    def getHerePath():
-        if Path(getcwd() + "/data").is_dir():
+    def getHerePath() -> str:
+        if Path(getcwd() + "/AppData").is_dir():
             return getcwd()
         else:
-            return getenv("LOCALAPPDATA") + "/FanTools"
+            return getenv("LOCALAPPDATA") + "/FanTools2"
 
     @staticmethod
     def readFile(file: str, realPath: bool = False) -> str:
