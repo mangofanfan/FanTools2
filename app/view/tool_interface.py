@@ -7,21 +7,15 @@ from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QWidget, QVBoxLayout
 from qfluentwidgets import SmoothScrollArea, TitleLabel, FlowLayout, LargeTitleLabel
 
-from app.view.widgets.tool_widget import ToolWidget
+from app.view.widgets.tool_info_box import ToolInfoBox
+from app.view.widgets.tool_widget import ToolWidget, Tool
 from app.common import resource
-
-
-@dataclass
-class Tool:
-    name: str
-    module: str
-    icon: Union[QIcon, str]
-    toolTip: str
 
 
 class ToolInterface(SmoothScrollArea):
     def __init__(self, parent=None):
         super().__init__(parent=parent)
+        self._parent = parent
         self.scrollWidget = QWidget()
         self.scrollWidget.setObjectName("scrollAreaWidgetContents")
         self.scrollLayout = QVBoxLayout(self.scrollWidget)
@@ -46,8 +40,8 @@ class ToolInterface(SmoothScrollArea):
     def __initToolInfo(self):
         self.toolInfoList.append(Tool(name=self.tr("Hash Calculator"),
                                       module="hashCalculator",
-                                      icon=QIcon(":/app/images/icons/IconHash.png"),
-                                      toolTip=self.tr("Calculate Hash of anything.")))
+                                      icon=":/app/images/icons/IconHash.png",
+                                      tip=self.tr("Calculate Hash of anything.")))
         return None
 
     def __initToolList(self):
@@ -64,8 +58,9 @@ class ToolInterface(SmoothScrollArea):
 
         # 加载工具
         for tool in self.toolInfoList:
-            widget = ToolWidget(toolName=tool.name, toolIcon=tool.icon, toolTip=tool.toolTip)
+            widget = ToolWidget(tool=tool)
             widget.launchButton.clicked.connect(lambda: self.launchTool(tool.name))
+            widget.clicked.connect(lambda: self.showInfoBox(tool))
             self.flowLayout.addWidget(widget)
         return None
 
@@ -87,4 +82,9 @@ class ToolInterface(SmoothScrollArea):
             self.launchedToolInfoDict[tool.module] = importlib.import_module(f"app.tool.{tool.module}.run")
         else:
             self.launchedToolInfoDict[tool.module] = importlib.reload(self.launchedToolInfoDict[tool.module])
+        return None
+
+    def showInfoBox(self, tool: Tool):
+        infoBox = ToolInfoBox(tool=tool, parent=self._parent)
+        infoBox.show()
         return None
