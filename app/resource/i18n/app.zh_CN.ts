@@ -2,22 +2,35 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN" sourcelanguage="en_US">
 <context>
+    <name>FileHashInfoBox</name>
+    <message>
+        <location filename="../../tool/hashCalculator/widgets/file_hash_info_box.py" line="14"/>
+        <source>Full Hash Info of file:</source>
+        <translation>该文件的完整哈希值信息：</translation>
+    </message>
+</context>
+<context>
     <name>FileHashWidget</name>
     <message>
-        <location filename="../../tool/hashCalculator/widgets/file_hash_widget.py" line="35"/>
+        <location filename="../../tool/hashCalculator/widgets/file_hash_widget.py" line="37"/>
         <source>More</source>
         <translation>更多</translation>
+    </message>
+    <message>
+        <location filename="../../tool/hashCalculator/widgets/file_hash_widget.py" line="40"/>
+        <source>Delete</source>
+        <translation>删除</translation>
     </message>
 </context>
 <context>
     <name>HashCalculatorWindow</name>
     <message>
-        <location filename="../../tool/hashCalculator/run.py" line="17"/>
+        <location filename="../../tool/hashCalculator/run.py" line="19"/>
         <source>Hash Calculator</source>
         <translation>哈希值计算器</translation>
     </message>
     <message>
-        <location filename="../../tool/hashCalculator/run.py" line="26"/>
+        <location filename="../../tool/hashCalculator/run.py" line="29"/>
         <source>Drop any file here, and then you can check their hash, or compare them with someone else.</source>
         <translation>将任意文件拖拽至此，然后您可以检查它们的哈希值或进行对比。</translation>
     </message>
@@ -245,37 +258,70 @@
     </message>
 </context>
 <context>
+    <name>ToolInfoBox</name>
+    <message>
+        <location filename="../../view/widgets/tool_info_box.py" line="24"/>
+        <source>Tool Info:</source>
+        <translation>工具信息：</translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/tool_info_box.py" line="28"/>
+        <source>Tool Tip:</source>
+        <translation>工具提示：</translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/tool_info_box.py" line="35"/>
+        <source>Author:</source>
+        <translation>作者：</translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/tool_info_box.py" line="36"/>
+        <source>Version:</source>
+        <translation>版本：</translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/tool_info_box.py" line="37"/>
+        <source>Launch:</source>
+        <translation>启动：</translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/tool_info_box.py" line="46"/>
+        <source>This tool can be launched without FanTools Main Software.</source>
+        <translation>此工具可以不经由芒果工具箱主程序启动。</translation>
+    </message>
+</context>
+<context>
     <name>ToolInterface</name>
     <message>
-        <location filename="../../view/tool_interface.py" line="34"/>
+        <location filename="../../view/tool_interface.py" line="29"/>
         <source>Tools</source>
         <translation>工具工具</translation>
     </message>
     <message>
-        <location filename="../../view/tool_interface.py" line="59"/>
+        <location filename="../../view/tool_interface.py" line="58"/>
         <source>All Tools</source>
         <translation>所有工具</translation>
     </message>
     <message>
         <location filename="../../view/tool_interface.py" line="47"/>
         <source>Hash Calculator</source>
-        <translation>哈希值计算器</translation>
+        <translation type="obsolete">哈希值计算器</translation>
     </message>
     <message>
         <location filename="../../view/tool_interface.py" line="47"/>
         <source>Calculate Hash of anything.</source>
-        <translation>计算任意文件的哈希值。</translation>
+        <translation type="obsolete">计算任意文件的哈希值。</translation>
     </message>
 </context>
 <context>
     <name>ToolWidget</name>
     <message>
-        <location filename="../../view/widgets/tool_widget.py" line="37"/>
+        <location filename="../../view/widgets/tool_widget.py" line="36"/>
         <source>Launch</source>
         <translation>启动</translation>
     </message>
     <message>
-        <location filename="../../view/widgets/tool_widget.py" line="38"/>
+        <location filename="../../view/widgets/tool_widget.py" line="37"/>
         <source>Launch this tool</source>
         <translation>启动此工具</translation>
     </message>

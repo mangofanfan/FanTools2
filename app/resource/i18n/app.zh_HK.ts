@@ -2,22 +2,35 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN" sourcelanguage="en_US">
 <context>
+    <name>FileHashInfoBox</name>
+    <message>
+        <location filename="../../tool/hashCalculator/widgets/file_hash_info_box.py" line="14"/>
+        <source>Full Hash Info of file:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FileHashWidget</name>
     <message>
-        <location filename="../../tool/hashCalculator/widgets/file_hash_widget.py" line="35"/>
+        <location filename="../../tool/hashCalculator/widgets/file_hash_widget.py" line="37"/>
         <source>More</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../tool/hashCalculator/widgets/file_hash_widget.py" line="40"/>
+        <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>HashCalculatorWindow</name>
     <message>
-        <location filename="../../tool/hashCalculator/run.py" line="17"/>
+        <location filename="../../tool/hashCalculator/run.py" line="19"/>
         <source>Hash Calculator</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../tool/hashCalculator/run.py" line="26"/>
+        <location filename="../../tool/hashCalculator/run.py" line="29"/>
         <source>Drop any file here, and then you can check their hash, or compare them with someone else.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -240,37 +253,60 @@
     </message>
 </context>
 <context>
+    <name>ToolInfoBox</name>
+    <message>
+        <location filename="../../view/widgets/tool_info_box.py" line="24"/>
+        <source>Tool Info:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/tool_info_box.py" line="28"/>
+        <source>Tool Tip:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/tool_info_box.py" line="35"/>
+        <source>Author:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/tool_info_box.py" line="36"/>
+        <source>Version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/tool_info_box.py" line="37"/>
+        <source>Launch:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/tool_info_box.py" line="46"/>
+        <source>This tool can be launched without FanTools Main Software.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ToolInterface</name>
     <message>
-        <location filename="../../view/tool_interface.py" line="34"/>
+        <location filename="../../view/tool_interface.py" line="29"/>
         <source>Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/tool_interface.py" line="59"/>
+        <location filename="../../view/tool_interface.py" line="58"/>
         <source>All Tools</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../view/tool_interface.py" line="47"/>
-        <source>Hash Calculator</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../view/tool_interface.py" line="47"/>
-        <source>Calculate Hash of anything.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ToolWidget</name>
     <message>
-        <location filename="../../view/widgets/tool_widget.py" line="37"/>
+        <location filename="../../view/widgets/tool_widget.py" line="36"/>
         <source>Launch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/widgets/tool_widget.py" line="38"/>
+        <location filename="../../view/widgets/tool_widget.py" line="37"/>
         <source>Launch this tool</source>
         <translation type="unfinished"></translation>
     </message>

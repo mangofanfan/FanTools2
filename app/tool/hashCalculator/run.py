@@ -1,9 +1,11 @@
+from functools import partial
 
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QVBoxLayout
 from qfluentwidgets import FluentIcon
 
 from .designer.hash_calculator import Ui_Form as Window
+from .widgets.file_hash_info_box import FileHashInfoBox
 from .widgets.file_hash_widget import FileHashWidget
 from .widgets.function import cal_file_hash, HashData
 from ..public.public_window import FanWindow
@@ -45,8 +47,13 @@ class HashCalculatorWindow(FanWindow, Window):
             self.fileAccept(filePath)
         return None
 
+    def showFileHashInfoBox(self, filePath: str, hashData: HashData):
+        infoBox = FileHashInfoBox(filePath, hashData, parent=self)
+        infoBox.show()
+
     def __addFileCard(self, filePath: str, hashData: HashData):
-        self.scrollLayout.addWidget(FileHashWidget(filePath=filePath, hashData=hashData))
+        self.scrollLayout.addWidget((widget := FileHashWidget(filePath=filePath, hashData=hashData)))
+        widget.moreButton.clicked.connect(partial(self.showFileHashInfoBox, filePath, hashData, ))
         return None
 
 

@@ -38,7 +38,7 @@ class ToolInterface(SmoothScrollArea):
 
         self.scrollLayout.addStretch()
 
-    def __initToolInfo(self):
+    def __initToolInfo(self) -> None:
         n = 0
         try:
             tools = load_all_tools()
@@ -49,7 +49,7 @@ class ToolInterface(SmoothScrollArea):
             pass
         return None
 
-    def __initToolList(self):
+    def __initToolList(self) -> None:
         """
         全部工具列表，显示在页面底部。
         :return: None
@@ -69,7 +69,7 @@ class ToolInterface(SmoothScrollArea):
             self.flowLayout.addWidget(widget)
         return None
 
-    def launchTool(self, toolName: str):
+    def launchTool(self, toolName: str) -> None:
         """
         通过 importlib 模块动态导入并使用工具。
         :param toolName: str，工具名称。
@@ -89,7 +89,7 @@ class ToolInterface(SmoothScrollArea):
             self.launchedToolInfoDict[tool.module] = importlib.reload(self.launchedToolInfoDict[tool.module])
         return None
 
-    def showInfoBox(self, tool: Tool):
+    def showInfoBox(self, tool: Tool) -> None:
         infoBox = ToolInfoBox(tool=tool, parent=self._parent)
         infoBox.show()
         return None

@@ -24,17 +24,31 @@ class HashData:
             self.md5 = value
         else:
             raise ValueError(f"Invalid mode {mode}.")
-
         return None
+
+    def get(self, mode: str) -> str:
+        if mode == "sha1":
+            return self.sha1
+        elif mode == "sha256":
+            return self.sha256
+        elif mode == "sha384":
+            return self.sha384
+        elif mode == "sha512":
+            return self.sha512
+        elif mode == "md5":
+            return self.md5
+        else:
+            raise ValueError(f"Invalid mode {mode}.")
 
 
 def cal_file_hash(filePath: str) -> HashData:
     data = HashData()
     with open(filePath, mode="rb") as f:
-        for mode in ["sha1", "sha256", "sha384", "sha512", "md5"]:
-            hc = HashCore(mode)
-            hc.update(f.read())
-            data.update(mode, hc.get())
+        fd = f.read()
+    for mode in ["sha1", "sha256", "sha384", "sha512", "md5"]:
+        hc = HashCore(mode)
+        hc.update(fd)
+        data.update(mode, hc.get())
     return data
 
 
@@ -59,7 +73,7 @@ class HashCore:
         else:
             self.core = hashlib.sha512()
 
-    def update(self, data: Union[str, bytes]):
+    def update(self, data: Union[str, bytes]) -> None:
         """
         更新数据。
         :param data: str or bytes

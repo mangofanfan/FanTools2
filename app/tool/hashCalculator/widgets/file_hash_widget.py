@@ -1,5 +1,8 @@
+from functools import partial
+
 from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout
-from qfluentwidgets import SimpleCardWidget, SubtitleLabel, StrongBodyLabel, ComboBox, PushButton, ToolButton, FluentIcon
+from qfluentwidgets import SimpleCardWidget, SubtitleLabel, StrongBodyLabel, ComboBox, PushButton, ToolButton, \
+    FluentIcon, SplitPushButton, Action, RoundMenu
 
 from app.tool.hashCalculator.widgets.function import HashData
 
@@ -30,8 +33,13 @@ class FileHashWidget(SimpleCardWidget):
         self.baseLayout.addLayout(centerLayout)
 
         buttonLayout = QVBoxLayout()
-        self.moreButton = PushButton()
+        self.moreButton = SplitPushButton()
         self.moreButton.setText(self.tr("More"))
+        self.moreButton.setIcon(FluentIcon.MORE)
+        menu = RoundMenu()
+        menu.addAction(Action(icon=FluentIcon.DELETE, text=self.tr("Delete"),
+                              triggered=self.deleteLater))
+        self.moreButton.setFlyout(menu)
         self.combobox = ComboBox()
         self.combobox.addItems(["SHA1", "SHA256", "SHA384", "SHA512", "MD5"])
         self.combobox.setCurrentIndex(0)
@@ -43,7 +51,7 @@ class FileHashWidget(SimpleCardWidget):
         self.__connect()
         self.__setStyle()
 
-    def displayHash(self):
+    def displayHash(self) -> None:
         index = self.combobox.currentIndex()
         if index == 0:
             self.hashLabel.setText(self.hashData.sha1)
@@ -59,10 +67,13 @@ class FileHashWidget(SimpleCardWidget):
             raise IndexError(f"index {index} out of range.")
         return None
 
-    def __connect(self):
+    def __connect(self) -> None:
         self.combobox.currentIndexChanged.connect(self.displayHash)
+        return None
 
-    def __setStyle(self):
+    def __setStyle(self) -> None:
         self.combobox.setFixedWidth(120)
         self.moreButton.setFixedWidth(120)
+        self.moreButton.button.setFixedWidth(90)
+        return None
 
