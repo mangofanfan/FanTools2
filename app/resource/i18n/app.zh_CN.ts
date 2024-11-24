@@ -2,6 +2,49 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN" sourcelanguage="en_US">
 <context>
+    <name>AboutInterface</name>
+    <message>
+        <location filename="../../view/about_interface.py" line="22"/>
+        <source>MangoFanFan,</source>
+        <translation>芒果帆帆，</translation>
+    </message>
+    <message>
+        <location filename="../../view/about_interface.py" line="23"/>
+        <source>Maybe a player, maybe a student?</source>
+        <translation>玩家，或，学生？</translation>
+    </message>
+    <message>
+        <location filename="../../view/about_interface.py" line="29"/>
+        <source>or</source>
+        <translation>或</translation>
+    </message>
+    <message>
+        <location filename="../../view/about_interface.py" line="30"/>
+        <source>Support Me</source>
+        <translation>支持偶</translation>
+    </message>
+    <message>
+        <location filename="../../view/about_interface.py" line="34"/>
+        <source>About FanTools</source>
+        <translation>关于芒果工具箱</translation>
+    </message>
+    <message>
+        <location filename="../../view/about_interface.py" line="55"/>
+        <source>Simple Language!</source>
+        <translation>简单的语言！</translation>
+    </message>
+    <message>
+        <location filename="../../view/about_interface.py" line="56"/>
+        <source>Simple GUI!</source>
+        <translation>简单的GUI！</translation>
+    </message>
+    <message>
+        <location filename="../../view/about_interface.py" line="57"/>
+        <source>Simple Beauty!</source>
+        <translation>简单的优雅！</translation>
+    </message>
+</context>
+<context>
     <name>FileHashInfoBox</name>
     <message>
         <location filename="../../tool/hashCalculator/widgets/file_hash_info_box.py" line="14"/>
@@ -61,19 +104,29 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../view/main_window.py" line="45"/>
+        <location filename="../../view/main_window.py" line="49"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="39"/>
+        <location filename="../../view/main_window.py" line="41"/>
         <source>Main</source>
         <translation>主页</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="41"/>
+        <location filename="../../view/main_window.py" line="43"/>
         <source>Tools</source>
         <translation>工具</translation>
+    </message>
+    <message>
+        <location filename="../../view/main_window.py" line="47"/>
+        <source>About</source>
+        <translation>关于</translation>
+    </message>
+    <message>
+        <location filename="../../view/main_window.py" line="58"/>
+        <source>FanTools-Main</source>
+        <translation>芒果工具箱-主程序</translation>
     </message>
 </context>
 <context>
@@ -117,6 +170,16 @@
         <location filename="../../view/register_window.py" line="141"/>
         <source>Activation successful</source>
         <translation>正在打开主界面</translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="59"/>
+        <source>Type in here if you have ...</source>
+        <translation>如果您有的话，可以在此输入……</translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="75"/>
+        <source>FanTools-Login</source>
+        <translation>芒果工具箱-登录</translation>
     </message>
 </context>
 <context>
@@ -204,55 +267,55 @@
     <message>
         <location filename="../../view/setting_interface.py" line="109"/>
         <source>About</source>
-        <translation>关于</translation>
+        <translation type="obsolete">关于</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="93"/>
         <source>Open help page</source>
-        <translation>打开帮助页面</translation>
+        <translation type="obsolete">打开帮助页面</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="93"/>
         <source>Help</source>
-        <translation>帮助</translation>
+        <translation type="obsolete">帮助</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="93"/>
         <source>Discover new features and learn useful tips about Fluent Client</source>
-        <translation>发现并了解关于 Fluent Client 的新特性和最佳实践</translation>
+        <translation type="obsolete">发现并了解关于 Fluent Client 的新特性和最佳实践</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="102"/>
         <source>Provide feedback</source>
-        <translation>提供反馈</translation>
+        <translation type="obsolete">提供反馈</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="102"/>
         <source>Help us improve Fluent Client by providing feedback</source>
-        <translation>提供反馈以帮助我们改善 Fluent Client</translation>
+        <translation type="obsolete">提供反馈以帮助我们改善 Fluent Client</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="109"/>
         <source>Check update</source>
-        <translation>检查更新</translation>
+        <translation type="obsolete">检查更新</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="109"/>
         <source>Copyright</source>
-        <translation>版权所有</translation>
+        <translation type="obsolete">版权所有</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="109"/>
         <source>Version</source>
-        <translation>当前版本</translation>
+        <translation type="obsolete">当前版本</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="164"/>
+        <location filename="../../view/setting_interface.py" line="132"/>
         <source>Updated successfully</source>
         <translation>更新成功</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="164"/>
+        <location filename="../../view/setting_interface.py" line="132"/>
         <source>Configuration takes effect after restart</source>
         <translation>配置在重启软件后生效</translation>
     </message>
@@ -295,7 +358,7 @@
     <message>
         <location filename="../../view/tool_interface.py" line="29"/>
         <source>Tools</source>
-        <translation>工具工具</translation>
+        <translation>工具</translation>
     </message>
     <message>
         <location filename="../../view/tool_interface.py" line="58"/>

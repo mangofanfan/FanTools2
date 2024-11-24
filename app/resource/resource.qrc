@@ -16,8 +16,14 @@
         <file>qss/global.qss</file>
 
         <file>texts/main_tip.md</file>
+        <file>texts/about_tip.md</file>
+
         <file>images/icons/IconDownload.png</file>
         <file>images/icons/IconHash.png</file>
         <file>images/icons/IconTranslate.png</file>
+        <file alias="IconPython">images/icons/IconPython.svg</file>
+        <file alias="IconPySide">images/icons/IconQt.png</file>
+        <file alias="IconFluent">images/icons/IconQFluentWidgets.png</file>
+        <file>images/payQRcode.png</file>
     </qresource>
 </RCC>

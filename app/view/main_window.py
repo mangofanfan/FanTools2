@@ -9,6 +9,7 @@ from qfluentwidgets import FluentIcon as FIF
 from .main_interface import MainInterface
 from .setting_interface import SettingInterface
 from .tool_interface import ToolInterface
+from .about_interface import AboutInterface
 from ..common.config import cfg
 from ..common.icon import Icon
 from ..common.signal_bus import signalBus
@@ -24,6 +25,7 @@ class MainWindow(MSFluentWindow):
         self.mainInterface = MainInterface(self)
         self.toolInterface = ToolInterface(self)
         self.settingInterface = SettingInterface(self)
+        self.aboutInterface = AboutInterface(self)
 
         self.connectSignalToSlot()
 
@@ -43,6 +45,8 @@ class MainWindow(MSFluentWindow):
 
         # add custom widgets to bottom
         self.addSubInterface(
+            self.aboutInterface, FIF.QUESTION, self.tr("About"), FIF.QUESTION, NavigationItemPosition.BOTTOM)
+        self.addSubInterface(
             self.settingInterface, Icon.SETTINGS, self.tr('Settings'), Icon.SETTINGS_FILLED, NavigationItemPosition.BOTTOM)
 
         self.splashScreen.finish()
@@ -51,7 +55,7 @@ class MainWindow(MSFluentWindow):
         self.resize(960, 780)
         self.setMinimumWidth(760)
         self.setWindowIcon(QIcon(':/app/images/logo.png'))
-        self.setWindowTitle('FanTools-Main')
+        self.setWindowTitle(self.tr('FanTools-Main'))
 
         self.setCustomBackgroundColor(QColor(240, 244, 249), QColor(32, 32, 32))
         self.setMicaEffectEnabled(cfg.get(cfg.micaEnabled))

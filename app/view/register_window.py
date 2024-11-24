@@ -56,7 +56,7 @@ class RegisterWindow(Window):
         self.rememberCheckBox.setChecked(cfg.get(cfg.rememberMe))
 
         self.emailLineEdit.setPlaceholderText('example@example.com')
-        self.activateCodeLineEdit.setPlaceholderText('••••••••••••')
+        self.activateCodeLineEdit.setPlaceholderText(self.tr('Type in here if you have ...'))
 
         if self.rememberCheckBox.isChecked():
             self.emailLineEdit.setText(cfg.get(cfg.email))
@@ -72,7 +72,7 @@ class RegisterWindow(Window):
             ) else QColor(240, 244, 249)
             self.setStyleSheet(f"RegisterWindow{{background: {color.name()}}}")
 
-        self.setWindowTitle('FanTools-Login')
+        self.setWindowTitle(self.tr('FanTools-Login'))
         self.setWindowIcon(QIcon(":/app/images/logo.png"))
         self.resize(1000, 650)
 

@@ -88,33 +88,6 @@ class SettingInterface(SmoothScrollArea):
             parent=self.updateSoftwareGroup
         )
 
-        # application
-        self.aboutGroup = SettingCardGroup(self.tr('About'), self.scrollWidget)
-        self.helpCard = HyperlinkCard(
-            HELP_URL,
-            self.tr('Open help page'),
-            FIF.HELP,
-            self.tr('Help'),
-            self.tr(
-                'Discover new features and learn useful tips about Fluent Client'),
-            self.aboutGroup
-        )
-        self.feedbackCard = PrimaryPushSettingCard(
-            self.tr('Provide feedback'),
-            FIF.FEEDBACK,
-            self.tr('Provide feedback'),
-            self.tr('Help us improve Fluent Client by providing feedback'),
-            self.aboutGroup
-        )
-        self.aboutCard = PrimaryPushSettingCard(
-            self.tr('Check update'),
-            ":/qfluentwidgets/images/logo.png",
-            self.tr('About'),
-            '© ' + self.tr('Copyright') + f" {YEAR}, {AUTHOR}. " +
-            self.tr('Version') + " " + VERSION,
-            self.aboutGroup
-        )
-
         self.__initWidget()
 
     def __initWidget(self):
@@ -148,16 +121,11 @@ class SettingInterface(SmoothScrollArea):
 
         self.updateSoftwareGroup.addSettingCard(self.updateOnStartUpCard)
 
-        self.aboutGroup.addSettingCard(self.helpCard)
-        self.aboutGroup.addSettingCard(self.feedbackCard)
-        self.aboutGroup.addSettingCard(self.aboutCard)
-
         # add setting card group to layout
         self.expandLayout.setSpacing(28)
         self.expandLayout.setContentsMargins(36, 10, 36, 0)
         self.expandLayout.addWidget(self.personalGroup)
         self.expandLayout.addWidget(self.updateSoftwareGroup)
-        self.expandLayout.addWidget(self.aboutGroup)
 
     def _showRestartTooltip(self):
         """ show restart tooltip """
@@ -175,10 +143,3 @@ class SettingInterface(SmoothScrollArea):
         # personalization
         cfg.themeChanged.connect(setTheme)
         self.micaCard.checkedChanged.connect(signalBus.micaEnableChanged)
-
-        # check update
-        self.aboutCard.clicked.connect(signalBus.checkUpdateSig)
-
-        # about
-        self.feedbackCard.clicked.connect(
-            lambda: QDesktopServices.openUrl(QUrl(FEEDBACK_URL)))

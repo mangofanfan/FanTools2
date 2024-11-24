@@ -16,7 +16,7 @@ class MainInterface(QWidget, MainForm):
         self.setObjectName('MainInterface')
         self.initWindow()
 
-    def initWindow(self):
+    def initWindow(self) -> None:
         # 设置头像
         self.AvatarWidget.setImage(QImage(':/app/images/avatar.png'))
         self.AvatarWidget.setScaledSize(QSize(96, 96))
@@ -34,3 +34,5 @@ class MainInterface(QWidget, MainForm):
         BodyLabel_tip.setText(str(tipFile.readAll(), "utf-8"))
         self.HeaderCardWidget.viewLayout.addWidget(BodyLabel_tip)
         tipFile.close()
+
+        return None
