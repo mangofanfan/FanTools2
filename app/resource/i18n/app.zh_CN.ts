@@ -45,6 +45,39 @@
     </message>
 </context>
 <context>
+    <name>BilingualWritingWindow</name>
+    <message>
+        <location filename="../../tool/bilingualWriting/run.py" line="13"/>
+        <source>Bilingual Writing</source>
+        <translation>双语写作</translation>
+    </message>
+    <message>
+        <location filename="../../tool/bilingualWriting/run.py" line="18"/>
+        <source>Title:</source>
+        <translation>标题：</translation>
+    </message>
+    <message>
+        <location filename="../../tool/bilingualWriting/run.py" line="21"/>
+        <source>Your new paragraph will be put here!</source>
+        <translation>您的新段落将会被放置在这里！</translation>
+    </message>
+    <message>
+        <location filename="../../tool/bilingualWriting/run.py" line="23"/>
+        <source>using API:</source>
+        <translation>使用API：</translation>
+    </message>
+    <message>
+        <location filename="../../tool/bilingualWriting/run.py" line="25"/>
+        <source>Settings</source>
+        <translation>设置</translation>
+    </message>
+    <message>
+        <location filename="../../tool/bilingualWriting/run.py" line="26"/>
+        <source>Open settings ...</source>
+        <translation>打开设置……</translation>
+    </message>
+</context>
+<context>
     <name>FileHashInfoBox</name>
     <message>
         <location filename="../../tool/hashCalculator/widgets/file_hash_info_box.py" line="14"/>
@@ -356,12 +389,12 @@
 <context>
     <name>ToolInterface</name>
     <message>
-        <location filename="../../view/tool_interface.py" line="29"/>
+        <location filename="../../view/tool_interface.py" line="30"/>
         <source>Tools</source>
         <translation>工具</translation>
     </message>
     <message>
-        <location filename="../../view/tool_interface.py" line="58"/>
+        <location filename="../../view/tool_interface.py" line="59"/>
         <source>All Tools</source>
         <translation>所有工具</translation>
     </message>

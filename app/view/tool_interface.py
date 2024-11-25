@@ -1,5 +1,6 @@
 import importlib
 from dataclasses import dataclass
+from functools import partial
 from typing import Union
 
 from PySide6.QtCore import Qt
@@ -64,8 +65,8 @@ class ToolInterface(SmoothScrollArea):
         # 加载工具
         for tool in self.toolInfoList:
             widget = ToolWidget(tool=tool)
-            widget.launchButton.clicked.connect(lambda: self.launchTool(tool.name))
-            widget.clicked.connect(lambda: self.showInfoBox(tool))
+            widget.launchButton.clicked.connect(partial(self.launchTool, tool.name))
+            widget.clicked.connect(partial(self.showInfoBox, tool))
             self.flowLayout.addWidget(widget)
         return None
 

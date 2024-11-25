@@ -45,6 +45,39 @@
     </message>
 </context>
 <context>
+    <name>BilingualWritingWindow</name>
+    <message>
+        <location filename="../../tool/bilingualWriting/run.py" line="13"/>
+        <source>Bilingual Writing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../tool/bilingualWriting/run.py" line="18"/>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../tool/bilingualWriting/run.py" line="21"/>
+        <source>Your new paragraph will be put here!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../tool/bilingualWriting/run.py" line="23"/>
+        <source>using API:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../tool/bilingualWriting/run.py" line="25"/>
+        <source>Settings</source>
+        <translation type="unfinished">設置</translation>
+    </message>
+    <message>
+        <location filename="../../tool/bilingualWriting/run.py" line="26"/>
+        <source>Open settings ...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FileHashInfoBox</name>
     <message>
         <location filename="../../tool/hashCalculator/widgets/file_hash_info_box.py" line="14"/>
@@ -351,12 +384,12 @@
 <context>
     <name>ToolInterface</name>
     <message>
-        <location filename="../../view/tool_interface.py" line="29"/>
+        <location filename="../../view/tool_interface.py" line="30"/>
         <source>Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/tool_interface.py" line="58"/>
+        <location filename="../../view/tool_interface.py" line="59"/>
         <source>All Tools</source>
         <translation type="unfinished"></translation>
     </message>
