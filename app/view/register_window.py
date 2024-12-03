@@ -132,7 +132,7 @@ class RegisterWindow(Window):
         if not self.register.validate(code, self.emailLineEdit.text()):
             InfoBar.error(
                 self.tr("Activate failed"),
-                self.tr('Please check your activation code'),
+                self.tr('Please input a legal email address'),
                 position=InfoBarPosition.TOP,
                 duration=2000,
                 parent=self.window()

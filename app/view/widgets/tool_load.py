@@ -24,8 +24,7 @@ def load_all_tools() -> Generator[Tool, None, None]:
         for o in entries:
             if o.is_dir():
                 try:
-                    data: dict = json.loads(basicFunc.readFile(f"{tools_dir}/{o.name}/tool.json", realPath=True),
-                                            encoding="utf-8")
+                    data: dict = json.loads(basicFunc.readFile(f"{tools_dir}/{o.name}/tool.json", realPath=True),)
                 except FileNotFoundError:
                     continue
                 else:
