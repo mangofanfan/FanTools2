@@ -324,6 +324,52 @@
     </layout>
    </item>
    <item>
+    <widget class="SimpleCardWidget" name="SimpleCardWidget_3">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_6" columnstretch="3,3,1" columnminimumwidth="0,0,0">
+      <item row="0" column="1">
+       <widget class="BodyLabel" name="BodyLabel_NewsTime">
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>Body label</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="SubtitleLabel" name="SubtitleLabel_News">
+        <property name="text">
+         <string>Subtitle label</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="PrimaryPushButton" name="PrimaryPushButton">
+        <property name="text">
+         <string>查看详情</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="3">
+       <widget class="BodyLabel" name="BodyLabel_News">
+        <property name="text">
+         <string>Body label</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
     <spacer name="verticalSpacer_5">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -347,6 +393,11 @@
   <customwidget>
    <class>PushButton</class>
    <extends>QPushButton</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>PrimaryPushButton</class>
+   <extends>PushButton</extends>
    <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>

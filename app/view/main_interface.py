@@ -2,7 +2,7 @@
 from PySide6.QtCore import QSize, QFile, QIODevice
 from PySide6.QtGui import QImage
 from PySide6.QtWidgets import QWidget
-from qfluentwidgets import BodyLabel
+from qfluentwidgets import BodyLabel, InfoBar, InfoBarPosition
 from qfluentwidgets import FluentIcon as FIC
 
 from .designer.main_interface import Ui_Form as MainForm
@@ -49,16 +49,26 @@ class MainInterface(QWidget, MainForm):
         return None
 
     def _loadUserInfo(self) -> None:
-        self.ls.getUserInfo(self.AvatarWidget.setImage, None)
+        self.ls.getUserInfo(self.AvatarWidget.setImage, self.LargeTitleLabel_AccountName.setText)
         return None
 
     def _openEditAccountInfoBox(self) -> None:
-        infoBox = AccountEditInfoBox("MangoFanFan",
-                                     "1234567898",
+        infoBox = AccountEditInfoBox(self.ls.datas["name"],
+                                     self.ls.datas["id"],
                                      self.ls.email,
                                      self._parent)
+        infoBox.successSignal.connect(self._closeEditAccountInfoBox)
         infoBox.show()
         return None
 
     def _closeEditAccountInfoBox(self) -> None:
+        InfoBar.success(
+            self.tr("Success"),
+            self.tr("Your Account Info has been changed."),
+            position=InfoBarPosition.TOP_RIGHT,
+            duration=2000,
+            parent=self._parent
+        )
+
+        self._loadUserInfo()
         return None

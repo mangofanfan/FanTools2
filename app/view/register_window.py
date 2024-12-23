@@ -31,12 +31,14 @@ class RegisterWindow(Window):
         setThemeColor('#28afe9')
         self.setTitleBar(MSFluentTitleBar(self))
         self.register = LicenseService()
+        self.signupFlag = False
 
         self.imageLabel = ImageLabel(':/app/images/background.jpg', self)
         self.iconLabel = ImageLabel(':/app/images/logo.png', self)
 
         self.emailLabel = BodyLabel(self.tr('Email'), self)
         self.emailLineEdit = LineEdit(self)
+        self.emailLineEdit.textEdited.connect(self._emailChanged)
 
         self.activateCodeLabel = BodyLabel(self.tr('Activation Code'))
         self.activateCodeLineEdit = PasswordLineEdit(self)
@@ -129,7 +131,15 @@ class RegisterWindow(Window):
     def _login(self):
         code = self.activateCodeLineEdit.text().strip()
 
-        if not self.register.validate(code, self.emailLineEdit.text()):
+        def login():
+            if cfg.get(cfg.rememberMe):
+                cfg.set(cfg.email, self.emailLineEdit.text().strip())
+                cfg.set(cfg.activationCode, code)
+
+            self.loginButton.setDisabled(True)
+            QTimer.singleShot(1500, self._showMainWindow)
+
+        if (reCode := self.register.validate(code, self.emailLineEdit.text(), self.signupFlag)) == 1:
             InfoBar.error(
                 self.tr("Activate failed"),
                 self.tr('Please input a legal email address'),
@@ -137,20 +147,46 @@ class RegisterWindow(Window):
                 duration=2000,
                 parent=self.window()
             )
+        elif reCode == 3:
+            InfoBar.error(
+                self.tr("Activate failed"),
+                self.tr("Please input right activation code to login this account"),
+                position=InfoBarPosition.TOP,
+                duration=2000,
+                parent=self.window()
+            )
+        elif reCode == 2 and self.signupFlag is False:
+            InfoBar.warning(
+                self.tr("Wait for activation"),
+                self.tr('This email address has not been registered.\n'
+                        'Try again to register now, or change another address.'),
+                position=InfoBarPosition.TOP,
+                duration=2000,
+                parent=self.window()
+            )
+            self.signupFlag = True
+        elif reCode == 2 and self.signupFlag is True:
+            InfoBar.warning(
+                self.tr("Success"),
+                self.tr('This email address has been activated.'),
+                position=InfoBarPosition.TOP,
+                duration=2000,
+                parent=self.window()
+            )
+            login()
         else:
             InfoBar.success(
                 self.tr("Success"),
-                self.tr('Activation successful'),
+                self.tr('Activated successful'),
                 position=InfoBarPosition.TOP,
+                duration=2000,
                 parent=self.window()
             )
+            login()
 
-            if cfg.get(cfg.rememberMe):
-                cfg.set(cfg.email, self.emailLineEdit.text().strip())
-                cfg.set(cfg.activationCode, code)
-
-            self.loginButton.setDisabled(True)
-            QTimer.singleShot(1500, self._showMainWindow)
+    def _emailChanged(self):
+        self.signupFlag = False
+        return None
 
     def _showMainWindow(self):
         self.close()

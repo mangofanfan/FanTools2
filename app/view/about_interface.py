@@ -5,6 +5,7 @@ from qfluentwidgets import BodyLabel
 
 from .designer.about_interface import Ui_Form as AboutForm
 from ..common import resource
+from ..common.license_service import LicenseService
 
 
 class AboutInterface(QWidget, AboutForm):
@@ -12,6 +13,7 @@ class AboutInterface(QWidget, AboutForm):
         QWidget.__init__(self, parent)
         self.setupUi(self)
         self.setObjectName('AboutInterface')
+        self.ls = LicenseService()
         self.initWindow()
 
     def initWindow(self) -> None:
@@ -56,5 +58,17 @@ class AboutInterface(QWidget, AboutForm):
         self.BodyLabel_PySide.setText(self.tr("Simple GUI!"))
         self.BodyLabel_QFluentWidget.setText(self.tr("Simple Beauty!"))
 
+        # 新闻卡片
+        self.SubtitleLabel_News.setText(self.tr("Wait for news ^.."))
+        self.BodyLabel_NewsTime.setText(self.tr("Which time?"))
+        self.BodyLabel_News.setText(self.tr("What news?"))
+        self.ls.getNews(self._initNews)
+
+        return None
+
+    def _initNews(self, newsTime: str, newsTitle: str, news: str) -> None:
+        self.SubtitleLabel_News.setText(newsTitle)
+        self.BodyLabel_NewsTime.setText(newsTime)
+        self.BodyLabel_News.setText(news)
         return None
 

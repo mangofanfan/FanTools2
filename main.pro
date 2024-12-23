@@ -6,6 +6,7 @@ SOURCES += app/view/main_window.py \
         app/view/about_interface.py \
         app/view/widgets/tool_widget.py \
         app/view/widgets/tool_info_box.py \
+        app/view/widgets/account_edit_info_box.py \
         app/tool/hashCalculator/widgets/file_hash_widget.py \
         app/tool/hashCalculator/widgets/file_hash_info_box.py \
         app/tool/hashCalculator/run.py \
