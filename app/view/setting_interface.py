@@ -92,7 +92,7 @@ class SettingInterface(SmoothScrollArea):
 
     def __initWidget(self):
         self.resize(1000, 800)
-        self.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         self.setViewportMargins(0, 100, 0, 20)
         self.setWidget(self.scrollWidget)
         self.setWidgetResizable(True)

@@ -14,6 +14,7 @@ class Singleton(object):
     """
     A singleton class that provides a singleton.
     """
+
     def __init__(self, cls):
         self._cls = cls
         self.uniqueInstance = None
@@ -27,6 +28,7 @@ class Singleton(object):
 @Singleton
 class LicenseService:
     """ License service """
+
     def __init__(self):
         self.email: str = None
         self.license: str = None
@@ -51,8 +53,8 @@ class LicenseService:
 
         (QRequestReady(QApplication.instance())
          .get(f"{self.url}/v1/user/email?email={self.email}&code={self.__md5(license)}"
-                       if license != ""
-                       else f"{self.url}/v1/user/email?email={self.email}")
+              if license != ""
+              else f"{self.url}/v1/user/email?email={self.email}")
          .then(lambda res: thenDo(json.loads(res)))
          .then(lambda res: eventLoop.exit())
          .done()
@@ -90,10 +92,10 @@ class LicenseService:
 
         (
             QRequestReady(QApplication.instance())
-             .get(f"https://cravatar.cn/avatar/{self.__md5(self.email.lower())}?s={size}")
-             .then(lambda t: image.loadFromData(t))
-             .then(lambda t: avatarFunc(image))
-             .done()
+            .get(f"https://cravatar.cn/avatar/{self.__md5(self.email.lower())}?s={size}")
+            .then(lambda t: image.loadFromData(t))
+            .then(lambda t: avatarFunc(image))
+            .done()
         )
 
         return None
@@ -115,8 +117,9 @@ class LicenseService:
 
         (
             QRequestReady(QApplication.instance())
-            .get(f"{self.url}/v1/user/edit?email={self.email}&old={self.__md5(oldCode)}&name={name}&new={self.__md5(newCode)}"
-                 if newCode != "" else f"{self.url}/v1/user/edit?email={self.email}&old={self.__md5(oldCode)}&name={name}")
+            .get(
+                f"{self.url}/v1/user/edit?email={self.email}&old={self.__md5(oldCode)}&name={name}&new={self.__md5(newCode)}"
+                if newCode != "" else f"{self.url}/v1/user/edit?email={self.email}&old={self.__md5(oldCode)}&name={name}")
             .then(lambda t: thenDo(json.loads(t)))
             .then(lambda _: eventLoop.exit())
             .done()
@@ -127,9 +130,11 @@ class LicenseService:
 
     def getNews(self, newsFunc: callable) -> None:
         """获取芒果工具箱的特供新闻……？"""
+
         def thenDo(_res: dict) -> None:
             newsFunc(_res["time"], _res["title"], _res["body"])
             return None
+
         (
             QRequestReady(QApplication.instance())
             .get(f"{self.url}/v1/news")
@@ -138,6 +143,24 @@ class LicenseService:
         )
         return None
 
+    def getVersion(self):
+        global data
+
+        def thenDo(_res: dict) -> None:
+            global data
+            data = _res
+
+        eventLoop = QEventLoop()
+        (
+            QRequestReady(QApplication.instance())
+            .get(f"{self.url}/v1/version")
+            .then(lambda res: thenDo(json.loads(res)))
+            .then(lambda _: eventLoop.exit())
+            .done()
+        )
+        eventLoop.exec_()
+        return data
+
     @staticmethod
     def __md5(sth: str):
         if sth == "":
@@ -145,4 +168,3 @@ class LicenseService:
         h = hashlib.md5()
         h.update(sth.encode("utf-8"))
         return h.hexdigest()
-

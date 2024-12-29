@@ -10,6 +10,7 @@ from .main_interface import MainInterface
 from .setting_interface import SettingInterface
 from .tool_interface import ToolInterface
 from .about_interface import AboutInterface
+from .widgets.check_update import UpdateChecker
 from ..common.config import cfg
 from ..common.icon import Icon
 from ..common.signal_bus import signalBus
@@ -31,6 +32,16 @@ class MainWindow(MSFluentWindow):
 
         # add items to navigation interface
         self.initNavigation()
+
+        # 如果设置启用启动时检查版本
+        if cfg.get(cfg.checkUpdateAtStartUp):
+            from .widgets.need_update_info_bar import UpdateInfoBar
+            uib = UpdateInfoBar(self)
+            self.updateChecker = UpdateChecker()
+            if self.updateChecker.isNeedUpdate():
+                uib.update_true(self, self.updateChecker.getLatestVersion())
+            else:
+                uib.update_false(self, self.updateChecker.getLatestVersion())
 
     def connectSignalToSlot(self):
         signalBus.micaEnableChanged.connect(self.setMicaEffectEnabled)

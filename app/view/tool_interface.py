@@ -28,7 +28,7 @@ class ToolInterface(SmoothScrollArea):
 
         self.titleLabel = LargeTitleLabel(self.scrollWidget)
         self.titleLabel.setText(self.tr("Tools"))
-        self.titleLabel.setAlignment(Qt.AlignCenter)
+        self.titleLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.scrollLayout.addWidget(self.titleLabel)
 
         self.toolInfoList = []
@@ -92,5 +92,6 @@ class ToolInterface(SmoothScrollArea):
 
     def showInfoBox(self, tool: Tool) -> None:
         infoBox = ToolInfoBox(tool=tool, parent=self._parent)
+        infoBox.launchToolSignal.connect(lambda: self.launchTool(tool.name))
         infoBox.show()
         return None

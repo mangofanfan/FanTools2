@@ -28,8 +28,8 @@ class MainInterface(QWidget, MainForm):
         self.AvatarWidget.setRadius(48)
 
         # 设置信息卡片组
-        self.BodyLabel_AccountInfo.setText(self.tr("Account UUID:") + "123456789")
         self.BodyLabel_SoftwareInfo.setText(self.tr("Software Version:") + VERSION)
+        self.BodyLabel_AccountInfo.setText(self.tr("Account UUID:") + "Unknown QAQ")
 
         # 设置软件简介卡片
         self.HeaderCardWidget.setTitle(self.tr("Software Information"))

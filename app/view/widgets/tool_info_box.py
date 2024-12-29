@@ -1,4 +1,4 @@
-from PySide6.QtCore import QSize
+from PySide6.QtCore import QSize, Signal
 from PySide6.QtGui import QImage
 from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout
 from qfluentwidgets import MessageBoxBase, TitleLabel, ImageLabel, StrongBodyLabel, SimpleCardWidget, BodyLabel
@@ -7,6 +7,7 @@ from .tool_load import Tool
 
 
 class ToolInfoBox(MessageBoxBase):
+    launchToolSignal = Signal()
     def __init__(self, parent=None, tool: Tool = None):
         super().__init__(parent=parent)
         self.parent = parent
@@ -39,6 +40,8 @@ class ToolInfoBox(MessageBoxBase):
         vBoxLayout.addWidget(simpleCard)
         hBoxLayout.addLayout(vBoxLayout)
 
+        self.yesButton.setText(self.tr("Launch"))
+
         self.viewLayout.addLayout(hBoxLayout)
 
     def launch_text(self, mode: int) -> str:
@@ -48,6 +51,8 @@ class ToolInfoBox(MessageBoxBase):
             raise IndexError(f"Index {mode} out of range.")
 
     def validate(self) -> bool:
+        """点击确认按钮后启动工具，此处不做验证。"""
+        self.launchToolSignal.emit()
         return True
 
 

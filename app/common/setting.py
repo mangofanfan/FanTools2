@@ -7,7 +7,7 @@ DEBUG = "__compiled__" not in globals()
 
 YEAR = 2023
 AUTHOR = "MangoFanFanw"
-VERSION = "v0.2.0"
+VERSION = "0.2.1"
 APP_NAME = "FanTools"
 HELP_URL = "https://ifanspace.top/"
 REPO_URL = "https://github.com/zhiyiYo/PyQt-Fluent-Widgets"

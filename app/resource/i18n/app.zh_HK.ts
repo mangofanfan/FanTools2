@@ -17,75 +17,90 @@
 <context>
     <name>AboutInterface</name>
     <message>
-        <location filename="../../view/about_interface.py" line="22"/>
+        <location filename="../../view/about_interface.py" line="24"/>
         <source>MangoFanFan,</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="23"/>
+        <location filename="../../view/about_interface.py" line="25"/>
         <source>Maybe a player, maybe a student?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="29"/>
+        <location filename="../../view/about_interface.py" line="31"/>
         <source>or</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="30"/>
+        <location filename="../../view/about_interface.py" line="32"/>
         <source>Support Me</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="34"/>
+        <location filename="../../view/about_interface.py" line="36"/>
         <source>About FanTools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="55"/>
+        <location filename="../../view/about_interface.py" line="57"/>
         <source>Simple Language!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="56"/>
+        <location filename="../../view/about_interface.py" line="58"/>
         <source>Simple GUI!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="57"/>
+        <location filename="../../view/about_interface.py" line="59"/>
         <source>Simple Beauty!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/about_interface.py" line="62"/>
+        <source>Wait for news ^..</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/about_interface.py" line="63"/>
+        <source>Which time?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/about_interface.py" line="64"/>
+        <source>What news?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AccountEditInfoBox</name>
     <message>
-        <location filename="../../view/widgets/account_edit_info_box.py" line="30"/>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="39"/>
         <source>User Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/widgets/account_edit_info_box.py" line="32"/>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="41"/>
         <source>EMail Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/widgets/account_edit_info_box.py" line="34"/>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="43"/>
         <source>UUID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/widgets/account_edit_info_box.py" line="54"/>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="63"/>
         <source>Old Code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/widgets/account_edit_info_box.py" line="56"/>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="65"/>
         <source>New Code</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/widgets/account_edit_info_box.py" line="66"/>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="76"/>
         <source>You can set your Account Activation Code here.
 Next time you need to login with code you set here.
 Once you set your code, you can never cancel it but only change it.
@@ -93,8 +108,18 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/widgets/account_edit_info_box.py" line="94"/>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="105"/>
         <source>Old Code Wrong. Please try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="32"/>
+        <source>Change Avatar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="109"/>
+        <source>Unknown Error. Please try again.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -173,12 +198,12 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/main_interface.py" line="31"/>
+        <location filename="../../view/main_interface.py" line="32"/>
         <source>Account UUID:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/main_interface.py" line="32"/>
+        <location filename="../../view/main_interface.py" line="31"/>
         <source>Software Version:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -196,27 +221,27 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../view/main_window.py" line="49"/>
+        <location filename="../../view/main_window.py" line="60"/>
         <source>Settings</source>
         <translation type="unfinished">設置</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="41"/>
+        <location filename="../../view/main_window.py" line="52"/>
         <source>Main</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="43"/>
+        <location filename="../../view/main_window.py" line="54"/>
         <source>Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="47"/>
+        <location filename="../../view/main_window.py" line="58"/>
         <source>About</source>
         <translation type="unfinished">關於</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="58"/>
+        <location filename="../../view/main_window.py" line="69"/>
         <source>FanTools-Main</source>
         <translation type="unfinished"></translation>
     </message>
@@ -446,33 +471,38 @@ Try again to register now, or change another address.</source>
 <context>
     <name>ToolInfoBox</name>
     <message>
-        <location filename="../../view/widgets/tool_info_box.py" line="24"/>
+        <location filename="../../view/widgets/tool_info_box.py" line="25"/>
         <source>Tool Info:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/widgets/tool_info_box.py" line="28"/>
+        <location filename="../../view/widgets/tool_info_box.py" line="29"/>
         <source>Tool Tip:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/widgets/tool_info_box.py" line="35"/>
+        <location filename="../../view/widgets/tool_info_box.py" line="36"/>
         <source>Author:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/widgets/tool_info_box.py" line="36"/>
+        <location filename="../../view/widgets/tool_info_box.py" line="37"/>
         <source>Version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/widgets/tool_info_box.py" line="37"/>
+        <location filename="../../view/widgets/tool_info_box.py" line="38"/>
         <source>Launch:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/widgets/tool_info_box.py" line="46"/>
+        <location filename="../../view/widgets/tool_info_box.py" line="49"/>
         <source>This tool can be launched without FanTools Main Software.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/tool_info_box.py" line="43"/>
+        <source>Launch</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -499,6 +529,29 @@ Try again to register now, or change another address.</source>
     <message>
         <location filename="../../view/widgets/tool_widget.py" line="37"/>
         <source>Launch this tool</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UpdateInfoBar</name>
+    <message>
+        <location filename="../../view/widgets/need_update_info_bar.py" line="7"/>
+        <source>New Version Found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/need_update_info_bar.py" line="7"/>
+        <source>FanTools v{} can be updated now.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/need_update_info_bar.py" line="18"/>
+        <source>New Version Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/need_update_info_bar.py" line="18"/>
+        <source>FanTools v{} is the latest version.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
