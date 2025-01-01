@@ -1,5 +1,6 @@
 import sys
 
+from PySide6.QtCore import Signal
 from PySide6.QtGui import QColor
 from qfluentwidgets import isDarkTheme, qconfig, FluentTitleBar
 from qfluentwidgets.common.animation import BackgroundAnimationWidget
@@ -15,6 +16,8 @@ class FanTitleBar(FluentTitleBar):
 
 
 class FanWindow(BackgroundAnimationWidget, FramelessWindow):
+
+    windowResizeSignal = Signal()
     def __init__(self, parent=None):
         super().__init__(parent=parent)
         self._isMicaEnabled = False
@@ -76,3 +79,8 @@ class FanWindow(BackgroundAnimationWidget, FramelessWindow):
             self.windowEffect.setMicaEffect(self.winId(), isDarkTheme())
         if self.isAcrylicEffectEnabled():
             self.windowEffect.setAcrylicEffect(self.winId(), self.getBackgroundColor(True))
+
+    def resizeEvent(self, event):
+        self.windowResizeSignal.emit()
+        super().resizeEvent(event)
+        return None

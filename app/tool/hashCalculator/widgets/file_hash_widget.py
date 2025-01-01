@@ -1,22 +1,23 @@
-from functools import partial
-
-from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout
+from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout, QApplication
 from qfluentwidgets import SimpleCardWidget, SubtitleLabel, StrongBodyLabel, ComboBox, PushButton, ToolButton, \
-    FluentIcon, SplitPushButton, Action, RoundMenu
+    FluentIcon, SplitPushButton, Action, RoundMenu, InfoBar, InfoBarPosition
 
 from app.tool.hashCalculator.widgets.function import HashData
+from app.tool.public.public_window import FanWindow
 
 
 class FileHashWidget(SimpleCardWidget):
-    def __init__(self, filePath: str, hashData: HashData, parent=None):
+    def __init__(self, filePath: str, hashData: HashData, parent: FanWindow=None):
         super().__init__(parent=parent)
         self.hashData = hashData
+        self._parent = parent
+        self.cb = QApplication.clipboard()
 
         self.baseLayout = QHBoxLayout()
         self.setLayout(self.baseLayout)
 
-        titleLabel = SubtitleLabel()
-        titleLabel.setText(filePath)
+        self.titleLabel = SubtitleLabel()
+        self.titleLabel.setText(filePath)
         self.hashLabel = StrongBodyLabel()
         self.hashLabel.setText(self.hashData.sha1)
         self.toolButton = ToolButton()
@@ -27,7 +28,7 @@ class FileHashWidget(SimpleCardWidget):
         bottomLayout.addWidget(self.toolButton)
 
         centerLayout = QVBoxLayout()
-        centerLayout.addWidget(titleLabel)
+        centerLayout.addWidget(self.titleLabel)
         centerLayout.addLayout(bottomLayout)
 
         self.baseLayout.addLayout(centerLayout)
@@ -69,11 +70,29 @@ class FileHashWidget(SimpleCardWidget):
 
     def __connect(self) -> None:
         self.combobox.currentIndexChanged.connect(self.displayHash)
+        self._parent.windowResizeSignal.connect(self.labelResize)
+        self.toolButton.clicked.connect(lambda: self.writeToClipboard(self.combobox.currentText(), self.hashLabel.text()))
         return None
 
     def __setStyle(self) -> None:
         self.combobox.setFixedWidth(120)
         self.moreButton.setFixedWidth(120)
         self.moreButton.button.setFixedWidth(90)
+        self.labelResize()
         return None
 
+    def writeToClipboard(self, mode: str, hashText: str) -> None:
+        self.cb.setText(hashText)
+        InfoBar.success(parent=self._parent,
+                        title=self.tr("Success"),
+                        content=self.tr("Selected file's {} has been written to clipboard.").format(mode.upper()),
+                        position=InfoBarPosition.BOTTOM,
+                        duration=4000,
+                        isClosable=True)
+        return None
+
+    def labelResize(self) -> None:
+        """在窗口大小变化时动态控制文本标签最大长度来防止卡片超出窗口"""
+        self.titleLabel.setMaximumWidth(self._parent.width()-200)
+        self.hashLabel.setMaximumWidth(self._parent.width()-240)
+        return None

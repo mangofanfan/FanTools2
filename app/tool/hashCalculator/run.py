@@ -50,9 +50,10 @@ class HashCalculatorWindow(FanWindow, Window):
     def showFileHashInfoBox(self, filePath: str, hashData: HashData):
         infoBox = FileHashInfoBox(filePath, hashData, parent=self)
         infoBox.show()
+        return None
 
     def __addFileCard(self, filePath: str, hashData: HashData):
-        self.scrollLayout.addWidget((widget := FileHashWidget(filePath=filePath, hashData=hashData)))
+        self.scrollLayout.addWidget((widget := FileHashWidget(filePath=filePath, hashData=hashData, parent=self)))
         widget.moreButton.clicked.connect(partial(self.showFileHashInfoBox, filePath, hashData, ))
         return None
 
