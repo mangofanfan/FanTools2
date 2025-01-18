@@ -17,6 +17,7 @@ args = [
     '--show-progress' ,
     '--windows-icon-from-ico=app/resource/images/logo.ico',
     '--include-module=app',
+    '--include-package=Crypto,urllib3',
     '--nofollow-import-to=pywin',
     '--follow-import-to=win32com,win32gui,win32print,qfluentwidgets,app',
     '--output-dir=dist/main',
