@@ -9,10 +9,7 @@ class basicFunc:
 
     @staticmethod
     def getHerePath() -> str:
-        if Path(getcwd() + "/AppData").is_dir():
-            return getcwd()
-        else:
-            return getenv("LOCALAPPDATA") + "/FanTools2"
+        return getcwd()
 
     @staticmethod
     def readFile(file: str, realPath: bool = False) -> str:

@@ -16,7 +16,7 @@ class Tool:
     author: str
     launchMode: int
 
-tools_dir = basicFunc.getHerePath() + "/app/tool"
+tools_dir = basicFunc.getHerePath() + "/tool"
 
 
 def load_all_tools() -> Generator[Tool, None, None]:
