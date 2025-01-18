@@ -1,0 +1,9 @@
+{
+  "name": "Hash Calculator",
+  "module": "hashCalculator",
+  "icon": ":/app/images/icons/IconHash.png",
+  "ver": "0.0.1",
+  "author": "MangoFanFan",
+  "tip": "Calculate Hash of anything.",
+  "launchMode": 0
+}
