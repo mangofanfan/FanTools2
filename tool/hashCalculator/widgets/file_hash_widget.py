@@ -2,8 +2,8 @@ from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout, QApplication
 from qfluentwidgets import SimpleCardWidget, SubtitleLabel, StrongBodyLabel, ComboBox, PushButton, ToolButton, \
     FluentIcon, SplitPushButton, Action, RoundMenu, InfoBar, InfoBarPosition
 
-from app.tool.hashCalculator.widgets.function import HashData
-from app.tool.public.public_window import FanWindow
+from .function import HashData
+from ...public.public_window import FanWindow
 
 
 class FileHashWidget(SimpleCardWidget):

@@ -1,9 +1,0 @@
-{
-  "name": "Bilingual Writing",
-  "module": "bilingualWriting",
-  "icon": ":/app/images/icons/IconTranslate.png",
-  "ver": "0.0.1",
-  "author": "MangoFanFan",
-  "tip": "Simply write in Chinese and English.",
-  "launchMode": 0
-}
