@@ -85,7 +85,7 @@ class ToolInterface(SmoothScrollArea):
             raise Exception(f"toolName={toolName} not found")
 
         if tool.module not in self.launchedToolInfoDict.keys():
-            self.launchedToolInfoDict[tool.module] = importlib.import_module(f"app.tool.{tool.module}.run")
+            self.launchedToolInfoDict[tool.module] = importlib.import_module(f"tool.{tool.module}.run")
         else:
             self.launchedToolInfoDict[tool.module] = importlib.reload(self.launchedToolInfoDict[tool.module])
         return None
