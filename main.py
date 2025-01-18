@@ -12,7 +12,8 @@ from app.common.config import cfg
 from app.view.register_window import RegisterWindow
 
 from qfluentwidgetspro import setLicense
-setLicense(open(file="ProLicense").read())
+ProLicense = "oEzvyMXoz5bew472mkUEe5H0R9q422LapDjFm1Iu2My/x0gZ0htse7HSlDaJEWqzMgr9/pJCTThxdjY99MA4PAloQMC3o4BlV5lYO/4qhTnD/8zsULJp/y1i/HzhgGqtLxzfRASlTTV60yzQTZKLProlQNqhSBYifeDCnSwPTgoCWeNmchtWKhWM58BenTcfaON9TIQyvUdEtlLKB3FaFnMk0zkkc/R4H1Y5VPNdCL5jhlyaIUJPaZ6nKUmzoamN1wgDlQ/beDZMy8i2vRbSVw=="
+setLicense(ProLicense)
 
 
 # enable dpi scale
