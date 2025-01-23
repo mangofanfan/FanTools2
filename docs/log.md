@@ -4,6 +4,8 @@
 
 在技术上，工具箱采用的日志模块是`loguru`，这是Python的第三方日志模块而非内置模块`logging`。输出日志的层级上，基于`loguru`的内建层级，工具箱对其做如下规定：
 
+## 日志等级规定
+
 * **TRACE** - 默认被隐藏的日志等级，用于记录异步操作的开始与事无巨细的用户GUI操作。
 * **DEBUG** - 调试等级，用于记录程序运行层面的进展与打印步骤中数据。
 * **INFO** - 消息等级，用于打印用户能够从GUI层面上感知到的变化。
@@ -32,3 +34,10 @@
 
     2025-01-23T16:28:18.728914+0800 | DEBUG | 获取工具箱当前版本信息 {'desc': {'0.2.0': 'Full Rebuild Again.', '0.2.1': 'Update for the self-update-check-system and other small changes.'}, 'latest': '0.2.1'} 。
 
+## 如果你贡献的代码中需要输出日志
+
+使用项目结构`./app/common/logger.py`中的`logger`对象的`trace`、`debug`、……、`critical`方法来打印你需要的日志。如果你编辑的文件中尚未导入`logger`，你可能需要类似如下代码来完成相对导入：
+
+```python title="导入logger"
+from ..common.logger import logger
+```
