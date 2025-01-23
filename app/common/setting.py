@@ -5,13 +5,13 @@ from pathlib import Path
 DEBUG = "__compiled__" not in globals()
 
 
-YEAR = 2023
+YEAR = 2024
 AUTHOR = "MangoFanFanw"
-VERSION = "0.2.1"
+VERSION = "0.2.2"
 APP_NAME = "FanTools"
 HELP_URL = "https://ifanspace.top/"
-REPO_URL = "https://github.com/zhiyiYo/PyQt-Fluent-Widgets"
-FEEDBACK_URL = "https://github.com/zhiyiYo/PyQt-Fluent-Widgets/issues"
+REPO_URL = "https://github.com/mangofanfan/FanTools2"
+FEEDBACK_URL = "https://github.com/mangofanfan/FanTools2/issues"
 DOC_URL = "https://docs.mangofanfan.cn/"
 
 CONFIG_FOLDER = Path('AppData').absolute()
