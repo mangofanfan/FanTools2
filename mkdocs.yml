@@ -4,9 +4,9 @@ site_author: 芒果帆帆w
 repo_url: https://github.com/mangofanfan/FanTools2
 site_url: https://docs-fantools.mangofanfan.cn/
 nav:
-  主页: index.md
-  日志: log.md
-  贡献: contribute.md
+  - 主页: index.md
+  - 日志: log.md
+  - 贡献: contribute.md
 theme:
   name: material
   icon:
