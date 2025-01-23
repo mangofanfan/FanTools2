@@ -10,6 +10,7 @@ from qfluentwidgets import (MSFluentTitleBar, isDarkTheme, ImageLabel, BodyLabel
 from ..common import resource
 from ..common.license_service import LicenseService
 from ..common.config import cfg
+from ..common.logger import logger
 from .main_window import MainWindow
 
 
@@ -51,6 +52,8 @@ class RegisterWindow(Window):
         self.vBoxLayout = QVBoxLayout()
 
         self.__initWidgets()
+
+        logger.success("登录窗口初始化完成。")
 
     def __initWidgets(self):
         self.titleBar.maxBtn.hide()
@@ -127,8 +130,11 @@ class RegisterWindow(Window):
         self.loginButton.clicked.connect(self._login)
         self.rememberCheckBox.stateChanged.connect(
             lambda: cfg.set(cfg.rememberMe, self.rememberCheckBox.isChecked()))
+        logger.trace("根据相关设置调整「记住我」选择框状态。")
 
     def _login(self):
+        logger.trace("尝试执行登录。")
+        email = self.emailLineEdit.text().strip()
         code = self.activateCodeLineEdit.text().strip()
 
         def login():
@@ -139,7 +145,8 @@ class RegisterWindow(Window):
             self.loginButton.setDisabled(True)
             QTimer.singleShot(1500, self._showMainWindow)
 
-        if (reCode := self.register.validate(code, self.emailLineEdit.text(), self.signupFlag)) == 1:
+        if (reCode := self.register.validate(code, email, self.signupFlag)) == 1:
+            logger.error("登录失败，输入的电子邮件地址不合法。")
             InfoBar.error(
                 self.tr("Activate failed"),
                 self.tr('Please input a legal email address'),
@@ -148,6 +155,7 @@ class RegisterWindow(Window):
                 parent=self.window()
             )
         elif reCode == 3:
+            logger.error("登录失败，激活码与电子邮件地址不匹配或错误。")
             InfoBar.error(
                 self.tr("Activate failed"),
                 self.tr("Please input right activation code to login this account"),
@@ -156,6 +164,7 @@ class RegisterWindow(Window):
                 parent=self.window()
             )
         elif reCode == 2 and self.signupFlag is False:
+            logger.info("使用的邮件地址尚未注册，再次使用该地址登录以创建新用户并完成登录。")
             InfoBar.warning(
                 self.tr("Wait for activation"),
                 self.tr('This email address has not been registered.\n'
@@ -165,8 +174,10 @@ class RegisterWindow(Window):
                 parent=self.window()
             )
             self.signupFlag = True
+            logger.debug("已对该电子邮件地址标注待激活状态。")
         elif reCode == 2 and self.signupFlag is True:
-            InfoBar.warning(
+            logger.success("成功创建新用户并登录。")
+            InfoBar.success(
                 self.tr("Success"),
                 self.tr('This email address has been activated.'),
                 position=InfoBarPosition.TOP,
@@ -175,6 +186,7 @@ class RegisterWindow(Window):
             )
             login()
         else:
+            logger.success("成功登录。")
             InfoBar.success(
                 self.tr("Success"),
                 self.tr('Activated successful'),
@@ -184,13 +196,18 @@ class RegisterWindow(Window):
             )
             login()
 
+        logger.debug(f"本次登录使用用户：{email}")
+
     def _emailChanged(self):
         self.signupFlag = False
+        logger.debug("电子邮件地址更改，待激活状态取消。")
         return None
 
     def _showMainWindow(self):
         self.close()
         setThemeColor('#009faa')
+
+        logger.debug("关闭登录窗口，启动工具箱主窗口。")
 
         w = MainWindow()
         w.show()
