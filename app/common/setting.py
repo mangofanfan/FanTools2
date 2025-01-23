@@ -12,7 +12,7 @@ APP_NAME = "FanTools"
 HELP_URL = "https://ifanspace.top/"
 REPO_URL = "https://github.com/mangofanfan/FanTools2"
 FEEDBACK_URL = "https://github.com/mangofanfan/FanTools2/issues"
-DOC_URL = "https://docs.mangofanfan.cn/"
+DOC_URL = "https://docs-fantools.mangofanfan.cn/"
 
 CONFIG_FOLDER = Path('AppData').absolute()
 CONFIG_FILE = CONFIG_FOLDER / "config.json"
