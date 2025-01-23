@@ -24,7 +24,7 @@
     
     
       
-        <title>贡献 - 芒果工具箱文档中心</title>
+        <title>贡献代码 - 芒果工具箱文档中心</title>
       
     
     
@@ -143,7 +143,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              贡献
+              贡献代码
             
           </span>
         </div>
@@ -284,7 +284,7 @@
         
   
   <span class="md-ellipsis">
-    日志
+    运行日志
   </span>
   
 
@@ -313,7 +313,7 @@
           
   
   <span class="md-ellipsis">
-    贡献
+    贡献代码
   </span>
   
 
@@ -324,7 +324,7 @@
         
   
   <span class="md-ellipsis">
-    贡献
+    贡献代码
   </span>
   
 
@@ -348,7 +348,16 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      贡献代码
+      项目结构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码要求
     </span>
   </a>
   
@@ -391,7 +400,16 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      贡献代码
+      项目结构
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      代码要求
     </span>
   </a>
   
@@ -417,10 +435,20 @@
 
 <h1 id="_1">贡献芒果工具箱</h1>
 <p>我们欢迎任何人向工具箱提交贡献，无论是文档更新、错误修复还是仅提交issue。</p>
-<h2 id="_2">贡献代码</h2>
-<p>工具箱拥有<code>master</code>和<code>dev</code>两个分支。准备贡献时，你应该基于<code>dev</code>分支的目前状况进行贡献，因为<code>dev</code>分支总是拥有比<code>master</code>分支更新的commit。</p>
-<p>每当一个新的版本发布时，<code>master</code>分支会与<code>dev</code>分支同步，然后分发部署一个新的工具箱版本。这意味着<code>master</code>分支总是可用的正式版本的代码，而<code>dev</code>分支是实验性的代码。</p>
+<h2 id="_2">项目结构</h2>
+<p>芒果工具箱的当前版本于<a href="https://github.com/mangofanfan/FanTools2">GitHub仓库</a>开源，仓库目前拥有<code>master</code>、<code>dev</code>和<code>gh-pages</code>三个分支。</p>
+<p>准备贡献时，你应该基于<code>dev</code>分支的目前状况进行贡献，因为<code>dev</code>分支总是拥有比<code>master</code>分支更新的commit，包含了新版本中已经在开发或已经开发完成的新的特性与错误修复。</p>
+<p>每当一个新的版本发布时，<code>master</code>分支会与<code>dev</code>分支同步，然后分发一个新的工具箱版本。这意味着<code>master</code>分支总是可用的正式版本的代码，而<code>dev</code>分支是实验性的代码。</p>
+<p><code>gh-pages</code>分支是当前的工具箱文档的静态站点，也正是你目前正在浏览的文档网站的根目录，由<code>MkDocs</code>自动生成并部署，不需要也禁止任何人为更改。为确保文档的时效性，<code>gh-pages</code>分支中的文档是由<code>dev</code>分支执行<code>mkdocs build</code>生成的，并将在<code>dev</code>分支每次获得推送时自动化更新与部署。</p>
+<p>综上所述，你应该基于<code>dev</code>分支的目前状况进行贡献。</p>
+<h2 id="_3">代码要求</h2>
+<div class="admonition warning">
+<p class="admonition-title">你正在考虑写谁的代码？</p>
+<p>这里的代码要求，是针对你想要为工具箱本体贡献代码，而不是你想要写一个工具！</p>
+<p>写个工具而已需要什么代码要求？只要有个工具的结构，随便写写不也就行了嘛真的是QwQ</p>
+</div>
 <p>我们对代码风格不做严格限制，最好能够遵循PEP8（Python风格指南），且避免出现拼音命名等让人忍俊不禁的情况。</p>
+<p>然后是一些细节：如果你为工具箱本体添加了新的模块、特性等，请记得多多<strong>记录日志</strong>，参见<a href="../log/">这里</a>来查看工具箱对日志等级的规定。</p>
 
 
 

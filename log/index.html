@@ -26,7 +26,7 @@
     
     
       
-        <title>日志 - 芒果工具箱文档中心</title>
+        <title>运行日志 - 芒果工具箱文档中心</title>
       
     
     
@@ -145,7 +145,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              日志
+              运行日志
             
           </span>
         </div>
@@ -291,15 +291,63 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    运行日志
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    日志
+    运行日志
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      日志等级规定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      如果你贡献的代码中需要输出日志
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -316,7 +364,7 @@
         
   
   <span class="md-ellipsis">
-    贡献
+    贡献代码
   </span>
   
 
@@ -345,6 +393,32 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      日志等级规定
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      如果你贡献的代码中需要输出日志
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -364,6 +438,7 @@
 <h1 id="_1">日志结构</h1>
 <p>工具箱从0.2.2版本开始会在运行时输出日志，在数据目录下的<code>latest.log</code>是最后一次运行时的日志，目前暂不保留历史日志。</p>
 <p>在技术上，工具箱采用的日志模块是<code>loguru</code>，这是Python的第三方日志模块而非内置模块<code>logging</code>。输出日志的层级上，基于<code>loguru</code>的内建层级，工具箱对其做如下规定：</p>
+<h2 id="_2">日志等级规定</h2>
 <ul>
 <li><strong>TRACE</strong> - 默认被隐藏的日志等级，用于记录异步操作的开始与事无巨细的用户GUI操作。</li>
 <li><strong>DEBUG</strong> - 调试等级，用于记录程序运行层面的进展与打印步骤中数据。</li>
@@ -385,6 +460,10 @@
 <p>2025-01-23T16:28:18.727397+0800 | DEBUG | 获取并更新了工具箱新闻 {'body': '这是芒果工具箱的第一条新闻嗷！', 'id': 1, 'time': '2024-12-23', 'title': '芒果工具箱新闻模块开工动土！'}。</p>
 <p>2025-01-23T16:28:18.728914+0800 | DEBUG | 获取工具箱当前版本信息 {'desc': {'0.2.0': 'Full Rebuild Again.', '0.2.1': 'Update for the self-update-check-system and other small changes.'}, 'latest': '0.2.1'} 。</p>
 </div>
+<h2 id="_3">如果你贡献的代码中需要输出日志</h2>
+<p>使用项目结构<code>./app/common/logger.py</code>中的<code>logger</code>对象的<code>trace</code>、<code>debug</code>、……、<code>critical</code>方法来打印你需要的日志。如果你编辑的文件中尚未导入<code>logger</code>，你可能需要类似如下代码来完成相对导入：</p>
+<div class="highlight"><span class="filename">导入logger</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">..common.logger</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
+</code></pre></div>
 
 
 
