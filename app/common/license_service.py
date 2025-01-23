@@ -8,6 +8,7 @@ from PySide6.QtWidgets import QApplication
 
 from .error import UserCodeWrongError, APIError
 from .network import QRequestReady
+from .logger import logger
 
 
 class Singleton(object):
@@ -37,7 +38,7 @@ class LicenseService:
         # self.url = "http://127.0.0.1:5000"
         self.url = "https://api-fan.mangofanfan.cn"
 
-    def validate(self, license: str, email: str, signup: bool = False) -> bool:
+    def validate(self, license: str, email: str, signup: bool = False) -> int:
         """ 验证是否允许登录 """
         if email == "" or email is None:
             return 1
@@ -47,6 +48,7 @@ class LicenseService:
 
         def thenDo(datas: dict) -> None:
             self.datas = datas
+            logger.success("已获取到用户信息，登录成功。")
             return None
 
         eventLoop = QEventLoop()
@@ -64,6 +66,7 @@ class LicenseService:
 
         if self.datas["status"] == "Error" and self.datas["message"] == "User not found.":
             if signup is False:
+                logger.info(f"当前邮箱 {email} 未注册用户，再次使用该邮箱登录将自动注册用户并登录。")
                 return 2
             else:
                 ((request := QRequestReady(QApplication.instance()))
@@ -72,7 +75,9 @@ class LicenseService:
                  .then(lambda res: thenDo(json.loads(res)))
                  .done()
                  )
+                logger.trace("已经异步申请创建新账户。")
         elif self.datas["status"] == "Error" and self.datas["message"] == "Wrong code.":
+            logger.error(f"邮箱 {email}] 的激活码错误，拒绝登录。")
             return 3
 
         return 0
@@ -97,10 +102,12 @@ class LicenseService:
             .then(lambda t: avatarFunc(image))
             .done()
         )
+        logger.trace(f"开始异步加载尺寸为 {size} 的用户头像。")
 
         return None
 
     def changeUserInfo(self, oldCode: str, name: str, newCode: str = "") -> int:
+        logger.debug("提交了用户信息更改。")
 
         global code
         eventLoop = QEventLoop()
@@ -109,10 +116,13 @@ class LicenseService:
         def thenDo(res: dict) -> None:
             global code
             if res["status"] == "SUCCESS":
+                logger.success("用户信息更改成功。")
                 return None
             elif res["status"] == "Error" and "get wrong code." in res["message"]:
+                logger.error("用户信息更改失败，提供的激活码有误。")
                 code = 1
             else:
+                logger.error("未知原因，但是用户信息更改失败。")
                 code = -1
 
         (
@@ -133,6 +143,7 @@ class LicenseService:
 
         def thenDo(_res: dict) -> None:
             newsFunc(_res["time"], _res["title"], _res["body"])
+            logger.debug(f"获取并更新了工具箱新闻 {_res}。")
             return None
 
         (
@@ -141,6 +152,7 @@ class LicenseService:
             .then(lambda res: thenDo(json.loads(res)[0]))
             .done()
         )
+        logger.trace("开始异步加载工具箱新闻。")
         return None
 
     def getVersion(self):
@@ -159,6 +171,7 @@ class LicenseService:
             .done()
         )
         eventLoop.exec_()
+        logger.debug(f"获取工具箱当前版本信息 {data} 。")
         return data
 
     @staticmethod
@@ -167,4 +180,5 @@ class LicenseService:
             return sth
         h = hashlib.md5()
         h.update(sth.encode("utf-8"))
+        logger.trace(f"计算了邮箱 {sth} 的MD5。")
         return h.hexdigest()

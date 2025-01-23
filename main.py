@@ -1,4 +1,6 @@
 # coding:utf-8
+from app.common.logger import logger
+
 import os
 import sys
 
@@ -15,6 +17,7 @@ from qfluentwidgetspro import setLicense
 ProLicense = open(file="ProLicense").read()
 setLicense(ProLicense)
 
+logger.debug("模块导入完成。")
 
 # enable dpi scale
 if cfg.get(cfg.dpiScale) != "Auto":
@@ -40,8 +43,12 @@ app.setStyleSheet("""QScrollArea { background: transparent; border: none; }
 QWidget#scrollAreaWidgetContents { background: transparent; }
 QFrame { background: transparent; border: none; }""")
 
+logger.debug("程序初始化完成。")
+
 # create main window
 w = RegisterWindow()
 w.show()
+
+logger.success("工具箱本体进入事件循环。")
 
 app.exec()

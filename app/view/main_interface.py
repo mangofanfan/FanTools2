@@ -10,6 +10,7 @@ from .widgets.account_edit_info_box import AccountEditInfoBox
 from ..common import resource
 from ..common.license_service import LicenseService
 from ..common.setting import VERSION
+from ..common.logger import logger
 
 
 class MainInterface(QWidget, MainForm):
@@ -44,12 +45,16 @@ class MainInterface(QWidget, MainForm):
         self.ToolButton_EditAccount.setIcon(FIC.EDIT)
         self.ToolButton_EditAccount.clicked.connect(self._openEditAccountInfoBox)
 
+        logger.info("工具箱主页初始化完毕。")
+
         self._loadUserInfo()
+        logger.success("工具箱主页加载完毕。")
 
         return None
 
     def _loadUserInfo(self) -> None:
         self.ls.getUserInfo(self.AvatarWidget.setImage, self.LargeTitleLabel_AccountName.setText)
+        logger.info("已将用户信息应用在工具箱主页上。")
         return None
 
     def _openEditAccountInfoBox(self) -> None:
@@ -59,6 +64,7 @@ class MainInterface(QWidget, MainForm):
                                      self._parent)
         infoBox.successSignal.connect(self._closeEditAccountInfoBox)
         infoBox.show()
+        logger.info("打开工具箱主页的用户信息编辑框。")
         return None
 
     def _closeEditAccountInfoBox(self) -> None:
@@ -69,6 +75,6 @@ class MainInterface(QWidget, MainForm):
             duration=2000,
             parent=self._parent
         )
-
+        logger.success("成功更新用户信息并关闭用户信息编辑框。")
         self._loadUserInfo()
         return None
