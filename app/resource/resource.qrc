@@ -22,8 +22,11 @@
         <file>images/icons/IconHash.png</file>
         <file>images/icons/IconTranslate.png</file>
         <file alias="IconPython">images/icons/IconPython.svg</file>
-        <file alias="IconPySide">images/icons/IconQt.png</file>
+        <file alias="IconPySide">images/icons/IconQt.svg</file>
         <file alias="IconFluent">images/icons/IconQFluentWidgets.png</file>
+        <file alias="IconDocs">images/icons/IconHtml.svg</file>
+        <file alias="IconGitHub">images/icons/IconGitHub.svg</file>
+        <file alias="IconRelease">images/icons/IconFanSpace.png</file>
         <file>images/payQRcode.png</file>
     </qresource>
 </RCC>

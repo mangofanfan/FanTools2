@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>993</width>
-    <height>753</height>
+    <width>1221</width>
+    <height>878</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -178,7 +178,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="CardWidget" name="CardWidget">
+      <widget class="CardWidget" name="CardWidget_Python">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -226,7 +226,7 @@
       </widget>
      </item>
      <item>
-      <widget class="CardWidget" name="CardWidget_2">
+      <widget class="CardWidget" name="CardWidget_PySide">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -274,7 +274,7 @@
       </widget>
      </item>
      <item>
-      <widget class="CardWidget" name="CardWidget_3">
+      <widget class="CardWidget" name="CardWidget_QFluentWidget">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -368,6 +368,154 @@
       </item>
      </layout>
     </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="CardWidget" name="CardWidget_Docs">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>80</height>
+        </size>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_7" rowstretch="0,0">
+        <item row="0" column="0" rowspan="2">
+         <widget class="ImageLabel" name="ImageLabel_Docs">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>60</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>60</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="SubtitleLabel" name="SubtitleLabel_Docs">
+          <property name="text">
+           <string>Subtitle label</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="BodyLabel" name="BodyLabel_Docs">
+          <property name="text">
+           <string>Body label</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="CardWidget" name="CardWidget_GitHub">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>80</height>
+        </size>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_8">
+        <item row="0" column="0" rowspan="2">
+         <widget class="ImageLabel" name="ImageLabel_GitHub">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>60</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>60</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="SubtitleLabel" name="SubtitleLabel_GitHub">
+          <property name="text">
+           <string>Subtitle label</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="BodyLabel" name="BodyLabel_GitHub">
+          <property name="text">
+           <string>Body label</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="CardWidget" name="CardWidget_Release">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>80</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>80</height>
+        </size>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_9">
+        <item row="0" column="0" rowspan="2">
+         <widget class="ImageLabel" name="ImageLabel_Release">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>60</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>60</width>
+            <height>60</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="SubtitleLabel" name="SubtitleLabel_Release">
+          <property name="text">
+           <string>Subtitle label</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="BodyLabel" name="BodyLabel_Release">
+          <property name="text">
+           <string>Body label</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
    </item>
    <item>
     <spacer name="verticalSpacer_5">
