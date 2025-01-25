@@ -31,6 +31,10 @@ theme:
     - search.highlight        # 搜索高亮
     - search.share           # 搜索分享
     - search.suggest         # 搜索建议
+    - navigation.instant            # 即时加载
+    - navigation.instant.prefetch   # 即时预取
+    - navigation.instant.progress   # 进度指示器
+    - navigation.instant.preview    # 全局启用即时预览
   language: zh
   palette:
     - search:
