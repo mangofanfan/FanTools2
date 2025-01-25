@@ -1,11 +1,15 @@
-from PySide6.QtCore import QSize, QUrl, QFile
-from PySide6.QtGui import QImage
-from PySide6.QtWidgets import QWidget
-from qfluentwidgets import BodyLabel
+import os
 
+from PySide6.QtCore import QSize, QUrl, QFile
+from PySide6.QtGui import QImage, QDesktopServices
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QHBoxLayout
+from qfluentwidgets import BodyLabel, PushButton
+
+from common.function import basicFunc
 from .designer.about_interface import Ui_Form as AboutForm
 from ..common import resource
 from ..common.license_service import LicenseService
+from ..common.logger import logger
 
 
 class AboutInterface(QWidget, AboutForm):
@@ -34,12 +38,25 @@ class AboutInterface(QWidget, AboutForm):
 
         # 关于卡片
         self.HeaderCardWidget.setTitle(self.tr("About FanTools"))
+        headerCardLayout = QVBoxLayout()
+        self.HeaderCardWidget.viewLayout.addLayout(headerCardLayout)
         tipFile = QFile(":/app/texts/about_tip.md")
         tipFile.open(QFile.OpenModeFlag.ReadOnly | QFile.OpenModeFlag.Text)
         BodyLabel_tip = BodyLabel()
         BodyLabel_tip.setText(str(tipFile.readAll(), "utf-8"))
-        self.HeaderCardWidget.viewLayout.addWidget(BodyLabel_tip)
+        headerCardLayout.addWidget(BodyLabel_tip)
         tipFile.close()
+
+        self.pushButton_OpenAPPDataFolder = PushButton()
+        self.pushButton_OpenAPPDataFolder.setText(self.tr("Open AppData Folder"))
+        self.pushButton_OpenVersionList = PushButton()
+        self.pushButton_OpenVersionList.setText(self.tr("Open Version List"))
+        hLayout = QHBoxLayout()
+        hLayout.addWidget(self.pushButton_OpenAPPDataFolder)
+        hLayout.addWidget(self.pushButton_OpenVersionList)
+        hLayout.addStretch()
+        headerCardLayout.addLayout(hLayout)
+        headerCardLayout.addStretch()
 
         # 技术卡片
         self.ImageLabel_Python.setImage(QImage(":/app/IconPython"))
@@ -81,6 +98,19 @@ class AboutInterface(QWidget, AboutForm):
         self.BodyLabel_GitHub.setText(self.tr("Open source repo on GitHub"))
         self.BodyLabel_Release.setText(self.tr("Release info on ifanspace.top"))
 
+        self._connectSignals()
+
+        logger.info("工具箱关于页面初始化完毕。")
+        return None
+
+    def _connectSignals(self):
+        self.pushButton_OpenVersionList.clicked.connect(lambda: QDesktopServices.openUrl(QUrl("https://docs-fantools.mangofanfan.cn/version/")))
+        self.pushButton_OpenAPPDataFolder.clicked.connect(lambda: os.startfile(basicFunc.getHerePath() + "/AppData/"))
+
+        self.CardWidget_Docs.clicked.connect(lambda: QDesktopServices.openUrl(QUrl("https://docs-fantools.mangofanfan.cn")))
+        self.CardWidget_GitHub.clicked.connect(lambda: QDesktopServices.openUrl(QUrl("https://github.com/mangofanfan/FanTools2")))
+        self.CardWidget_Release.clicked.connect(lambda: QDesktopServices.openUrl(QUrl("https://ifanspace.top/2024/08/28/510.html")))
+        logger.trace("工具箱关于页面信号链接完毕。")
         return None
 
     def _initNews(self, newsTime: str, newsTitle: str, news: str) -> None:
