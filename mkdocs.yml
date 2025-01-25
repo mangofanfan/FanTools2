@@ -3,12 +3,14 @@ site_description: 芒果工具箱的帮助文档！
 site_author: 芒果帆帆w
 repo_url: https://github.com/mangofanfan/FanTools2
 site_url: https://docs-fantools.mangofanfan.cn/
+
 nav:
   - 主页: index.md
   - 开始使用: start_use.md
   - 运行日志: log.md
   - 版本记录: version.md
   - 贡献代码: contribute.md
+
 theme:
   name: material
   icon:
@@ -25,6 +27,22 @@ theme:
       bug: octicons/bug-16
       example: octicons/beaker-16
       quote: octicons/quote-16
+  palette:
+    # 配置切换按钮
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: 切换至暗色模式
+      primary: indigo
+      accent: indigo
+
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: 切换至亮色模式
+      primary: indigo
+      accent: indigo
+
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -35,3 +53,9 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.tasklist:
       custom_checkbox: true
+
+plugins:
+  - glightbox
+
+extra_javascript:
+  - javascripts/theme-switch.js

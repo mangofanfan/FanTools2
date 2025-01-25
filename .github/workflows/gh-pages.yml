@@ -17,6 +17,7 @@ jobs:
       run: |
         pip install mkdocs  # 安装 mkdocs
         pip install mkdocs-material  # 安装 mkdocs-material 主题
+        pip install mkdocs-glightbox  # 安装图片灯箱
     - name: Build the MkDocs site
       run: mkdocs build  # 构建 MkDocs 网站
     - name: Deploy to GitHub Pages
