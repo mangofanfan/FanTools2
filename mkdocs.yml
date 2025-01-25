@@ -27,7 +27,17 @@ theme:
       bug: octicons/bug-16
       example: octicons/beaker-16
       quote: octicons/quote-16
+  features:
+    - search.highlight        # 搜索高亮
+    - search.share           # 搜索分享
+    - search.suggest         # 搜索建议
+  language: zh
   palette:
+    - search:
+        placeholder: 搜索文档
+        result:
+          no_results_text: 未找到相关结果
+          searching_text: 正在搜索...
     # 配置切换按钮
     - scheme: default
       toggle:
@@ -56,6 +66,12 @@ markdown_extensions:
 
 plugins:
   - glightbox
+  - search:
+      # 搜索索引设置
+      lang:
+        - en
+        - zh
+      separator: '[\s\-\.]+'    # 分词分隔符
 
 extra_javascript:
   - javascripts/theme-switch.js
