@@ -11,7 +11,7 @@
 
 **问题修复**
 
-* [ ] 来自上游的窗口问题，参见`0.2.1`的已知问题。
+* [X] 来自上游的窗口问题，参见`0.2.1`的已知问题。
 
 ## 当前主要版本：0.2.1
 
@@ -26,6 +26,10 @@
 * **来自上游的窗口问题** - 参见[我提的issue](https://github.com/zhiyiYo/PyQt-Frameless-Window/issues/178)，在开发环境Python3.11下存在窗口最大化与缩小时缺失动画以及相关的一系列问题，由于并非严重问题，等待上游修复。
     - 已经确定降级PySide6版本（6.8.1.1->6.7.2）能够规避该问题，将在工具箱`0.2.2`中规避问题。
     - 已经确定是PySide6 6.8.1的问题，上游等待PySide6修复。
+
+**下载**
+
+安装程序下载链接：[https://file.mangofanfan.cn/s/1nehnw](https://file.mangofanfan.cn/s/1nehnw)
 
 ## 0.2.0
 
@@ -45,3 +49,10 @@
 
 * https://ifanspace.top/2024/08/28/510.html （完整）
 * https://github.com/mangofanfan/FanTools/releases/ （只有这两个版本）
+
+**下载** （仅供考古娱乐使用，不再维护，也不再接受任何issue）
+
+* 命令行安装工具-0.0.1：[https://file.mangofanfan.cn/s/5awxmv](https://file.mangofanfan.cn/s/5awxmv)
+* 芒果工具箱本体-0.0.1：[https://file.mangofanfan.cn/s/gx0vjp](https://file.mangofanfan.cn/s/gx0vjp)
+* 命令行安装工具-0.0.0：[https://file.mangofanfan.cn/s/4aiaby](https://file.mangofanfan.cn/s/4aiaby)
+* 芒果工具箱本体-0.0.0：[https://file.mangofanfan.cn/s/kmpnbp](https://file.mangofanfan.cn/s/kmpnbp)
