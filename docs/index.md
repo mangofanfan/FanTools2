@@ -1,5 +1,7 @@
 # 芒果工具箱文档中心
 
+![预览图](images/FanTools_View_0.2.2.png)
+
 芒果工具箱是基于Python3.11、PySide6和QFluentWidgets开发的开源工具箱程序，目标是包含不常用但偶尔急需的小众功能。
 
 ## 关于本文档
