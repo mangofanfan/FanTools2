@@ -4,16 +4,16 @@ from enum import Enum
 
 from PySide6.QtCore import QLocale
 from qfluentwidgets import (qconfig, QConfig, ConfigItem, OptionsConfigItem, BoolValidator,
-                            OptionsValidator, Theme, FolderValidator, ConfigSerializer)
+                            OptionsValidator, Theme, FolderValidator, ConfigSerializer, RangeConfigItem, RangeValidator)
 
 from .setting import CONFIG_FILE
 
 class Language(Enum):
     """ Language enumeration """
 
-    CHINESE_SIMPLIFIED = QLocale(QLocale.Chinese, QLocale.China)
-    CHINESE_TRADITIONAL = QLocale(QLocale.Chinese, QLocale.HongKong)
-    ENGLISH = QLocale(QLocale.English)
+    CHINESE_SIMPLIFIED = QLocale(QLocale.Language.Chinese, QLocale.Country.China)
+    CHINESE_TRADITIONAL = QLocale(QLocale.Language.Chinese, QLocale.Country.HongKong)
+    ENGLISH = QLocale(QLocale.Language.English)
     AUTO = QLocale()
 
 
@@ -50,6 +50,23 @@ class Config(QConfig):
 
     # software update
     checkUpdateAtStartUp = ConfigItem("Update", "CheckUpdateAtStartUp", True, BoolValidator())
+
+    # 一言
+    yiYanEnabled = ConfigItem("Function", "YiYanEnabled", True, BoolValidator())
+    yiYanAPI = OptionsConfigItem("Function", "YiYanAPI", "fan_mirror", OptionsValidator(["official", "fan_mirror"]))
+    yiYanTypeA = ConfigItem("Function", "YiYanTypeA", True, BoolValidator())
+    yiYanTypeB = ConfigItem("Function", "YiYanTypeB", True, BoolValidator())
+    yiYanTypeC = ConfigItem("Function", "YiYanTypeC", True, BoolValidator())
+    yiYanTypeD = ConfigItem("Function", "YiYanTypeD", True, BoolValidator())
+    yiYanTypeE = ConfigItem("Function", "YiYanTypeE", True, BoolValidator())
+    yiYanTypeF = ConfigItem("Function", "YiYanTypeF", True, BoolValidator())
+    yiYanTypeG = ConfigItem("Function", "YiYanTypeG", True, BoolValidator())
+    yiYanTypeH = ConfigItem("Function", "YiYanTypeH", True, BoolValidator())
+    yiYanTypeI = ConfigItem("Function", "YiYanTypeI", True, BoolValidator())
+    yiYanTypeJ = ConfigItem("Function", "YiYanTypeJ", True, BoolValidator())
+    yiYanTypeK = ConfigItem("Function", "YiYanTypeK", True, BoolValidator())
+    yiYanTypeL = ConfigItem("Function", "YiYanTypeL", True, BoolValidator())
+    timeSleep = RangeConfigItem("Function", "TimeSleep", 20, RangeValidator(5, 60))
 
 
 cfg = Config()

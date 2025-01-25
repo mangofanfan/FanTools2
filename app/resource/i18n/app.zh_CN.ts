@@ -17,89 +17,99 @@
 <context>
     <name>AboutInterface</name>
     <message>
-        <location filename="../../view/about_interface.py" line="24"/>
+        <location filename="../../view/about_interface.py" line="28"/>
         <source>MangoFanFan,</source>
         <translation>芒果帆帆，</translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="25"/>
+        <location filename="../../view/about_interface.py" line="29"/>
         <source>Maybe a player, maybe a student?</source>
         <translation>不知道是啥玩意儿QAQ？</translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="31"/>
+        <location filename="../../view/about_interface.py" line="35"/>
         <source>or</source>
         <translation>或</translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="32"/>
+        <location filename="../../view/about_interface.py" line="36"/>
         <source>Support Me</source>
         <translation>支持偶</translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="36"/>
+        <location filename="../../view/about_interface.py" line="40"/>
         <source>About FanTools</source>
         <translation>关于芒果工具箱</translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="57"/>
+        <location filename="../../view/about_interface.py" line="74"/>
         <source>Simple Language!</source>
         <translation>简单的语言！</translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="58"/>
+        <location filename="../../view/about_interface.py" line="75"/>
         <source>Simple GUI!</source>
         <translation>简单的GUI！</translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="59"/>
+        <location filename="../../view/about_interface.py" line="76"/>
         <source>Simple Beauty!</source>
         <translation>简单的优雅！</translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="62"/>
+        <location filename="../../view/about_interface.py" line="79"/>
         <source>Wait for news ^..</source>
         <translation>等待新闻中…….</translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="63"/>
+        <location filename="../../view/about_interface.py" line="80"/>
         <source>Which time?</source>
         <translation>什么时间？</translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="64"/>
+        <location filename="../../view/about_interface.py" line="81"/>
         <source>What news?</source>
         <translation>什么新闻？</translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="77"/>
+        <location filename="../../view/about_interface.py" line="94"/>
         <source>FanTools Docs</source>
         <translation>芒果工具箱文档</translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="78"/>
+        <location filename="../../view/about_interface.py" line="95"/>
         <source>GitHub Repository</source>
         <translation>GitHub仓库</translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="79"/>
+        <location filename="../../view/about_interface.py" line="96"/>
         <source>Release Info</source>
         <translation>发布信息</translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="80"/>
+        <location filename="../../view/about_interface.py" line="97"/>
         <source>Online Docs about FanTools</source>
         <translation>芒果工具箱的在线文档捏</translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="81"/>
+        <location filename="../../view/about_interface.py" line="98"/>
         <source>Open source repo on GitHub</source>
         <translation>GitHub上的开源仓库捏</translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="82"/>
+        <location filename="../../view/about_interface.py" line="99"/>
         <source>Release info on ifanspace.top</source>
         <translation>帆域网站上的发布信息捏</translation>
+    </message>
+    <message>
+        <location filename="../../view/about_interface.py" line="51"/>
+        <source>Open AppData Folder</source>
+        <translation>打开程序数据文件夹</translation>
+    </message>
+    <message>
+        <location filename="../../view/about_interface.py" line="53"/>
+        <source>Open Version List</source>
+        <translation>打开版本列表</translation>
     </message>
 </context>
 <context>
@@ -279,27 +289,27 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../view/main_window.py" line="68"/>
+        <location filename="../../view/main_window.py" line="61"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="60"/>
+        <location filename="../../view/main_window.py" line="53"/>
         <source>Main</source>
         <translation>主页</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="62"/>
+        <location filename="../../view/main_window.py" line="55"/>
         <source>Tools</source>
         <translation>工具</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="66"/>
+        <location filename="../../view/main_window.py" line="59"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="79"/>
+        <location filename="../../view/main_window.py" line="72"/>
         <source>FanTools-Main</source>
         <translation>芒果工具箱-主程序</translation>
     </message>
@@ -392,82 +402,82 @@ Try again to register now, or change another address.</source>
 <context>
     <name>SettingInterface</name>
     <message>
-        <location filename="../../view/setting_interface.py" line="37"/>
+        <location filename="../../view/setting_interface.py" line="38"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="40"/>
+        <location filename="../../view/setting_interface.py" line="41"/>
         <source>Personalization</source>
         <translation>个性化</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="42"/>
+        <location filename="../../view/setting_interface.py" line="43"/>
         <source>Mica effect</source>
         <translation>云母效果</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="42"/>
+        <location filename="../../view/setting_interface.py" line="43"/>
         <source>Apply semi transparent to windows and surfaces</source>
         <translation>窗口和表面呈现半透明</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="49"/>
+        <location filename="../../view/setting_interface.py" line="50"/>
         <source>Application theme</source>
         <translation>应用主题</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="49"/>
+        <location filename="../../view/setting_interface.py" line="50"/>
         <source>Change the appearance of your application</source>
         <translation>调整应用的外观</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="49"/>
+        <location filename="../../view/setting_interface.py" line="50"/>
         <source>Light</source>
         <translation>浅色</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="49"/>
+        <location filename="../../view/setting_interface.py" line="50"/>
         <source>Dark</source>
         <translation>深色</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="71"/>
+        <location filename="../../view/setting_interface.py" line="72"/>
         <source>Use system setting</source>
         <translation>跟随系统设置</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="60"/>
+        <location filename="../../view/setting_interface.py" line="61"/>
         <source>Interface zoom</source>
         <translation>界面缩放</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="60"/>
+        <location filename="../../view/setting_interface.py" line="61"/>
         <source>Change the size of widgets and fonts</source>
         <translation>调整组件和字体的大小</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="71"/>
+        <location filename="../../view/setting_interface.py" line="72"/>
         <source>Language</source>
         <translation>语言</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="71"/>
+        <location filename="../../view/setting_interface.py" line="72"/>
         <source>Set your preferred language for UI</source>
         <translation>设置界面的首选语言</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="81"/>
+        <location filename="../../view/setting_interface.py" line="198"/>
         <source>Software update</source>
         <translation>软件更新</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="83"/>
+        <location filename="../../view/setting_interface.py" line="200"/>
         <source>Check for updates when the application starts</source>
         <translation>软件启动时检查更新</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="83"/>
+        <location filename="../../view/setting_interface.py" line="207"/>
         <source>The new version will be more stable and have more features</source>
         <translation>新版本更加稳定且拥有更多新特性</translation>
     </message>
@@ -517,14 +527,79 @@ Try again to register now, or change another address.</source>
         <translation type="obsolete">当前版本</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="132"/>
+        <location filename="../../view/setting_interface.py" line="262"/>
         <source>Updated successfully</source>
         <translation>更新成功</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="132"/>
+        <location filename="../../view/setting_interface.py" line="262"/>
         <source>Configuration takes effect after restart</source>
         <translation>配置在重启软件后生效</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="82"/>
+        <source>Functions</source>
+        <translation>功能</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="83"/>
+        <source>Enable YiYan function (known as Hitokoto)</source>
+        <translation>启用一言功能</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="83"/>
+        <source>When enabled, you can get a sentence by once per some seconds.</source>
+        <translation>启用时，每隔一段时间获取一句一言并显示。</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="87"/>
+        <source>YiYan API</source>
+        <translation>一言API</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="87"/>
+        <source>Where should we get YiYan from?</source>
+        <translation>从哪里获取一言？</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="87"/>
+        <source>Official - hitokoto.cn</source>
+        <translation>官方 - hitokoto.cn</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="87"/>
+        <source>FanMirror - mangofanfan.cn</source>
+        <translation>帆域镜像 - mangofanfan.cn</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="92"/>
+        <source>YiYan categories (only Simplified Chinese)</source>
+        <translation>一言分类</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="92"/>
+        <source>What categories of YiYan would you like to see? (full chosen = none chosen)</source>
+        <translation>你希望看到哪些类别的一言？（全选等同于全不选）</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="96"/>
+        <source>Duration to refresh</source>
+        <translation>刷新间隔</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="96"/>
+        <source>How long should we sleep before refreshing online resources again?</source>
+        <translation>获取在线资源的刷新间隔？</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="207"/>
+        <source>Check for updates right now</source>
+        <translation>立即检查更新</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="207"/>
+        <source>Check</source>
+        <translation>检查</translation>
     </message>
 </context>
 <context>

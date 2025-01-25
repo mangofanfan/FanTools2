@@ -36,21 +36,14 @@ class MainWindow(MSFluentWindow):
 
         # 如果设置启用启动时检查版本
         if cfg.get(cfg.checkUpdateAtStartUp):
-            logger.debug("由于相关设置，开始检查版本更新。")
-            from .widgets.need_update_info_bar import UpdateInfoBar
-            uib = UpdateInfoBar(self)
-            self.updateChecker = UpdateChecker()
-            if self.updateChecker.isNeedUpdate():
-                logger.info("发现更新版本，需要更新工具箱。")
-                uib.update_true(self, self.updateChecker.getLatestVersion())
-            else:
-                logger.info("工具箱当前版本已是最新。")
-                uib.update_false(self, self.updateChecker.getLatestVersion())
+            logger.debug("由于相关设置，开始启动时检查版本更新。")
+            self.checkUpdate()
 
         logger.success("工具箱主窗口初始化完毕。")
 
     def connectSignalToSlot(self):
         signalBus.micaEnableChanged.connect(self.setMicaEffectEnabled)
+        signalBus.checkUpdateSig.connect(self.checkUpdate)
 
         logger.trace("工具箱主窗口信号连接完毕。")
 
@@ -103,3 +96,16 @@ class MainWindow(MSFluentWindow):
         super().resizeEvent(e)
         if hasattr(self, 'splashScreen'):
             self.splashScreen.resize(self.size())
+
+    def checkUpdate(self):
+        """检查版本更新"""
+        logger.trace("开始检查版本更新。")
+        from .widgets.need_update_info_bar import UpdateInfoBar
+        uib = UpdateInfoBar(self)
+        self.updateChecker = UpdateChecker()
+        if self.updateChecker.isNeedUpdate():
+            logger.info("发现更新版本，需要更新工具箱。")
+            uib.update_true(self, self.updateChecker.getLatestVersion())
+        else:
+            logger.info("工具箱当前版本已是最新。")
+            uib.update_false(self, self.updateChecker.getLatestVersion())

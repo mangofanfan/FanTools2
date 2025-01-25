@@ -17,88 +17,98 @@
 <context>
     <name>AboutInterface</name>
     <message>
-        <location filename="../../view/about_interface.py" line="24"/>
+        <location filename="../../view/about_interface.py" line="28"/>
         <source>MangoFanFan,</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="25"/>
+        <location filename="../../view/about_interface.py" line="29"/>
         <source>Maybe a player, maybe a student?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="31"/>
+        <location filename="../../view/about_interface.py" line="35"/>
         <source>or</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="32"/>
+        <location filename="../../view/about_interface.py" line="36"/>
         <source>Support Me</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="36"/>
+        <location filename="../../view/about_interface.py" line="40"/>
         <source>About FanTools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="57"/>
+        <location filename="../../view/about_interface.py" line="74"/>
         <source>Simple Language!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="58"/>
+        <location filename="../../view/about_interface.py" line="75"/>
         <source>Simple GUI!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="59"/>
+        <location filename="../../view/about_interface.py" line="76"/>
         <source>Simple Beauty!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="62"/>
+        <location filename="../../view/about_interface.py" line="79"/>
         <source>Wait for news ^..</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="63"/>
+        <location filename="../../view/about_interface.py" line="80"/>
         <source>Which time?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="64"/>
+        <location filename="../../view/about_interface.py" line="81"/>
         <source>What news?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="77"/>
+        <location filename="../../view/about_interface.py" line="94"/>
         <source>FanTools Docs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="78"/>
+        <location filename="../../view/about_interface.py" line="95"/>
         <source>GitHub Repository</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="79"/>
+        <location filename="../../view/about_interface.py" line="96"/>
         <source>Release Info</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="80"/>
+        <location filename="../../view/about_interface.py" line="97"/>
         <source>Online Docs about FanTools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="81"/>
+        <location filename="../../view/about_interface.py" line="98"/>
         <source>Open source repo on GitHub</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/about_interface.py" line="82"/>
+        <location filename="../../view/about_interface.py" line="99"/>
         <source>Release info on ifanspace.top</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/about_interface.py" line="51"/>
+        <source>Open AppData Folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/about_interface.py" line="53"/>
+        <source>Open Version List</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -271,27 +281,27 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../view/main_window.py" line="68"/>
+        <location filename="../../view/main_window.py" line="61"/>
         <source>Settings</source>
         <translation type="unfinished">設置</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="60"/>
+        <location filename="../../view/main_window.py" line="53"/>
         <source>Main</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="62"/>
+        <location filename="../../view/main_window.py" line="55"/>
         <source>Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="66"/>
+        <location filename="../../view/main_window.py" line="59"/>
         <source>About</source>
         <translation type="unfinished">關於</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="79"/>
+        <location filename="../../view/main_window.py" line="72"/>
         <source>FanTools-Main</source>
         <translation type="unfinished"></translation>
     </message>
@@ -383,82 +393,82 @@ Try again to register now, or change another address.</source>
 <context>
     <name>SettingInterface</name>
     <message>
-        <location filename="../../view/setting_interface.py" line="37"/>
+        <location filename="../../view/setting_interface.py" line="38"/>
         <source>Settings</source>
         <translation>設置</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="40"/>
+        <location filename="../../view/setting_interface.py" line="41"/>
         <source>Personalization</source>
         <translation>個性化</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="42"/>
+        <location filename="../../view/setting_interface.py" line="43"/>
         <source>Mica effect</source>
         <translation>雲母效果</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="42"/>
+        <location filename="../../view/setting_interface.py" line="43"/>
         <source>Apply semi transparent to windows and surfaces</source>
         <translation>窗口和表麵呈現半透明</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="49"/>
+        <location filename="../../view/setting_interface.py" line="50"/>
         <source>Application theme</source>
         <translation>應用主題</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="49"/>
+        <location filename="../../view/setting_interface.py" line="50"/>
         <source>Change the appearance of your application</source>
         <translation>調整應用的外觀</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="49"/>
+        <location filename="../../view/setting_interface.py" line="50"/>
         <source>Light</source>
         <translation>淺色</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="49"/>
+        <location filename="../../view/setting_interface.py" line="50"/>
         <source>Dark</source>
         <translation>深色</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="71"/>
+        <location filename="../../view/setting_interface.py" line="72"/>
         <source>Use system setting</source>
         <translation>跟隨繫統設置</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="60"/>
+        <location filename="../../view/setting_interface.py" line="61"/>
         <source>Interface zoom</source>
         <translation>界麵縮放</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="60"/>
+        <location filename="../../view/setting_interface.py" line="61"/>
         <source>Change the size of widgets and fonts</source>
         <translation>調整組件和字體的大小</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="71"/>
+        <location filename="../../view/setting_interface.py" line="72"/>
         <source>Language</source>
         <translation>語言</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="71"/>
+        <location filename="../../view/setting_interface.py" line="72"/>
         <source>Set your preferred language for UI</source>
         <translation>設置界麵的首選語言</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="81"/>
+        <location filename="../../view/setting_interface.py" line="198"/>
         <source>Software update</source>
         <translation>軟件更新</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="83"/>
+        <location filename="../../view/setting_interface.py" line="200"/>
         <source>Check for updates when the application starts</source>
         <translation>軟件啟動時檢查更新</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="83"/>
+        <location filename="../../view/setting_interface.py" line="207"/>
         <source>The new version will be more stable and have more features</source>
         <translation>新版本更加穩定且擁有更多新特性</translation>
     </message>
@@ -508,14 +518,79 @@ Try again to register now, or change another address.</source>
         <translation type="obsolete">當前版本</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="132"/>
+        <location filename="../../view/setting_interface.py" line="262"/>
         <source>Updated successfully</source>
         <translation>更新成功</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="132"/>
+        <location filename="../../view/setting_interface.py" line="262"/>
         <source>Configuration takes effect after restart</source>
         <translation>配置在重啟軟件後生效</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="82"/>
+        <source>Functions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="83"/>
+        <source>Enable YiYan function (known as Hitokoto)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="83"/>
+        <source>When enabled, you can get a sentence by once per some seconds.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="87"/>
+        <source>YiYan API</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="87"/>
+        <source>Where should we get YiYan from?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="87"/>
+        <source>Official - hitokoto.cn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="87"/>
+        <source>FanMirror - mangofanfan.cn</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="92"/>
+        <source>YiYan categories (only Simplified Chinese)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="92"/>
+        <source>What categories of YiYan would you like to see? (full chosen = none chosen)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="96"/>
+        <source>Duration to refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="96"/>
+        <source>How long should we sleep before refreshing online resources again?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="207"/>
+        <source>Check for updates right now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="207"/>
+        <source>Check</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
