@@ -42,6 +42,16 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../view/about_interface.py" line="51"/>
+        <source>Open AppData Folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/about_interface.py" line="53"/>
+        <source>Open Version List</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../view/about_interface.py" line="74"/>
         <source>Simple Language!</source>
         <translation type="unfinished"></translation>
@@ -101,19 +111,14 @@
         <source>Release info on ifanspace.top</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../../view/about_interface.py" line="51"/>
-        <source>Open AppData Folder</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../view/about_interface.py" line="53"/>
-        <source>Open Version List</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>AccountEditInfoBox</name>
+    <message>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="32"/>
+        <source>Change Avatar</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <location filename="../../view/widgets/account_edit_info_box.py" line="39"/>
         <source>User Name</source>
@@ -150,11 +155,6 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
     <message>
         <location filename="../../view/widgets/account_edit_info_box.py" line="105"/>
         <source>Old Code Wrong. Please try again.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../view/widgets/account_edit_info_box.py" line="32"/>
-        <source>Change Avatar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -199,14 +199,14 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
 <context>
     <name>FileHashInfoBox</name>
     <message>
-        <location filename="../../../tool/hashCalculator/widgets/file_hash_info_box.py" line="16"/>
-        <source>Full Hash Info of file:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../../tool/hashCalculator/widgets/file_hash_info_box.py" line="44"/>
         <source>Success</source>
         <translation type="unfinished">激活成功</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/hashCalculator/widgets/file_hash_info_box.py" line="16"/>
+        <source>Full Hash Info of file:</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../../tool/hashCalculator/widgets/file_hash_info_box.py" line="44"/>
@@ -217,6 +217,11 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
 <context>
     <name>FileHashWidget</name>
     <message>
+        <location filename="../../../tool/hashCalculator/widgets/file_hash_widget.py" line="86"/>
+        <source>Success</source>
+        <translation type="unfinished">激活成功</translation>
+    </message>
+    <message>
         <location filename="../../../tool/hashCalculator/widgets/file_hash_widget.py" line="38"/>
         <source>More</source>
         <translation type="unfinished"></translation>
@@ -225,11 +230,6 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <location filename="../../../tool/hashCalculator/widgets/file_hash_widget.py" line="41"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../../tool/hashCalculator/widgets/file_hash_widget.py" line="86"/>
-        <source>Success</source>
-        <translation type="unfinished">激活成功</translation>
     </message>
     <message>
         <location filename="../../../tool/hashCalculator/widgets/file_hash_widget.py" line="86"/>
@@ -251,29 +251,42 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
     </message>
 </context>
 <context>
+    <name>HitokotoManager</name>
+    <message>
+        <location filename="../../common/hitokoto.py" line="33"/>
+        <source>Here’s to the imperfect tomorrow.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../common/hitokoto.py" line="33"/>
+        <source>Star Rail</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MainInterface</name>
     <message>
-        <location filename="../../view/main_interface.py" line="36"/>
-        <source>Software Information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../view/main_interface.py" line="33"/>
-        <source>Account UUID:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../view/main_interface.py" line="32"/>
-        <source>Software Version:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../view/main_interface.py" line="71"/>
+        <location filename="../../view/main_interface.py" line="79"/>
         <source>Success</source>
         <translation type="unfinished">激活成功</translation>
     </message>
     <message>
-        <location filename="../../view/main_interface.py" line="71"/>
+        <location filename="../../view/main_interface.py" line="35"/>
+        <source>Software Version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/main_interface.py" line="36"/>
+        <source>Account UUID:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/main_interface.py" line="39"/>
+        <source>Software Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/main_interface.py" line="79"/>
         <source>Your Account Info has been changed.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -286,6 +299,11 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <translation type="unfinished">設置</translation>
     </message>
     <message>
+        <location filename="../../view/main_window.py" line="59"/>
+        <source>About</source>
+        <translation type="unfinished">關於</translation>
+    </message>
+    <message>
         <location filename="../../view/main_window.py" line="53"/>
         <source>Main</source>
         <translation type="unfinished"></translation>
@@ -294,11 +312,6 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <location filename="../../view/main_window.py" line="55"/>
         <source>Tools</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../view/main_window.py" line="59"/>
-        <source>About</source>
-        <translation type="unfinished">關於</translation>
     </message>
     <message>
         <location filename="../../view/main_window.py" line="72"/>
@@ -311,27 +324,27 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
     <message>
         <location filename="../../view/register_window.py" line="40"/>
         <source>Email</source>
-        <translation>郵箱</translation>
+        <translation type="unfinished">郵箱</translation>
     </message>
     <message>
         <location filename="../../view/register_window.py" line="44"/>
         <source>Activation Code</source>
-        <translation>激活碼</translation>
+        <translation type="unfinished">激活碼</translation>
     </message>
     <message>
         <location filename="../../view/register_window.py" line="47"/>
         <source>Remember me</source>
-        <translation>記住我</translation>
+        <translation type="unfinished">記住我</translation>
     </message>
     <message>
         <location filename="../../view/register_window.py" line="49"/>
         <source>Login</source>
-        <translation>登錄</translation>
+        <translation type="unfinished">登錄</translation>
     </message>
     <message>
         <location filename="../../view/register_window.py" line="159"/>
         <source>Activate failed</source>
-        <translation>激活失敗</translation>
+        <translation type="unfinished">激活失敗</translation>
     </message>
     <message>
         <location filename="../../view/register_window.py" line="133"/>
@@ -341,7 +354,7 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
     <message>
         <location filename="../../view/register_window.py" line="190"/>
         <source>Success</source>
-        <translation>激活成功</translation>
+        <translation type="unfinished">激活成功</translation>
     </message>
     <message>
         <location filename="../../view/register_window.py" line="141"/>
@@ -361,6 +374,11 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
     <message>
         <location filename="../../view/register_window.py" line="150"/>
         <source>Please input a legal email address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="159"/>
+        <source>Please input right activation code to login this account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -384,93 +402,88 @@ Try again to register now, or change another address.</source>
         <source>Activated successful</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../../view/register_window.py" line="159"/>
-        <source>Please input right activation code to login this account</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>SettingInterface</name>
     <message>
         <location filename="../../view/setting_interface.py" line="38"/>
         <source>Settings</source>
-        <translation>設置</translation>
+        <translation type="unfinished">設置</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="41"/>
         <source>Personalization</source>
-        <translation>個性化</translation>
+        <translation type="unfinished">個性化</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="43"/>
         <source>Mica effect</source>
-        <translation>雲母效果</translation>
+        <translation type="unfinished">雲母效果</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="43"/>
         <source>Apply semi transparent to windows and surfaces</source>
-        <translation>窗口和表麵呈現半透明</translation>
+        <translation type="unfinished">窗口和表麵呈現半透明</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="50"/>
         <source>Application theme</source>
-        <translation>應用主題</translation>
+        <translation type="unfinished">應用主題</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="50"/>
         <source>Change the appearance of your application</source>
-        <translation>調整應用的外觀</translation>
+        <translation type="unfinished">調整應用的外觀</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="50"/>
         <source>Light</source>
-        <translation>淺色</translation>
+        <translation type="unfinished">淺色</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="50"/>
         <source>Dark</source>
-        <translation>深色</translation>
+        <translation type="unfinished">深色</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="72"/>
         <source>Use system setting</source>
-        <translation>跟隨繫統設置</translation>
+        <translation type="unfinished">跟隨繫統設置</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="61"/>
         <source>Interface zoom</source>
-        <translation>界麵縮放</translation>
+        <translation type="unfinished">界麵縮放</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="61"/>
         <source>Change the size of widgets and fonts</source>
-        <translation>調整組件和字體的大小</translation>
+        <translation type="unfinished">調整組件和字體的大小</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="72"/>
         <source>Language</source>
-        <translation>語言</translation>
+        <translation type="unfinished">語言</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="72"/>
         <source>Set your preferred language for UI</source>
-        <translation>設置界麵的首選語言</translation>
+        <translation type="unfinished">設置界麵的首選語言</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="198"/>
+        <location filename="../../view/setting_interface.py" line="203"/>
         <source>Software update</source>
-        <translation>軟件更新</translation>
+        <translation type="unfinished">軟件更新</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="200"/>
+        <location filename="../../view/setting_interface.py" line="205"/>
         <source>Check for updates when the application starts</source>
-        <translation>軟件啟動時檢查更新</translation>
+        <translation type="unfinished">軟件啟動時檢查更新</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="207"/>
+        <location filename="../../view/setting_interface.py" line="212"/>
         <source>The new version will be more stable and have more features</source>
-        <translation>新版本更加穩定且擁有更多新特性</translation>
+        <translation type="unfinished">新版本更加穩定且擁有更多新特性</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="109"/>
@@ -518,14 +531,14 @@ Try again to register now, or change another address.</source>
         <translation type="obsolete">當前版本</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="262"/>
+        <location filename="../../view/setting_interface.py" line="268"/>
         <source>Updated successfully</source>
-        <translation>更新成功</translation>
+        <translation type="unfinished">更新成功</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="262"/>
+        <location filename="../../view/setting_interface.py" line="268"/>
         <source>Configuration takes effect after restart</source>
-        <translation>配置在重啟軟件後生效</translation>
+        <translation type="unfinished">配置在重啟軟件後生效</translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="82"/>
@@ -574,21 +587,36 @@ Try again to register now, or change another address.</source>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="96"/>
-        <source>Duration to refresh</source>
+        <source>Update YiYan Now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../view/setting_interface.py" line="96"/>
+        <source>Update YiYan immediately and globally.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="96"/>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="101"/>
+        <source>Duration to refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="101"/>
         <source>How long should we sleep before refreshing online resources again?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="207"/>
+        <location filename="../../view/setting_interface.py" line="212"/>
         <source>Check for updates right now</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="207"/>
+        <location filename="../../view/setting_interface.py" line="212"/>
         <source>Check</source>
         <translation type="unfinished"></translation>
     </message>
@@ -621,13 +649,13 @@ Try again to register now, or change another address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/widgets/tool_info_box.py" line="49"/>
-        <source>This tool can be launched without FanTools Main Software.</source>
+        <location filename="../../view/widgets/tool_info_box.py" line="43"/>
+        <source>Launch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/widgets/tool_info_box.py" line="43"/>
-        <source>Launch</source>
+        <location filename="../../view/widgets/tool_info_box.py" line="49"/>
+        <source>This tool can be launched without FanTools Main Software.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

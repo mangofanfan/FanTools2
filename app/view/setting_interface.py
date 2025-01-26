@@ -12,6 +12,7 @@ from PySide6.QtCore import Qt, Signal, QUrl, QStandardPaths
 from PySide6.QtGui import QDesktopServices, QFont
 from PySide6.QtWidgets import QWidget, QLabel, QFileDialog, QHBoxLayout, QVBoxLayout
 
+from .widgets.yiyan_widget import YiYanCard
 from ..common.config import cfg, isWin11
 from ..common.setting import HELP_URL, FEEDBACK_URL, AUTHOR, VERSION, YEAR
 from ..common.signal_bus import signalBus
@@ -93,6 +94,11 @@ class SettingInterface(SmoothScrollArea):
                                                                  title=self.tr("YiYan categories (only Simplified Chinese)"),
                                                                  content=self.tr("What categories of YiYan would you like to see? (full chosen = none chosen)"),
                                                                  parent=self.scrollWidget)
+        self.Card_UpdateYiYanNow = PushSettingCard(title=self.tr("Update YiYan Now"),
+                                                   icon=FIC.UPDATE,
+                                                   content=self.tr("Update YiYan immediately and globally."),
+                                                   text=self.tr("Update"),
+                                                   parent=self.scrollWidget)
         self.Card_TimeSleep = RangeSettingCard(configItem=cfg.timeSleep,
                                                title=self.tr("Duration to refresh"),
                                                content=self.tr("How long should we sleep before refreshing online resources again?"),
@@ -244,6 +250,7 @@ class SettingInterface(SmoothScrollArea):
         self.functionGroup.addSettingCard(self.Card_YiYanEnable)
         self.functionGroup.addSettingCard(self.Card_YiYanAPI)
         self.functionGroup.addSettingCard(self.ExpandCard_YiYanType)
+        self.functionGroup.addSettingCard(self.Card_UpdateYiYanNow)
         self.functionGroup.addSettingCard(self.Card_TimeSleep)
 
         self.updateSoftwareGroup.addSettingCard(self.Card_CheckUpdateOnStartUp)
@@ -255,6 +262,7 @@ class SettingInterface(SmoothScrollArea):
         self.expandLayout.addWidget(self.personalGroup)
         self.expandLayout.addWidget(self.updateSoftwareGroup)
         self.expandLayout.addWidget(self.functionGroup)
+        self.expandLayout.addWidget(YiYanCard())
         self.expandLayout.addStretch()
 
     def _showRestartTooltip(self):
@@ -274,6 +282,7 @@ class SettingInterface(SmoothScrollArea):
         cfg.themeChanged.connect(setTheme)
         self.micaCard.checkedChanged.connect(signalBus.micaEnableChanged)
 
+        self.Card_UpdateYiYanNow.clicked.connect(signalBus.hitokotoStartUpdate)
         self.Card_CheckUpdateNow.clicked.connect(signalBus.checkUpdateSig)
 
         return None

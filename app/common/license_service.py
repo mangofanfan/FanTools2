@@ -7,23 +7,9 @@ from PySide6.QtGui import QImage
 from PySide6.QtWidgets import QApplication
 
 from .error import UserCodeWrongError, APIError
+from .function import Singleton
 from .network import QRequestReady
 from .logger import logger
-
-
-class Singleton(object):
-    """
-    A singleton class that provides a singleton.
-    """
-
-    def __init__(self, cls):
-        self._cls = cls
-        self.uniqueInstance = None
-
-    def __call__(self):
-        if self.uniqueInstance is None:
-            self.uniqueInstance = self._cls()
-        return self.uniqueInstance
 
 
 @Singleton
@@ -37,6 +23,8 @@ class LicenseService:
 
         # self.url = "http://127.0.0.1:5000"
         self.url = "https://api-fan.mangofanfan.cn"
+
+        logger.trace("许可证管理器初始化完毕。")
 
     def validate(self, license: str, email: str, signup: bool = False) -> int:
         """ 验证是否允许登录 """

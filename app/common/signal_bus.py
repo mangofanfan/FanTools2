@@ -7,6 +7,8 @@ class SignalBus(QObject):
 
     checkUpdateSig = Signal()
     micaEnableChanged = Signal(bool)
+    hitokotoStartUpdate = Signal()
+    hitokotoUpdate = Signal()
 
 
 signalBus = SignalBus()

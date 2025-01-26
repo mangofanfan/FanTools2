@@ -24,8 +24,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>905</width>
-        <height>633</height>
+        <width>901</width>
+        <height>629</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -100,6 +100,39 @@
         <widget class="HeaderCardWidget" name="HeaderCardWidget"/>
        </item>
        <item>
+        <widget class="ElevatedCardWidget" name="ElevatedCardWidget_YiYan">
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <property name="leftMargin">
+           <number>32</number>
+          </property>
+          <property name="rightMargin">
+           <number>32</number>
+          </property>
+          <item>
+           <widget class="BodyLabel" name="BodyLabel_YiYan">
+            <property name="font">
+             <font>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Body label</string>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignRight">
+           <widget class="StrongBodyLabel" name="StrongBodyLabel_YiYan">
+            <property name="text">
+             <string>Strong body label</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -131,6 +164,12 @@
    <container>1</container>
   </customwidget>
   <customwidget>
+   <class>ElevatedCardWidget</class>
+   <extends>SimpleCardWidget</extends>
+   <header>qfluentwidgets</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
    <class>SimpleCardWidget</class>
    <extends>CardWidget</extends>
    <header>qfluentwidgets</header>
@@ -150,6 +189,11 @@
   </customwidget>
   <customwidget>
    <class>BodyLabel</class>
+   <extends>QLabel</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>StrongBodyLabel</class>
    <extends>QLabel</extends>
    <header>qfluentwidgets</header>
   </customwidget>

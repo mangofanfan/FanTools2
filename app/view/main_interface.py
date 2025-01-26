@@ -1,5 +1,5 @@
 # coding:utf-8
-from PySide6.QtCore import QSize, QFile, QIODevice
+from PySide6.QtCore import QSize, QFile, QIODevice, Slot
 from PySide6.QtGui import QImage
 from PySide6.QtWidgets import QWidget
 from qfluentwidgets import BodyLabel, InfoBar, InfoBarPosition
@@ -9,7 +9,9 @@ from .designer.main_interface import Ui_Form as MainForm
 from .widgets.account_edit_info_box import AccountEditInfoBox
 from ..common import resource
 from ..common.license_service import LicenseService
+from ..common.hitokoto import HitokotoManager
 from ..common.setting import VERSION
+from ..common.signal_bus import signalBus
 from ..common.logger import logger
 
 
@@ -20,6 +22,7 @@ class MainInterface(QWidget, MainForm):
         self.setupUi(self)
         self.setObjectName('MainInterface')
         self.ls = LicenseService()
+        self.hm = HitokotoManager()
         self.initWindow()
 
     def initWindow(self) -> None:
@@ -40,6 +43,11 @@ class MainInterface(QWidget, MainForm):
         BodyLabel_tip.setText(str(tipFile.readAll(), "utf-8"))
         self.HeaderCardWidget.viewLayout.addWidget(BodyLabel_tip)
         tipFile.close()
+
+        # 初始化一言卡片
+        self._loadYiYan()
+        self.ElevatedCardWidget_YiYan.clicked.connect(self._updateYiYan)
+        signalBus.hitokotoUpdate.connect(self._loadYiYan)
 
         # 允许编辑用户资料
         self.ToolButton_EditAccount.setIcon(FIC.EDIT)
@@ -77,4 +85,16 @@ class MainInterface(QWidget, MainForm):
         )
         logger.success("成功更新用户信息并关闭用户信息编辑框。")
         self._loadUserInfo()
+        return None
+
+    def _updateYiYan(self) -> None:
+        logger.trace("从工具箱主页立即刷新一言。")
+        self.hm.updateNow()
+        return None
+
+    @Slot()
+    def _loadYiYan(self) -> None:
+        logger.trace("更新工具箱主页的一言卡片。")
+        self.BodyLabel_YiYan.setText(self.hm.hitokoto.text)
+        self.StrongBodyLabel_YiYan.setText(self.hm.hitokoto.by)
         return None

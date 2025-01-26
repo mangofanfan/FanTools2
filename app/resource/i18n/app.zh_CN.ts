@@ -254,6 +254,19 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
     </message>
 </context>
 <context>
+    <name>HitokotoManager</name>
+    <message>
+        <location filename="../../common/hitokoto.py" line="33"/>
+        <source>Here’s to the imperfect tomorrow.</source>
+        <translation>致不完美的明天。</translation>
+    </message>
+    <message>
+        <location filename="../../common/hitokoto.py" line="33"/>
+        <source>Star Rail</source>
+        <translation>星穹铁道</translation>
+    </message>
+</context>
+<context>
     <name>MainInterface</name>
     <message>
         <location filename="../../view/main_interface.py" line="27"/>
@@ -261,27 +274,27 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <translation type="obsolete">软件版本： {VERSION}</translation>
     </message>
     <message>
-        <location filename="../../view/main_interface.py" line="36"/>
+        <location filename="../../view/main_interface.py" line="39"/>
         <source>Software Information</source>
         <translation>软件信息</translation>
     </message>
     <message>
-        <location filename="../../view/main_interface.py" line="33"/>
+        <location filename="../../view/main_interface.py" line="36"/>
         <source>Account UUID:</source>
         <translation>账户UUID：</translation>
     </message>
     <message>
-        <location filename="../../view/main_interface.py" line="32"/>
+        <location filename="../../view/main_interface.py" line="35"/>
         <source>Software Version:</source>
         <translation>软件版本：</translation>
     </message>
     <message>
-        <location filename="../../view/main_interface.py" line="71"/>
+        <location filename="../../view/main_interface.py" line="79"/>
         <source>Success</source>
         <translation>激活成功</translation>
     </message>
     <message>
-        <location filename="../../view/main_interface.py" line="71"/>
+        <location filename="../../view/main_interface.py" line="79"/>
         <source>Your Account Info has been changed.</source>
         <translation>您的用户资料已经被更新。</translation>
     </message>
@@ -467,17 +480,17 @@ Try again to register now, or change another address.</source>
         <translation>设置界面的首选语言</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="198"/>
+        <location filename="../../view/setting_interface.py" line="203"/>
         <source>Software update</source>
         <translation>软件更新</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="200"/>
+        <location filename="../../view/setting_interface.py" line="205"/>
         <source>Check for updates when the application starts</source>
         <translation>软件启动时检查更新</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="207"/>
+        <location filename="../../view/setting_interface.py" line="212"/>
         <source>The new version will be more stable and have more features</source>
         <translation>新版本更加稳定且拥有更多新特性</translation>
     </message>
@@ -527,12 +540,12 @@ Try again to register now, or change another address.</source>
         <translation type="obsolete">当前版本</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="262"/>
+        <location filename="../../view/setting_interface.py" line="268"/>
         <source>Updated successfully</source>
         <translation>更新成功</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="262"/>
+        <location filename="../../view/setting_interface.py" line="268"/>
         <source>Configuration takes effect after restart</source>
         <translation>配置在重启软件后生效</translation>
     </message>
@@ -582,24 +595,39 @@ Try again to register now, or change another address.</source>
         <translation>你希望看到哪些类别的一言？（全选等同于全不选）</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="96"/>
+        <location filename="../../view/setting_interface.py" line="101"/>
         <source>Duration to refresh</source>
         <translation>刷新间隔</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="96"/>
+        <location filename="../../view/setting_interface.py" line="101"/>
         <source>How long should we sleep before refreshing online resources again?</source>
         <translation>获取在线资源的刷新间隔？</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="207"/>
+        <location filename="../../view/setting_interface.py" line="212"/>
         <source>Check for updates right now</source>
         <translation>立即检查更新</translation>
     </message>
     <message>
-        <location filename="../../view/setting_interface.py" line="207"/>
+        <location filename="../../view/setting_interface.py" line="212"/>
         <source>Check</source>
         <translation>检查</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="96"/>
+        <source>Update YiYan Now</source>
+        <translation>立即更新一言</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="96"/>
+        <source>Update YiYan immediately and globally.</source>
+        <translation>立刻、全局获取新的一言。</translation>
+    </message>
+    <message>
+        <location filename="../../view/setting_interface.py" line="96"/>
+        <source>Update</source>
+        <translation>更新</translation>
     </message>
 </context>
 <context>

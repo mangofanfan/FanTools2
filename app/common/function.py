@@ -2,6 +2,21 @@ from os import getcwd, getenv
 from pathlib import Path
 
 
+class Singleton(object):
+    """
+    A singleton class that provides a singleton.
+    """
+
+    def __init__(self, cls):
+        self._cls = cls
+        self.uniqueInstance = None
+
+    def __call__(self):
+        if self.uniqueInstance is None:
+            self.uniqueInstance = self._cls()
+        return self.uniqueInstance
+
+
 class basicFunc:
     def __init__(self):
         pass
