@@ -2,22 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs-fantools.mangofanfan.cn/</loc>
-         <lastmod>2025-01-25</lastmod>
+         <lastmod>2025-01-26</lastmod>
     </url>
     <url>
          <loc>https://docs-fantools.mangofanfan.cn/contribute/</loc>
-         <lastmod>2025-01-25</lastmod>
+         <lastmod>2025-01-26</lastmod>
+    </url>
+    <url>
+         <loc>https://docs-fantools.mangofanfan.cn/hitokoto/</loc>
+         <lastmod>2025-01-26</lastmod>
     </url>
     <url>
          <loc>https://docs-fantools.mangofanfan.cn/log/</loc>
-         <lastmod>2025-01-25</lastmod>
+         <lastmod>2025-01-26</lastmod>
     </url>
     <url>
          <loc>https://docs-fantools.mangofanfan.cn/start_use/</loc>
-         <lastmod>2025-01-25</lastmod>
+         <lastmod>2025-01-26</lastmod>
     </url>
     <url>
          <loc>https://docs-fantools.mangofanfan.cn/version/</loc>
-         <lastmod>2025-01-25</lastmod>
+         <lastmod>2025-01-26</lastmod>
     </url>
 </urlset>

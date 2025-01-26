@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs-fantools.mangofanfan.cn/log/">
       
       
-        <link rel="prev" href="../start_use/">
+        <link rel="prev" href="../hitokoto/">
       
       
         <link rel="next" href="../version/">
@@ -361,6 +361,64 @@
   
   
   
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    工具箱功能
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            工具箱功能
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hitokoto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    一言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -426,6 +484,14 @@
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -534,6 +600,7 @@
 
 
 <h1 id="_1">日志结构</h1>
+<p>(<code>0.2.2</code>+)</p>
 <p>工具箱从0.2.2版本开始会在运行时输出日志，在数据目录下的<code>latest.log</code>是最后一次运行时的日志，目前暂不保留历史日志。</p>
 <p>在技术上，工具箱采用的日志模块是<code>loguru</code>，这是Python的第三方日志模块而非内置模块<code>logging</code>。输出日志的层级上，基于<code>loguru</code>的内建层级，工具箱对其做如下规定：</p>
 <h2 id="_2">日志等级规定</h2>
