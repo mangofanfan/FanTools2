@@ -25,3 +25,18 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./site  # mkdocs 构建输出目录为 site
+
+      # 上传至腾讯云COS
+    - name: Setup coscmd and sdk
+      run: pip install coscmd
+
+    - name: Configure coscmd
+      env:
+        SECRET_ID: ${{ secrets.SECRET_ID }}
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        BUCKET: docs-fantools-1309266774
+        REGION: ap-nanjing
+      run: coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
+
+    - name: Upload to COS
+      run: coscmd upload -rfs --delete public/ /
