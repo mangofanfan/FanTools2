@@ -41,4 +41,4 @@ jobs:
     - name: Upload to COS
       run: |
         coscmd upload -rfs --delete ./site/ /
-        coscmd upload ./site/index.html / -H {"Content-Disposition": "inline"}
+        coscmd upload ./site/index.html / -H "{'Content-Disposition': 'inline'}"
