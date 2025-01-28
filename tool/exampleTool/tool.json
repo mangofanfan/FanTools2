@@ -1,0 +1,10 @@
+{
+  "name": "Example Tool",
+  "module": "exampleTool",
+  "icon": "",
+  "ver": "3.2.1",
+  "author": "MangoFanFan",
+  "tip": "Basic example tool",
+  "launchMode": 0,
+  "modules": []
+}
