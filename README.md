@@ -7,7 +7,7 @@
 
 ## 项目结构
 
-仓库拥有`master`、`dev`和`gh-pages`三个分支，请参阅[文档中的「项目结构」段落](https://docs-fantools.mangofanfan.cn/contribute/)。简单来说，有且仅有`dev`分支应当接受commit。
+仓库拥有`master`和`dev`三个分支，请参阅[文档中的「项目结构」段落](https://docs-fantools.mangofanfan.cn/about/contribute.html)。简单来说，有且仅有`dev`分支应当接受commit。
 
 ## 文件结构
 
