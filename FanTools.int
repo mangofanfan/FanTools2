@@ -1,3 +1,27 @@
 #  vim: set ts=4 sw=4 tw=0 et ft=python :
+import ctypes
+import subprocess
+import sys
 
-import main
+# 检查是否具有管理员权限
+def is_admin():
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin()
+    except:
+        return False
+
+# 获取管理员权限
+def run_as_admin():
+    if is_admin():
+        # 如果已是管理员权限，直接执行主函数
+        main()
+    else:
+        # 重新启动该脚本并请求管理员权限
+        ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, __file__, None, 1)
+
+# 主函数
+def main():
+    import main
+
+if __name__ == "__main__":
+    run_as_admin()
