@@ -5,8 +5,9 @@
 
 [**官方文档**](https://docs-fantools.mangofanfan.cn/) | [**开始使用**](https://github.com/mangofanfan/FanTools2/releases)
 
-## 项目结构
+请记得务必一定必须肯定应该不能忘记要看看文档！
 
+## 项目结构
 仓库拥有`master`和`dev`三个分支，请参阅[文档中的「项目结构」段落](https://docs-fantools.mangofanfan.cn/about/contribute.html)。简单来说，有且仅有`dev`分支应当接受commit。
 
 ## 文件结构
@@ -61,8 +62,6 @@ root
 │           ...
 ├─tool      (工具目录)
 │   ...
-├─docs      (文档目录)
-│   ...
 ```
 
 ## 许可证
@@ -70,3 +69,5 @@ root
 由于上游项目的开源许可证的传染性，目前采用GPL-v3协议。
 
 这只是暂时的决定，日后可能会更改？
+
+关于芒果工具箱使用到的其他外部项目、上游依赖，请参阅[文档中的外部项目](https://docs-fantools.mangofanfan.cn/about/include.html)。
