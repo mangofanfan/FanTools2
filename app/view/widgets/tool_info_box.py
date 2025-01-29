@@ -1,9 +1,10 @@
 from PySide6.QtCore import QSize, Signal
 from PySide6.QtGui import QImage
 from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout
-from qfluentwidgets import MessageBoxBase, TitleLabel, ImageLabel, StrongBodyLabel, SimpleCardWidget, BodyLabel
+from qfluentwidgets import MessageBoxBase, TitleLabel, ImageLabel, StrongBodyLabel, SimpleCardWidget, BodyLabel, \
+    PushButton
 
-from .tool_load import Tool
+from .tool_load import Tool, ModuleInstaller
 
 
 class ToolInfoBox(MessageBoxBase):
@@ -36,6 +37,13 @@ class ToolInfoBox(MessageBoxBase):
         childVBoxLayout.addWidget(BodyLabel(self.tr("Author:") + tool.author))
         childVBoxLayout.addWidget(BodyLabel(self.tr("Version:") + tool.ver))
         childVBoxLayout.addWidget(BodyLabel(self.tr("Launch:") + self.launch_text(tool.launchMode)))
+        childVBoxLayout.addWidget(BodyLabel(self.tr("Needed modules:") + (" ".join(tool.modules) if tool.modules else self.tr("None"))))
+
+        if tool.modules:
+            self.moduleInstaller = ModuleInstaller(self)
+            pushButton_installModules = PushButton(self.tr("Install Modules"))
+            pushButton_installModules.clicked.connect(lambda: self.moduleInstaller.install_modules(tool))
+            childVBoxLayout.addWidget(pushButton_installModules)
 
         vBoxLayout.addWidget(simpleCard)
         hBoxLayout.addLayout(vBoxLayout)
@@ -47,6 +55,8 @@ class ToolInfoBox(MessageBoxBase):
     def launch_text(self, mode: int) -> str:
         if mode == 0:
             return self.tr("This tool can be launched without FanTools Main Software.")
+        elif mode == 1:
+            return self.tr("This tool can only be launched with FanTools Main Software.")
         else:
             raise IndexError(f"Index {mode} out of range.")
 

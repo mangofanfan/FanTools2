@@ -7,6 +7,7 @@ SOURCES += app/common/hitokoto.py \
         app/view/about_interface.py \
         app/view/widgets/tool_widget.py \
         app/view/widgets/tool_info_box.py \
+        app/view/widgets/tool_load_info_bar.py
         app/view/widgets/account_edit_info_box.py \
         app/view/widgets/need_update_info_bar.py \
         tool/hashCalculator/widgets/file_hash_widget.py \

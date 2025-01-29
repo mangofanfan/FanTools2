@@ -21,6 +21,11 @@ root
 │  mkdocs.yml               (文档配置)
 │  requirements.txt         (依赖环境)
 │
+│─runtime
+│   │ 是一个3.11.9 Python嵌入环境，用于工具箱版本0.2.3及之后的新打包方式。
+│   │ 运行根目录下的FanTools.exe会调用此环境来运行工具箱。
+│   │ 更多细节请参见文档，折腾这个打包方式真是要了我的老命了QAQ
+│
 │─app
 │   ├─common
 │   │      config.py        (Configuration file)
@@ -59,3 +64,9 @@ root
 ├─docs      (文档目录)
 │   ...
 ```
+
+## 许可证
+
+由于上游项目的开源许可证的传染性，目前采用GPL-v3协议。
+
+这只是暂时的决定，日后可能会更改？
