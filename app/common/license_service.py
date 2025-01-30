@@ -26,7 +26,7 @@ class LicenseService:
 
         logger.trace("许可证管理器初始化完毕。")
 
-    def validate(self, license: str, email: str, signup: bool = False) -> int:
+    def validate_email(self, license: str, email: str, signup: bool = False) -> int:
         """ 验证是否允许登录 """
         if email == "" or email is None:
             return 1
@@ -70,6 +70,16 @@ class LicenseService:
 
         return 0
 
+    def validate_fan(self, datas: dict) -> None:
+        self.email = datas["user_email"]
+        self.license = None
+        self.datas = {"_name": datas["user_login"],
+                      "name": datas["display_name"],
+                      "id": datas["ID"],
+                      "other": datas["zib_other_data"]}
+        logger.success("许可证管理器已保存帆域 Oauth 登录结果。")
+        return None
+
     def getUserInfo(self, avatarFunc, nameFunc) -> None:
         """
         在主程序初始化之后，使用此方法获取email的头像和用户名。
@@ -83,18 +93,24 @@ class LicenseService:
     def getAvatar(self, avatarFunc: callable, size: int) -> None:
         image = QImage()
 
+        url = f"https://cravatar.cn/avatar/{self.__md5(self.email.lower())}?s={size}" if not self.license else self.datas["other"]["custom_avatar"]
+
         (
             QRequestReady(QApplication.instance())
-            .get(f"https://cravatar.cn/avatar/{self.__md5(self.email.lower())}?s={size}")
+            .get(url)
             .then(lambda t: image.loadFromData(t))
             .then(lambda t: avatarFunc(image))
             .done()
         )
-        logger.trace(f"开始异步加载尺寸为 {size} 的用户头像。")
+        logger.trace(f"开始异步加载尺寸为 {size} 的用户头像。（若为 Oauth 登录方式无法指定大小）")
 
         return None
 
     def changeUserInfo(self, oldCode: str, name: str, newCode: str = "") -> int:
+        if not self.license:
+            logger.error("无法更改 Oauth 方式登录的用户信息！")
+            return -2
+
         logger.debug("提交了用户信息更改。")
 
         global code
