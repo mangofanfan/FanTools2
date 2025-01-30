@@ -3,6 +3,7 @@ from app.common.logger import logger
 
 import os
 import sys
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'
 
 from PySide6.QtCore import Qt, QTranslator, QFile
 from PySide6.QtGui import QFont
