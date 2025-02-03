@@ -1,6 +1,6 @@
 # coding:utf-8
 import sys
-from PySide6.QtCore import Qt, QTimer, QUrl
+from PySide6.QtCore import Qt, QTimer, QUrl, QSize
 from PySide6.QtGui import QPixmap, QPainter, QColor, QIcon
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtWidgets import QWidget, QApplication, QHBoxLayout, QVBoxLayout
@@ -44,7 +44,8 @@ class RegisterWindow(Window):
         self.stackedWidget = StackedWidget(self)
 
         self.imageLabel = ImageLabel(':/app/images/background.jpg', self)
-        self.iconLabel = ImageLabel(':/app/images/logo.png', self)
+        self.iconLabel_LoginWithFan = ImageLabel(':/app/IconFanSpace', self)
+        self.iconLabel_LoginWithEmail = ImageLabel(':/app/images/logo.png', self)
 
         self.returnButton1 = HyperlinkButton(self)
         self.returnButton1.setText(self.tr('Return'))
@@ -72,7 +73,9 @@ class RegisterWindow(Window):
         self.pushButton_OpenOauthWeb.clicked.connect(self._loginWithFan)
 
         self.webEngineView = QWebEngineView()
-
+        self.webEngineView.setWindowTitle(self.tr("Please login in this window as soon as possible ~"))
+        self.webEngineView.setWindowIcon(QIcon(':/app/images/logo.png'))
+        self.webEngineView.setFixedSize(QSize(640, 800))
 
         # Email 模式的组件
         self.widget_LoginWithEmail = QWidget(self)
@@ -137,7 +140,8 @@ class RegisterWindow(Window):
 
     def __initLayout(self):
         self.imageLabel.scaledToHeight(650)
-        self.iconLabel.scaledToHeight(100)
+        self.iconLabel_LoginWithFan.scaledToHeight(100)
+        self.iconLabel_LoginWithEmail.scaledToHeight(100)
 
         self.hBoxLayout.addWidget(self.imageLabel)
         self.hBoxLayout.addWidget(self.stackedWidget)
@@ -154,9 +158,19 @@ class RegisterWindow(Window):
         # 帆域登录模式
         self.stackedWidget.addWidget(self.widget_LoginWithFan)
         self.widget_LoginWithFan.setLayout(self.vBoxLayout_LoginWithFan)
+        self.vBoxLayout_LoginWithFan.addStretch(1)
+
+        self.vBoxLayout_LoginWithFan.addWidget(self.iconLabel_LoginWithFan, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.vBoxLayout_LoginWithFan.addSpacing(9)
+        bodyLabel = BodyLabel(self.tr('Using your FanSpace account on ifanspace.top to login.<br>'
+                                      'ifanspace.top is a website powered by WordPress, designed by MangoFanFan.<br>'
+                                      'You need to take actions on another window.'), self)
+        bodyLabel.setWordWrap(True)
+        self.vBoxLayout_LoginWithFan.addWidget(bodyLabel)
         self.vBoxLayout_LoginWithFan.addWidget(self.pushButton_OpenOauthWeb)
-        self.vBoxLayout_LoginWithFan.addSpacing(10)
+        self.vBoxLayout_LoginWithFan.addSpacing(9)
         self.vBoxLayout_LoginWithFan.addWidget(self.returnButton1)
+        self.vBoxLayout_LoginWithFan.addStretch(1)
 
         # Email 登录模式
         self.stackedWidget.addWidget(self.widget_LoginWithEmail)
@@ -168,8 +182,7 @@ class RegisterWindow(Window):
         self.hBoxLayout.setSpacing(0)
 
         self.vBoxLayout_LoginWithEmail.addStretch(1)
-        self.vBoxLayout_LoginWithEmail.addWidget(
-            self.iconLabel, 0, Qt.AlignmentFlag.AlignHCenter)
+        self.vBoxLayout_LoginWithEmail.addWidget(self.iconLabel_LoginWithEmail, 0, Qt.AlignmentFlag.AlignHCenter)
         self.vBoxLayout_LoginWithEmail.addSpacing(20)
         self.vBoxLayout_LoginWithEmail.addWidget(BodyLabel(self.tr('Login with an unchecked email address...'), self))
         self.vBoxLayout_LoginWithEmail.addSpacing(10)
@@ -275,7 +288,13 @@ class RegisterWindow(Window):
                 self.oauthClient.fetch_token(token_url=fanlive_token, client_secret=CLIENT_SECRET, authorization_response=AUTH_RES)
 
                 datas = self.oauthClient.get(fanlive_me).json()
-                print(datas)
+
+                InfoBar.success(title=self.tr("Login successful"),
+                                content=self.tr("Successfully login with a FanSpace account."),
+                                position=InfoBarPosition.TOP,
+                                duration=2000,
+                                parent=self.window())
+
                 self.register.validate_fan(datas)
                 QTimer.singleShot(1500, self._showMainWindow)
             return None
@@ -289,7 +308,6 @@ class RegisterWindow(Window):
         self.webEngineView.urlChanged.connect(urlChanged)
         logger.info("展示 Oauth 验证登录窗口。")
 
-
         return None
 
     def _showMainWindow(self):
@@ -300,3 +318,4 @@ class RegisterWindow(Window):
 
         w = MainWindow()
         w.show()
+        logger.trace("工具箱主窗口已经显示，登录流程结束。")

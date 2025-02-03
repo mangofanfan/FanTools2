@@ -27,6 +27,7 @@
         <file alias="IconDocs">images/icons/IconHtml.svg</file>
         <file alias="IconGitHub">images/icons/IconGitHub.svg</file>
         <file alias="IconRelease">images/icons/IconFanSpace.png</file>
+        <file alias="IconFanSpace">images/icons/IconFanSpace.png</file>
         <file>images/payQRcode.png</file>
     </qresource>
 </RCC>
