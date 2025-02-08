@@ -10,6 +10,8 @@
 ## 项目结构
 仓库拥有`master`和`dev`三个分支，请参阅[文档中的「项目结构」段落](https://docs-fantools.mangofanfan.cn/about/contribute.html)。简单来说，有且仅有`dev`分支应当接受commit。
 
+项目入口`main.py`已从仓库中删除。如您需要在本地运行项目，日后会提供可运行的最小代码量入口文件。
+
 ## 文件结构
 
 是基于Fluent Widgets脚手架。:)
