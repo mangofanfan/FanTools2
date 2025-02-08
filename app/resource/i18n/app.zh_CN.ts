@@ -6,12 +6,12 @@
     <message>
         <location filename="../../../tool/bilingualWriting/widgets/tr_api.py" line="17"/>
         <source>BaiDuFanYi</source>
-        <translation type="obsolete">百度翻译</translation>
+        <translation>百度翻译</translation>
     </message>
     <message>
         <location filename="../../../tool/bilingualWriting/widgets/tr_api.py" line="18"/>
         <source>YouDaoFanYi</source>
-        <translation type="obsolete">有道翻译</translation>
+        <translation>有道翻译</translation>
     </message>
 </context>
 <context>
@@ -117,27 +117,27 @@
     <message>
         <location filename="../../view/widgets/account_edit_info_box.py" line="39"/>
         <source>User Name</source>
-        <translation type="obsolete">用户名</translation>
+        <translation>用户名</translation>
     </message>
     <message>
         <location filename="../../view/widgets/account_edit_info_box.py" line="41"/>
         <source>EMail Address</source>
-        <translation type="obsolete">电子邮件地址</translation>
+        <translation>电子邮件地址</translation>
     </message>
     <message>
         <location filename="../../view/widgets/account_edit_info_box.py" line="43"/>
         <source>UUID</source>
-        <translation type="obsolete">UUID</translation>
+        <translation>UUID</translation>
     </message>
     <message>
         <location filename="../../view/widgets/account_edit_info_box.py" line="63"/>
         <source>Old Code</source>
-        <translation type="obsolete">原激活码</translation>
+        <translation>原激活码</translation>
     </message>
     <message>
         <location filename="../../view/widgets/account_edit_info_box.py" line="65"/>
         <source>New Code</source>
-        <translation type="obsolete">新激活码</translation>
+        <translation>新激活码</translation>
     </message>
     <message>
         <location filename="../../view/widgets/account_edit_info_box.py" line="76"/>
@@ -145,7 +145,7 @@
 Next time you need to login with code you set here.
 Once you set your code, you can never cancel it but only change it.
 Whatever you do here on your account, your Old Code is needed to confirm them.</source>
-        <translation type="obsolete">您可以在此处重设您的激活码。
+        <translation>您可以在此处重设您的激活码。
 下次登录时，您将需要使用在此设置的新激活码。
 一旦您设置了自己的激活码之后，您将无法取消而只能更改激活码。
 无论您在此页面作何改动，都需要使用原激活码来确认您的身份。</translation>
@@ -153,17 +153,17 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
     <message>
         <location filename="../../view/widgets/account_edit_info_box.py" line="105"/>
         <source>Old Code Wrong. Please try again.</source>
-        <translation type="obsolete">激活码错误，请再次尝试。</translation>
+        <translation>激活码错误，请再次尝试。</translation>
     </message>
     <message>
         <location filename="../../view/widgets/account_edit_info_box.py" line="32"/>
         <source>Change Avatar</source>
-        <translation type="obsolete">更改头像</translation>
+        <translation>更改头像</translation>
     </message>
     <message>
         <location filename="../../view/widgets/account_edit_info_box.py" line="109"/>
         <source>Unknown Error. Please try again.</source>
-        <translation type="obsolete">未知错误，请再次尝试。</translation>
+        <translation>未知错误，请再次尝试。</translation>
     </message>
 </context>
 <context>
@@ -171,32 +171,32 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
     <message>
         <location filename="../../../tool/bilingualWriting/run.py" line="13"/>
         <source>Bilingual Writing</source>
-        <translation type="obsolete">双语写作</translation>
+        <translation>双语写作</translation>
     </message>
     <message>
         <location filename="../../../tool/bilingualWriting/run.py" line="18"/>
         <source>Title:</source>
-        <translation type="obsolete">标题：</translation>
+        <translation>标题：</translation>
     </message>
     <message>
         <location filename="../../../tool/bilingualWriting/run.py" line="21"/>
         <source>Your new paragraph will be put here!</source>
-        <translation type="obsolete">您的新段落将会被放置在这里！</translation>
+        <translation>您的新段落将会被放置在这里！</translation>
     </message>
     <message>
         <location filename="../../../tool/bilingualWriting/run.py" line="23"/>
         <source>using API:</source>
-        <translation type="obsolete">使用API：</translation>
+        <translation>使用API：</translation>
     </message>
     <message>
         <location filename="../../../tool/bilingualWriting/run.py" line="25"/>
         <source>Settings</source>
-        <translation type="obsolete">设置</translation>
+        <translation>设置</translation>
     </message>
     <message>
         <location filename="../../../tool/bilingualWriting/run.py" line="26"/>
         <source>Open settings ...</source>
-        <translation type="obsolete">打开设置……</translation>
+        <translation>打开设置……</translation>
     </message>
 </context>
 <context>
@@ -204,17 +204,17 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
     <message>
         <location filename="../../../tool/hashCalculator/widgets/file_hash_info_box.py" line="16"/>
         <source>Full Hash Info of file:</source>
-        <translation type="obsolete">该文件的完整哈希值信息：</translation>
+        <translation>该文件的完整哈希值信息：</translation>
     </message>
     <message>
         <location filename="../../../tool/hashCalculator/widgets/file_hash_info_box.py" line="44"/>
         <source>Success</source>
-        <translation type="obsolete">激活成功</translation>
+        <translation>激活成功</translation>
     </message>
     <message>
         <location filename="../../../tool/hashCalculator/widgets/file_hash_info_box.py" line="44"/>
         <source>Selected file&apos;s {} has been written to clipboard.</source>
-        <translation type="obsolete">选中文件的 {} 已被复制到剪切板。</translation>
+        <translation>选中文件的 {} 已被复制到剪切板。</translation>
     </message>
 </context>
 <context>
@@ -222,22 +222,22 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
     <message>
         <location filename="../../../tool/hashCalculator/widgets/file_hash_widget.py" line="38"/>
         <source>More</source>
-        <translation type="obsolete">更多</translation>
+        <translation>更多</translation>
     </message>
     <message>
         <location filename="../../../tool/hashCalculator/widgets/file_hash_widget.py" line="41"/>
         <source>Delete</source>
-        <translation type="obsolete">删除</translation>
+        <translation>删除</translation>
     </message>
     <message>
         <location filename="../../../tool/hashCalculator/widgets/file_hash_widget.py" line="86"/>
         <source>Success</source>
-        <translation type="obsolete">激活成功</translation>
+        <translation>激活成功</translation>
     </message>
     <message>
         <location filename="../../../tool/hashCalculator/widgets/file_hash_widget.py" line="86"/>
         <source>Selected file&apos;s {} has been written to clipboard.</source>
-        <translation type="obsolete">选中文件的 {} 已被复制到剪切板。</translation>
+        <translation>选中文件的 {} 已被复制到剪切板。</translation>
     </message>
 </context>
 <context>
@@ -245,12 +245,12 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
     <message>
         <location filename="../../../tool/hashCalculator/run.py" line="19"/>
         <source>Hash Calculator</source>
-        <translation type="obsolete">哈希值计算器</translation>
+        <translation>哈希值计算器</translation>
     </message>
     <message>
         <location filename="../../../tool/hashCalculator/run.py" line="29"/>
         <source>Drop any file here, and then you can check their hash, or compare them with someone else.</source>
-        <translation type="obsolete">将任意文件拖拽至此，然后您可以检查它们的哈希值或进行对比。</translation>
+        <translation>将任意文件拖拽至此，然后您可以检查它们的哈希值或进行对比。</translation>
     </message>
 </context>
 <context>
@@ -363,27 +363,27 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
 <context>
     <name>RegisterWindow</name>
     <message>
-        <location filename="../../view/register_window.py" line="84"/>
+        <location filename="../../view/register_window.py" line="95"/>
         <source>Email</source>
         <translation>邮箱</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="88"/>
+        <location filename="../../view/register_window.py" line="99"/>
         <source>Activation Code</source>
         <translation>激活码</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="91"/>
+        <location filename="../../view/register_window.py" line="102"/>
         <source>Remember me</source>
         <translation>记住我</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="93"/>
+        <location filename="../../view/register_window.py" line="104"/>
         <source>Login</source>
         <translation>登录</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="235"/>
+        <location filename="../../view/register_window.py" line="254"/>
         <source>Activate failed</source>
         <translation>激活失败</translation>
     </message>
@@ -393,7 +393,7 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <translation type="obsolete">请检查你的激活码是否正确</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="266"/>
+        <location filename="../../view/register_window.py" line="285"/>
         <source>Success</source>
         <translation>激活成功</translation>
     </message>
@@ -403,91 +403,121 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <translation type="obsolete">正在打开主界面</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="106"/>
+        <location filename="../../view/register_window.py" line="117"/>
         <source>Type in here if you have ...</source>
         <translation>如果您有的话，可以在此输入……</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="122"/>
+        <location filename="../../view/register_window.py" line="133"/>
         <source>FanTools-Login</source>
         <translation>芒果工具箱-登录</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="226"/>
+        <location filename="../../view/register_window.py" line="245"/>
         <source>Please input a legal email address</source>
         <translation>请输入正确的电子邮件地址</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="244"/>
+        <location filename="../../view/register_window.py" line="263"/>
         <source>Wait for activation</source>
         <translation>等待激活</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="244"/>
+        <location filename="../../view/register_window.py" line="263"/>
         <source>This email address has not been registered.
 Try again to register now, or change another address.</source>
         <translation>此邮件地址尚未被注册。
 再次登录以现在注册，或更换另一个已经注册的地址。</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="256"/>
+        <location filename="../../view/register_window.py" line="275"/>
         <source>This email address has been activated.</source>
         <translation>此电子邮件地址已被激活。</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="266"/>
+        <location filename="../../view/register_window.py" line="285"/>
         <source>Activated successful</source>
         <translation>激活成功</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="235"/>
+        <location filename="../../view/register_window.py" line="254"/>
         <source>Please input right activation code to login this account</source>
         <translation>请输入正确的激活码以登录此用户</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="54"/>
+        <location filename="../../view/register_window.py" line="58"/>
         <source>Return</source>
         <translation>返回</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="61"/>
+        <location filename="../../view/register_window.py" line="65"/>
         <source>Login with FanSpace account</source>
         <translation>通过帆域账户登录</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="65"/>
+        <location filename="../../view/register_window.py" line="69"/>
         <source>Login with an email address</source>
         <translation>通过电子邮件地址登录</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="72"/>
+        <location filename="../../view/register_window.py" line="76"/>
         <source>Login with ifanspace.top</source>
         <translation>通过 ifanspace.top 登录</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="76"/>
+        <location filename="../../view/register_window.py" line="87"/>
         <source>Please login in this window as soon as possible ~</source>
         <translation>请在此窗口中尽快完成登录……~</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="165"/>
+        <location filename="../../view/register_window.py" line="180"/>
         <source>Using your FanSpace account on ifanspace.top to login.&lt;br&gt;ifanspace.top is a website powered by WordPress, designed by MangoFanFan.&lt;br&gt;You need to take actions on another window.</source>
         <translation>使用你在 ifanspace.top 上的帆域账户完成登录。&lt;br&gt;ifanspace.top是一个由芒果帆帆设计、基于WordPress实现的网站。&lt;br&gt;你需要在另一窗口中操作登录。</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="187"/>
+        <location filename="../../view/register_window.py" line="206"/>
         <source>Login with an unchecked email address...</source>
         <translation>使用一个不会经过检查的电子邮件地址登录...</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="292"/>
+        <location filename="../../view/register_window.py" line="329"/>
         <source>Login successful</source>
         <translation>登录成功</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="292"/>
+        <location filename="../../view/register_window.py" line="329"/>
         <source>Successfully login with a FanSpace account.</source>
         <translation>成功通过帆域账户登录。</translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="79"/>
+        <source>Use saved token to login</source>
+        <translation>使用保存的凭证登录</translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="82"/>
+        <source>Open ifanspace.top</source>
+        <translation>打开 ifanspace.top</translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="84"/>
+        <source>You may want to create a FanSpace account first?</source>
+        <translation>你可能想要先在浏览器中打开帆域来创建一个账户？</translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="169"/>
+        <source>Version:</source>
+        <translation>版本：</translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="170"/>
+        <source>Picture left from pixiv.</source>
+        <translation>左图来自 Pixiv。</translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="362"/>
+        <source>You need to login first to get a saved token.</source>
+        <translation>你需要先完成一次登录来获取凭证。</translation>
     </message>
 </context>
 <context>
@@ -807,22 +837,22 @@ Try again to register now, or change another address.</source>
     <message>
         <location filename="../../view/widgets/need_update_info_bar.py" line="8"/>
         <source>New Version Found</source>
-        <translation type="obsolete">发现新版本</translation>
+        <translation>发现新版本</translation>
     </message>
     <message>
         <location filename="../../view/widgets/need_update_info_bar.py" line="8"/>
         <source>FanTools v{} can be updated now.</source>
-        <translation type="obsolete">FanTools 版本 v{} 已经可供更新。</translation>
+        <translation>FanTools 版本 v{} 已经可供更新。</translation>
     </message>
     <message>
         <location filename="../../view/widgets/need_update_info_bar.py" line="20"/>
         <source>New Version Now</source>
-        <translation type="obsolete">已是最新版本</translation>
+        <translation>已是最新版本</translation>
     </message>
     <message>
         <location filename="../../view/widgets/need_update_info_bar.py" line="20"/>
         <source>FanTools v{} is the latest version.</source>
-        <translation type="obsolete">FanTools 当前版本 v{} 已是最新。</translation>
+        <translation>FanTools 当前版本 v{} 已是最新。</translation>
     </message>
 </context>
 </TS>

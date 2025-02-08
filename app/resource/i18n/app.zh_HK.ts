@@ -3,6 +3,16 @@
 <TS version="2.1" language="zh_CN" sourcelanguage="en_US">
 <context>
     <name>APIs</name>
+    <message>
+        <location filename="../../../tool/bilingualWriting/widgets/tr_api.py" line="17"/>
+        <source>BaiDuFanYi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../tool/bilingualWriting/widgets/tr_api.py" line="18"/>
+        <source>YouDaoFanYi</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AboutInterface</name>
@@ -104,13 +114,86 @@
 </context>
 <context>
     <name>AccountEditInfoBox</name>
+    <message>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="32"/>
+        <source>Change Avatar</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="39"/>
+        <source>User Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="41"/>
+        <source>EMail Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="43"/>
+        <source>UUID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="63"/>
+        <source>Old Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="65"/>
+        <source>New Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="76"/>
+        <source>You can set your Account Activation Code here.
+Next time you need to login with code you set here.
+Once you set your code, you can never cancel it but only change it.
+Whatever you do here on your account, your Old Code is needed to confirm them.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="105"/>
+        <source>Old Code Wrong. Please try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="109"/>
+        <source>Unknown Error. Please try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BilingualWritingWindow</name>
     <message>
         <location filename="../../../tool/bilingualWriting/run.py" line="25"/>
         <source>Settings</source>
-        <translation type="obsolete">設置</translation>
+        <translation type="unfinished">設置</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/bilingualWriting/run.py" line="13"/>
+        <source>Bilingual Writing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../tool/bilingualWriting/run.py" line="18"/>
+        <source>Title:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../tool/bilingualWriting/run.py" line="21"/>
+        <source>Your new paragraph will be put here!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../tool/bilingualWriting/run.py" line="23"/>
+        <source>using API:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../tool/bilingualWriting/run.py" line="26"/>
+        <source>Open settings ...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -118,7 +201,17 @@
     <message>
         <location filename="../../../tool/hashCalculator/widgets/file_hash_info_box.py" line="44"/>
         <source>Success</source>
-        <translation type="obsolete">激活成功</translation>
+        <translation type="unfinished">激活成功</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/hashCalculator/widgets/file_hash_info_box.py" line="16"/>
+        <source>Full Hash Info of file:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../tool/hashCalculator/widgets/file_hash_info_box.py" line="44"/>
+        <source>Selected file&apos;s {} has been written to clipboard.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -126,11 +219,36 @@
     <message>
         <location filename="../../../tool/hashCalculator/widgets/file_hash_widget.py" line="86"/>
         <source>Success</source>
-        <translation type="obsolete">激活成功</translation>
+        <translation type="unfinished">激活成功</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/hashCalculator/widgets/file_hash_widget.py" line="38"/>
+        <source>More</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../tool/hashCalculator/widgets/file_hash_widget.py" line="41"/>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../tool/hashCalculator/widgets/file_hash_widget.py" line="86"/>
+        <source>Selected file&apos;s {} has been written to clipboard.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>HashCalculatorWindow</name>
+    <message>
+        <location filename="../../../tool/hashCalculator/run.py" line="19"/>
+        <source>Hash Calculator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../tool/hashCalculator/run.py" line="29"/>
+        <source>Drop any file here, and then you can check their hash, or compare them with someone else.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>HitokotoManager</name>
@@ -237,27 +355,27 @@
 <context>
     <name>RegisterWindow</name>
     <message>
-        <location filename="../../view/register_window.py" line="84"/>
+        <location filename="../../view/register_window.py" line="95"/>
         <source>Email</source>
         <translation type="unfinished">郵箱</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="88"/>
+        <location filename="../../view/register_window.py" line="99"/>
         <source>Activation Code</source>
         <translation type="unfinished">激活碼</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="91"/>
+        <location filename="../../view/register_window.py" line="102"/>
         <source>Remember me</source>
         <translation type="unfinished">記住我</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="93"/>
+        <location filename="../../view/register_window.py" line="104"/>
         <source>Login</source>
         <translation type="unfinished">登錄</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="235"/>
+        <location filename="../../view/register_window.py" line="254"/>
         <source>Activate failed</source>
         <translation type="unfinished">激活失敗</translation>
     </message>
@@ -267,7 +385,7 @@
         <translation type="obsolete">請檢查你的激活碼是否正確</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="266"/>
+        <location filename="../../view/register_window.py" line="285"/>
         <source>Success</source>
         <translation type="unfinished">激活成功</translation>
     </message>
@@ -277,89 +395,119 @@
         <translation type="obsolete">正在打開主界麵</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="106"/>
+        <location filename="../../view/register_window.py" line="117"/>
         <source>Type in here if you have ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="122"/>
+        <location filename="../../view/register_window.py" line="133"/>
         <source>FanTools-Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="226"/>
+        <location filename="../../view/register_window.py" line="245"/>
         <source>Please input a legal email address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="235"/>
+        <location filename="../../view/register_window.py" line="254"/>
         <source>Please input right activation code to login this account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="244"/>
+        <location filename="../../view/register_window.py" line="263"/>
         <source>Wait for activation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="244"/>
+        <location filename="../../view/register_window.py" line="263"/>
         <source>This email address has not been registered.
 Try again to register now, or change another address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="256"/>
+        <location filename="../../view/register_window.py" line="275"/>
         <source>This email address has been activated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="266"/>
+        <location filename="../../view/register_window.py" line="285"/>
         <source>Activated successful</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="54"/>
+        <location filename="../../view/register_window.py" line="58"/>
         <source>Return</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="61"/>
+        <location filename="../../view/register_window.py" line="65"/>
         <source>Login with FanSpace account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="65"/>
+        <location filename="../../view/register_window.py" line="69"/>
         <source>Login with an email address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="72"/>
+        <location filename="../../view/register_window.py" line="76"/>
         <source>Login with ifanspace.top</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="76"/>
+        <location filename="../../view/register_window.py" line="87"/>
         <source>Please login in this window as soon as possible ~</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="165"/>
+        <location filename="../../view/register_window.py" line="180"/>
         <source>Using your FanSpace account on ifanspace.top to login.&lt;br&gt;ifanspace.top is a website powered by WordPress, designed by MangoFanFan.&lt;br&gt;You need to take actions on another window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="187"/>
+        <location filename="../../view/register_window.py" line="206"/>
         <source>Login with an unchecked email address...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="292"/>
+        <location filename="../../view/register_window.py" line="329"/>
         <source>Login successful</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="292"/>
+        <location filename="../../view/register_window.py" line="329"/>
         <source>Successfully login with a FanSpace account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="79"/>
+        <source>Use saved token to login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="82"/>
+        <source>Open ifanspace.top</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="84"/>
+        <source>You may want to create a FanSpace account first?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="169"/>
+        <source>Version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="170"/>
+        <source>Picture left from pixiv.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="362"/>
+        <source>You need to login first to get a saved token.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -667,5 +815,25 @@ Try again to register now, or change another address.</source>
 </context>
 <context>
     <name>UpdateInfoBar</name>
+    <message>
+        <location filename="../../view/widgets/need_update_info_bar.py" line="8"/>
+        <source>New Version Found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/need_update_info_bar.py" line="8"/>
+        <source>FanTools v{} can be updated now.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/need_update_info_bar.py" line="20"/>
+        <source>New Version Now</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/need_update_info_bar.py" line="20"/>
+        <source>FanTools v{} is the latest version.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

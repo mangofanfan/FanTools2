@@ -1,17 +1,19 @@
 # coding:utf-8
+import json
 import sys
 from PySide6.QtCore import Qt, QTimer, QUrl, QSize
-from PySide6.QtGui import QPixmap, QPainter, QColor, QIcon
+from PySide6.QtGui import QPixmap, QPainter, QColor, QIcon, QDesktopServices
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtWidgets import QWidget, QApplication, QHBoxLayout, QVBoxLayout
 
 from qfluentwidgets import (MSFluentTitleBar, isDarkTheme, ImageLabel, BodyLabel, LineEdit,
                             PasswordLineEdit, PrimaryPushButton, HyperlinkButton, CheckBox, InfoBar,
-                            InfoBarPosition, setThemeColor, PushButton, CaptionLabel)
+                            InfoBarPosition, setThemeColor, PushButton, CaptionLabel, ToolTip, ToolTipFilter)
 from qfluentwidgets.window.stacked_widget import StackedWidget
 
 from requests_oauthlib import OAuth2Session
 
+from common.function import basicFunc
 from common.setting import VERSION
 from ..common import resource
 from ..common.license_service import LicenseService
@@ -73,6 +75,14 @@ class RegisterWindow(Window):
         self.pushButton_OpenOauthWeb = PushButton(self)
         self.pushButton_OpenOauthWeb.setText(self.tr('Login with ifanspace.top'))
         self.pushButton_OpenOauthWeb.clicked.connect(self._loginWithFan)
+        self.pushButton_UseSavedToken = PushButton(self)
+        self.pushButton_UseSavedToken.setText(self.tr('Use saved token to login'))
+        self.pushButton_UseSavedToken.setEnabled(self._loadFanToken())
+        self.linkButton_Fan = HyperlinkButton(self)
+        self.linkButton_Fan.setText(self.tr('Open ifanspace.top'))
+        self.linkButton_Fan.clicked.connect(lambda: QDesktopServices.openUrl(QUrl('https://ifanspace.top')))
+        self.linkButton_Fan.setToolTip(self.tr("You may want to create a FanSpace account first?"))
+        self.linkButton_Fan.installEventFilter(ToolTipFilter(self.linkButton_Fan))
 
         self.webEngineView = QWebEngineView()
         self.webEngineView.setWindowTitle(self.tr("Please login in this window as soon as possible ~"))
@@ -174,6 +184,10 @@ class RegisterWindow(Window):
         bodyLabel.setWordWrap(True)
         self.vBoxLayout_LoginWithFan.addWidget(bodyLabel)
         self.vBoxLayout_LoginWithFan.addWidget(self.pushButton_OpenOauthWeb)
+        self.vBoxLayout_LoginWithFan.addSpacing(2)
+        self.vBoxLayout_LoginWithFan.addWidget(self.pushButton_UseSavedToken)
+        self.vBoxLayout_LoginWithFan.addSpacing(2)
+        self.vBoxLayout_LoginWithFan.addWidget(self.linkButton_Fan)
         self.vBoxLayout_LoginWithFan.addSpacing(9)
         self.vBoxLayout_LoginWithFan.addWidget(self.returnButton1)
         self.vBoxLayout_LoginWithFan.addStretch(1)
@@ -291,21 +305,14 @@ class RegisterWindow(Window):
             if self.webEngineView.url().toString().startswith("http://localhost:8080/"):
                 AUTH_RES = self.webEngineView.url().toString()
                 self.webEngineView.close()
-                self.oauthClient.fetch_token(token_url=fanlive_token, client_secret=CLIENT_SECRET, authorization_response=AUTH_RES)
+                token_datas = self.oauthClient.fetch_token(token_url=fanlive_token, client_secret=CLIENT_SECRET, authorization_response=AUTH_RES)
 
-                datas = self.oauthClient.get(fanlive_me).json()
-
-                InfoBar.success(title=self.tr("Login successful"),
-                                content=self.tr("Successfully login with a FanSpace account."),
-                                position=InfoBarPosition.TOP,
-                                duration=2000,
-                                parent=self.window())
-
-                self.register.validate_fan(datas)
-                QTimer.singleShot(1500, self._showMainWindow)
+                self.__loginWithFan(token_datas)
             return None
 
-        self.oauthClient = OAuth2Session(client_id=CLIENT_ID, redirect_uri=REDIRECT_URI)
+        self.oauthClient = OAuth2Session(client_id=CLIENT_ID, redirect_uri=REDIRECT_URI,
+                                         auto_refresh_url=fanlive_url, token_updater=token_saver)
+
         AUTH_URL, state = self.oauthClient.authorization_url(url=fanlive_url)
         logger.debug(f"帆域 Oauth 第一步返回：{AUTH_URL} | {state}")
 
@@ -316,6 +323,50 @@ class RegisterWindow(Window):
 
         return None
 
+    def __loginWithFan(self, token_datas: dict[str, str]) -> None:
+
+        datas = self.oauthClient.get(fanlive_me).json()
+
+        InfoBar.success(title=self.tr("Login successful"),
+                        content=self.tr("Successfully login with a FanSpace account."),
+                        position=InfoBarPosition.TOP,
+                        duration=2000,
+                        parent=self.window())
+
+        logger.success("帆域 Oauth 登录成功。")
+        self.register.validate_fan(datas)
+        token_saver(token_datas)
+        QTimer.singleShot(1500, self._showMainWindow)
+
+        return None
+
+    def _loadFanToken(self) -> bool:
+        if (token_datas := token_loader()) == {}:
+            return False
+
+        token_datas["expires_in"] = -1
+        token_datas["expires_at"] = 1600000000.123456
+
+        try:
+            self.oauthClient = OAuth2Session(client_id=CLIENT_ID, redirect_uri=REDIRECT_URI,
+                                             auto_refresh_url=fanlive_token,
+                                             token_updater=token_saver,
+                                             auto_refresh_kwargs={"client_id": CLIENT_ID,
+                                                                  "client_secret": CLIENT_SECRET},
+                                             token={"access_token": token_datas.get("refresh_token"),
+                                                    "refresh_token": token_datas.get("refresh_token"),
+                                                    "expires_in": token_datas.get("expires_in"),
+                                                    "token_type": token_datas.get("token_type")})
+            self.oauthClient.refresh_token(fanlive_token)
+            logger.debug("已刷新保存的帆域 Oauth 令牌，可快速登录。")
+        except:
+            self.pushButton_UseSavedToken.setToolTip(self.tr("You need to login first to get a saved token."))
+            self.pushButton_UseSavedToken.installEventFilter(ToolTipFilter(self.pushButton_UseSavedToken))
+            return False
+
+        self.pushButton_UseSavedToken.clicked.connect(lambda: self.__loginWithFan(token_datas))
+        return True
+
     def _showMainWindow(self):
         self.close()
         setThemeColor('#009faa')
@@ -325,3 +376,20 @@ class RegisterWindow(Window):
         w = MainWindow()
         w.show()
         logger.trace("工具箱主窗口已经显示，登录流程结束。")
+
+
+
+def token_saver(token: dict[str, str]) -> None:
+    with open(file=basicFunc.getHerePath()+"/AppData/oauth-fan.json", mode="w", encoding="utf-8") as f:
+        f.write(json.dumps(token, indent=4))
+    logger.trace("帆域 Oauth 登录凭证已经保存至数据目录下。")
+    return None
+
+def token_loader() -> dict[str, str]:
+    try:
+        with open(file=basicFunc.getHerePath()+"/AppData/oauth-fan.json", mode="r", encoding="utf-8") as f:
+            logger.trace("读取已保存的帆域 Oauth 登录凭证。")
+            return json.loads(f.read())
+    except FileNotFoundError:
+        logger.trace("未发现已保存的帆域 Oauth 登录凭证。")
+        return {}
