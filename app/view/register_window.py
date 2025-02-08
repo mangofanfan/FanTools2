@@ -7,11 +7,12 @@ from PySide6.QtWidgets import QWidget, QApplication, QHBoxLayout, QVBoxLayout
 
 from qfluentwidgets import (MSFluentTitleBar, isDarkTheme, ImageLabel, BodyLabel, LineEdit,
                             PasswordLineEdit, PrimaryPushButton, HyperlinkButton, CheckBox, InfoBar,
-                            InfoBarPosition, setThemeColor, PushButton)
+                            InfoBarPosition, setThemeColor, PushButton, CaptionLabel)
 from qfluentwidgets.window.stacked_widget import StackedWidget
 
 from requests_oauthlib import OAuth2Session
 
+from common.setting import VERSION
 from ..common import resource
 from ..common.license_service import LicenseService
 from ..common.config import cfg
@@ -37,13 +38,14 @@ class RegisterWindow(Window):
     def __init__(self, parent=None):
         super().__init__(parent=parent)
         setThemeColor('#28afe9')
+        self.setResizeEnabled(False)
         self.setTitleBar(MSFluentTitleBar(self))
         self.register = LicenseService()
         self.hBoxLayout = QHBoxLayout(self)
 
         self.stackedWidget = StackedWidget(self)
 
-        self.imageLabel = ImageLabel(':/app/images/background.jpg', self)
+        self.imageLabel = ImageLabel(':/app/images/BestWishes.jpg', self)
         self.iconLabel_LoginWithFan = ImageLabel(':/app/IconFanSpace', self)
         self.iconLabel_LoginWithEmail = ImageLabel(':/app/images/logo.png', self)
 
@@ -121,7 +123,7 @@ class RegisterWindow(Window):
 
         self.setWindowTitle(self.tr('FanTools-Login'))
         self.setWindowIcon(QIcon(":/app/images/logo.png"))
-        self.resize(1000, 650)
+        self.resize(1100, 450)
 
         self.titleBar.titleLabel.setStyleSheet("""
             QLabel{
@@ -139,7 +141,7 @@ class RegisterWindow(Window):
         self.titleBar.raise_()
 
     def __initLayout(self):
-        self.imageLabel.scaledToHeight(650)
+        self.imageLabel.scaledToHeight(450)
         self.iconLabel_LoginWithFan.scaledToHeight(100)
         self.iconLabel_LoginWithEmail.scaledToHeight(100)
 
@@ -150,9 +152,13 @@ class RegisterWindow(Window):
         self.stackedWidget.addWidget(self.widget_ChooseLoginMode)
         self.widget_ChooseLoginMode.setLayout(self.vBoxLayout_ChooseLoginMode)
 
-        self.vBoxLayout_ChooseLoginMode.addStretch(1)
+        self.vBoxLayout_ChooseLoginMode.addStretch(3)
         self.vBoxLayout_ChooseLoginMode.addWidget(self.pushButton_LoginWithFan)
+        self.vBoxLayout_ChooseLoginMode.addSpacing(2)
         self.vBoxLayout_ChooseLoginMode.addWidget(self.pushButton_LoginWithEmail)
+        self.vBoxLayout_ChooseLoginMode.addSpacing(5)
+        self.vBoxLayout_ChooseLoginMode.addWidget(CaptionLabel(self.tr("Version:") + VERSION))
+        self.vBoxLayout_ChooseLoginMode.addWidget(CaptionLabel(self.tr("Picture left from pixiv.")))
         self.vBoxLayout_ChooseLoginMode.addStretch(1)
 
         # 帆域登录模式

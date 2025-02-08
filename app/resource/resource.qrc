@@ -29,5 +29,8 @@
         <file alias="IconRelease">images/icons/IconFanSpace.png</file>
         <file alias="IconFanSpace">images/icons/IconFanSpace.png</file>
         <file>images/payQRcode.png</file>
+        <file>images/BestWishes.jpg</file>
+        <file>images/HappyStarRail.jpg</file>
+        <file>images/MerryChristmasStarRail.jpg</file>
     </qresource>
 </RCC>
