@@ -1,0 +1,10 @@
+{
+  "name": "Simple Crypt",
+  "module": "simpleCrypt",
+  "icon": "%ToolLocal%/SimpleCrypt/SimpleCrypt.jpg",
+  "ver": "1.0.0",
+  "author": "MangoFanFan",
+  "tip": "Simply crypt and decrypt something",
+  "launchMode": 0,
+  "modules": []
+}

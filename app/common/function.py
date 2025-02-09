@@ -51,11 +51,6 @@ class basicFunc:
         return None
 
     @staticmethod
-    def getAria2cPath():
-        p = basicFunc.getHerePath() + "/aria2c/aria2c.exe"
-        return p
-
-    @staticmethod
     def rgb_to_hex(rgb):
         r, g, b = rgb
         r = max(0, min(255, r))

@@ -24,6 +24,12 @@ class Tool:
 tools_dir = basicFunc.getHerePath() + "/tool"
 
 
+def pre_load_tool(tool: Tool):
+    icon_path = tool.icon.replace("%ToolLocal%", f"{tools_dir}/{tool.module}")
+    tool.icon = icon_path
+    return tool
+
+
 def load_all_tools() -> Generator[Tool, None, None]:
     with os.scandir(tools_dir) as entries:
         for o in entries:
@@ -33,11 +39,11 @@ def load_all_tools() -> Generator[Tool, None, None]:
                 except FileNotFoundError:
                     continue
                 else:
-                    yield Tool(name=data["name"], module=data["module"],
-                               icon=data["icon"], tip=data["tip"],
-                               ver=data["ver"], author=data["author"],
-                               launchMode=data["launchMode"],
-                               modules=data["modules"])
+                    yield pre_load_tool(Tool(name=data["name"], module=data["module"],
+                                             icon=data["icon"], tip=data["tip"],
+                                             ver=data["ver"], author=data["author"],
+                                             launchMode=data["launchMode"],
+                                             modules=data["modules"]))
 
 
 class ModuleInstaller:
