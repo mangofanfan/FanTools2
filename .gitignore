@@ -1,5 +1,11 @@
 ﻿/runtime/Lib/
 /runtime/Scripts/
+/runtime
 /AppData
 /examples
 *.env
+main.py
+deploy.py
+FanTools.int
+FanTools.exe
+makeSetup.iss
