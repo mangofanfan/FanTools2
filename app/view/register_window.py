@@ -310,6 +310,9 @@ class RegisterWindow(Window):
                 self.__loginWithFan(token_datas)
             return None
 
+        # 禁用使用保存凭证登录按钮
+        self.pushButton_UseSavedToken.setDisabled(True)
+
         self.oauthClient = OAuth2Session(client_id=CLIENT_ID, redirect_uri=REDIRECT_URI,
                                          auto_refresh_url=fanlive_url, token_updater=token_saver)
 
@@ -337,6 +340,10 @@ class RegisterWindow(Window):
         self.register.validate_fan(datas)
         token_saver(token_datas)
         QTimer.singleShot(1500, self._showMainWindow)
+
+        # 禁用按钮防止重复登录
+        self.pushButton_UseSavedToken.setDisabled(True)
+        self.pushButton_LoginWithFan.setDisabled(True)
 
         return None
 
