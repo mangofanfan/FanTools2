@@ -1,6 +1,6 @@
 # 固定数字加密，秘钥为一指定数字
 
-from .Functions import word_dict
+from Functions import word_dict
 
 class crypt_1:
     # 专门用于窗口操作的部分

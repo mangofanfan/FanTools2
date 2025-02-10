@@ -1,9 +1,9 @@
 # 与窗口化工作有关的函数
 
 from tkinter import messagebox
-from .Config_for_Window import config
-from .crypt_1 import crypt_1
-from .crypt_2 import crypt_2
+from Config_for_Window import config
+from crypt_1 import crypt_1
+from crypt_2 import crypt_2
 import traceback
 
 

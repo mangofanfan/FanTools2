@@ -107,8 +107,6 @@ class RegisterWindow(Window):
 
         self.__initWidgets()
 
-        print(sys.executable)
-
         logger.success("登录窗口初始化完成。")
 
     def __initWidgets(self):

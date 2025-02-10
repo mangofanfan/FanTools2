@@ -22,7 +22,7 @@ class ModuleInstallInfoBar(QObject):
                         isClosable=True,
                         duration=4000,
                         parent=parent)
-        logger.success(f"模块安装成功。")
+        logger.success("模块安装成功。")
         return None
 
     def install_failed(self, parent):
@@ -32,5 +32,14 @@ class ModuleInstallInfoBar(QObject):
                       isClosable=True,
                       duration=4000,
                       parent=parent)
-        logger.error(f"模块安装失败！")
+        logger.error("模块安装失败！")
         return None
+
+class ToolLaunchInfoBar(QObject):
+    def multi_launch_error(self, parent):
+        InfoBar.error(title=self.tr("Failed to launch this tool multiply!"),
+                      content=self.tr("This tool could not be launched multiply at one time."),
+                      isClosable=True,
+                      duration=4000,
+                      parent=parent)
+        logger.error("此工具不支持重复启动。")

@@ -8,9 +8,9 @@ import webbrowser
 ctypes.windll.shcore.SetProcessDpiAwareness(1)
 ScaleFactor=ctypes.windll.shcore.GetScaleFactorForDevice(0)
 
-from .Logging_for_Window import launch_logger
-from .Config_for_Window import config
-from .Functions_for_Window import window_func
+from Logging_for_Window import launch_logger
+from Config_for_Window import config
+from Functions_for_Window import window_func
 
 
 def launch():

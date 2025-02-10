@@ -1,6 +1,6 @@
 # 字符串加密，秘钥为一不长于密文的字符串
 
-from .Functions import word_dict
+from Functions import word_dict
 
 class crypt_2:
     # 专门用于窗口操作的部分

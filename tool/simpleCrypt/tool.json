@@ -4,7 +4,7 @@
   "icon": "%ToolLocal%/SimpleCrypt/SimpleCrypt.jpg",
   "ver": "1.0.0",
   "author": "MangoFanFan",
-  "tip": "Simply crypt and decrypt something",
+  "tip": "Simply crypt and decrypt something, built on Tkinter.",
   "launchMode": 1,
   "modules": []
 }

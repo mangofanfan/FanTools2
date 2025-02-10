@@ -1,8 +1,8 @@
 # 日志文件写入模块，用于将日志打印到log.txt或其他文件中
 
 import tkinter as tk
-from .Config_for_Window import config
-from .Functions_for_Window import window_func
+from Config_for_Window import config
+from Functions_for_Window import window_func
 
 
 def launch_logger(log_txt: str):

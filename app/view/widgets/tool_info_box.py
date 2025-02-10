@@ -54,9 +54,9 @@ class ToolInfoBox(MessageBoxBase):
 
     def launch_text(self, mode: int) -> str:
         if mode == 0:
-            return self.tr("This tool can be launched without FanTools Main Software.")
+            return self.tr("This tool can be launched with FanTools Main Software directly.")
         elif mode == 1:
-            return self.tr("This tool can only be launched with FanTools Main Software.")
+            return self.tr("This tool can be launched in an independent process..")
         else:
             raise IndexError(f"Index {mode} out of range.")
 
