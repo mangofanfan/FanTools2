@@ -1,8 +1,5 @@
 python311.zip
 .
-..
-../app
-../tool
 
 # Uncomment to run site.main() automatically
 import site
