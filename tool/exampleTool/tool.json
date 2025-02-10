@@ -6,5 +6,5 @@
   "author": "MangoFanFan",
   "tip": "Basic example tool",
   "launchMode": 0,
-  "modules": ["requests", "PySide6-Fluent-Widgets"]
+  "modules": []
 }
