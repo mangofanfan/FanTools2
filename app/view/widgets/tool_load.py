@@ -24,9 +24,14 @@ class Tool:
 tools_dir = basicFunc.getHerePath() + "/tool"
 
 
-def pre_load_tool(tool: Tool):
+def pre_load_tool(tool: Tool) -> Tool:
+    # 替换工具路径
     icon_path = tool.icon.replace("%ToolLocal%", f"{tools_dir}/{tool.module}")
     tool.icon = icon_path
+
+    # 检查启动模式
+    if tool.launchMode == 0:
+        tool.modules = []
     return tool
 
 
