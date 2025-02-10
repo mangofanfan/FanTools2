@@ -1,9 +1,10 @@
 import importlib
+import subprocess
 from dataclasses import dataclass
 from functools import partial
 from typing import Union
 
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QProcess
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QWidget, QVBoxLayout
 from qfluentwidgets import SmoothScrollArea, TitleLabel, FlowLayout, LargeTitleLabel
@@ -12,6 +13,8 @@ from app.view.widgets.tool_info_box import ToolInfoBox
 from app.view.widgets.tool_load import load_all_tools
 from app.view.widgets.tool_widget import ToolWidget, Tool
 from app.common import resource
+from common.function import basicFunc
+from view.widgets.tool_load import ToolMultiLaunchError
 
 
 class ToolInterface(SmoothScrollArea):
@@ -33,6 +36,7 @@ class ToolInterface(SmoothScrollArea):
 
         self.toolInfoList = []
         self.launchedToolInfoDict = {}
+        self.pythonRuntimePath = basicFunc.getHerePath()+"/runtime/python.exe"
         self.__initToolInfo()
 
         self.__initToolList()
@@ -84,10 +88,20 @@ class ToolInterface(SmoothScrollArea):
         if tool is None:
             raise Exception(f"toolName={toolName} not found")
 
-        if tool.module not in self.launchedToolInfoDict.keys():
-            self.launchedToolInfoDict[tool.module] = importlib.import_module(f"tool.{tool.module}.run")
-        else:
-            self.launchedToolInfoDict[tool.module] = importlib.reload(self.launchedToolInfoDict[tool.module])
+        # 分启动模式来启动工具
+        if tool.launchMode == 0:  # 直接 import 来启动
+            if tool.module not in self.launchedToolInfoDict.keys():
+                self.launchedToolInfoDict[tool.module] = importlib.import_module(f"tool.{tool.module}.run")
+            else:
+                self.launchedToolInfoDict[tool.module] = importlib.reload(self.launchedToolInfoDict[tool.module])
+        elif tool.launchMode == 1:
+            if tool.module not in self.launchedToolInfoDict.keys():
+                process = QProcess()
+                process.finished.connect(lambda: self.launchedToolInfoDict.pop(tool.module, None))
+                process.start(self.pythonRuntimePath, [f"{basicFunc.getHerePath()}/tool/{tool.module}/run.py"])
+                self.launchedToolInfoDict[tool.module] = process
+            else:
+                raise ToolMultiLaunchError(f"toolName={toolName} already launched")
         return None
 
     def showInfoBox(self, tool: Tool) -> None:

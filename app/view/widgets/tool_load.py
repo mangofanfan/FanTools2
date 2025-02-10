@@ -83,3 +83,7 @@ class ModuleInstaller:
             self.infoBar.install_failed(self.parent)
         return None
 
+
+class ToolMultiLaunchError(Exception):
+    pass
+
