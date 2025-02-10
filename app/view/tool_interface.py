@@ -105,7 +105,8 @@ class ToolInterface(SmoothScrollArea):
                 process = QProcess()
                 process.setEnvironment([f"{basicFunc.getHerePath()}/tool/{tool.module}"] + list(os.environ))
                 process.started.connect(lambda: self.processStarted(process, toolName))
-                process.readyRead.connect(lambda: self.processPrint(process, toolName))
+                process.readyReadStandardOutput.connect(lambda: self.processPrint(process, toolName))
+                process.readyReadStandardError.connect(lambda: self.processPrint(process, toolName))
                 process.finished.connect(lambda: self.processFinished(process, toolName))
                 process.finished.connect(lambda: self.launchedToolInfoDict.pop(tool.module, None))
                 process.start(self.pythonRuntimePath, [f"{basicFunc.getHerePath()}/tool/{tool.module}/run.py"])
@@ -128,7 +129,7 @@ class ToolInterface(SmoothScrollArea):
 
     @staticmethod
     def processPrint(process: QProcess, toolName: str) -> None:
-        logger.debug(f"工具 {toolName} 子进程输出：{process.readAll()}")
+        logger.debug(f"工具 {toolName} 子进程输出：{process.readAll().toStdString()}")
         return None
 
     @staticmethod

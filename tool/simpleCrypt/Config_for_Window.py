@@ -5,8 +5,8 @@ import os
 class config:
     version_tag = "当前版本：1.0.0-last"
     window_name = "古典英语 密码解释器"
-    icon_path = os.getcwd()+"/SimpleCrypt/SimpleCrypt.ico"
-    background_path = os.getcwd()+"/SimpleCrypt/BackGround.png"
+    icon_path = os.path.dirname(__file__)+"/SimpleCrypt/SimpleCrypt.ico"
+    background_path = os.path.dirname(__file__)+"/SimpleCrypt/BackGround.png"
     lang_main_title = "古典英语 密码解释器\nSimpleCrypt"
     lang_main_author = "制作：芒果帆帆w"
     lang_notice = "本程序开源于码云Gitee，不需遵守任何协议"

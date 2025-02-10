@@ -343,7 +343,7 @@ class RegisterWindow(Window):
 
         # 禁用按钮防止重复登录
         self.pushButton_UseSavedToken.setDisabled(True)
-        self.pushButton_LoginWithFan.setDisabled(True)
+        self.pushButton_OpenOauthWeb.setDisabled(True)
 
         return None
 
