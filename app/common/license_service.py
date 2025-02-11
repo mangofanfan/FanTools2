@@ -93,7 +93,7 @@ class LicenseService:
     def getAvatar(self, avatarFunc: callable, size: int) -> None:
         image = QImage()
 
-        url = f"https://cravatar.cn/avatar/{self.__md5(self.email.lower())}?s={size}" if not self.license else self.datas["other"]["custom_avatar"]
+        url = f"https://cravatar.cn/avatar/{self.__md5(self.email.lower())}?s={size}" if self.license else self.datas["other"]["custom_avatar"]
 
         (
             QRequestReady(QApplication.instance())
