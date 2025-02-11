@@ -200,6 +200,24 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
     </message>
 </context>
 <context>
+    <name>FanSystemTrayIcon</name>
+    <message>
+        <location filename="../../view/main_window.py" line="131"/>
+        <source>💡 Show Main Window</source>
+        <translation>💡 显示主窗口</translation>
+    </message>
+    <message>
+        <location filename="../../view/main_window.py" line="131"/>
+        <source>📖 Open FanTools Docs</source>
+        <translation>📖 打开工具箱文档</translation>
+    </message>
+    <message>
+        <location filename="../../view/main_window.py" line="131"/>
+        <source>🚪 Exit FanTools</source>
+        <translation>🚪 退出工具箱</translation>
+    </message>
+</context>
+<context>
     <name>FileHashInfoBox</name>
     <message>
         <location filename="../../../tool/hashCalculator/widgets/file_hash_info_box.py" line="16"/>
@@ -302,27 +320,27 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../view/main_window.py" line="61"/>
+        <location filename="../../view/main_window.py" line="66"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="53"/>
+        <location filename="../../view/main_window.py" line="58"/>
         <source>Main</source>
         <translation>主页</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="55"/>
+        <location filename="../../view/main_window.py" line="60"/>
         <source>Tools</source>
         <translation>工具</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="59"/>
+        <location filename="../../view/main_window.py" line="64"/>
         <source>About</source>
         <translation>关于</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="72"/>
+        <location filename="../../view/main_window.py" line="77"/>
         <source>FanTools-Main</source>
         <translation>芒果工具箱-主程序</translation>
     </message>
@@ -363,27 +381,27 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
 <context>
     <name>RegisterWindow</name>
     <message>
-        <location filename="../../view/register_window.py" line="95"/>
+        <location filename="../../view/register_window.py" line="96"/>
         <source>Email</source>
         <translation>邮箱</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="99"/>
+        <location filename="../../view/register_window.py" line="100"/>
         <source>Activation Code</source>
         <translation>激活码</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="102"/>
+        <location filename="../../view/register_window.py" line="103"/>
         <source>Remember me</source>
         <translation>记住我</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="104"/>
+        <location filename="../../view/register_window.py" line="105"/>
         <source>Login</source>
         <translation>登录</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="254"/>
+        <location filename="../../view/register_window.py" line="256"/>
         <source>Activate failed</source>
         <translation>激活失败</translation>
     </message>
@@ -393,7 +411,7 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <translation type="obsolete">请检查你的激活码是否正确</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="285"/>
+        <location filename="../../view/register_window.py" line="287"/>
         <source>Success</source>
         <translation>激活成功</translation>
     </message>
@@ -403,44 +421,44 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <translation type="obsolete">正在打开主界面</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="117"/>
+        <location filename="../../view/register_window.py" line="118"/>
         <source>Type in here if you have ...</source>
         <translation>如果您有的话，可以在此输入……</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="133"/>
+        <location filename="../../view/register_window.py" line="134"/>
         <source>FanTools-Login</source>
         <translation>芒果工具箱-登录</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="245"/>
+        <location filename="../../view/register_window.py" line="247"/>
         <source>Please input a legal email address</source>
         <translation>请输入正确的电子邮件地址</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="263"/>
+        <location filename="../../view/register_window.py" line="265"/>
         <source>Wait for activation</source>
         <translation>等待激活</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="263"/>
+        <location filename="../../view/register_window.py" line="265"/>
         <source>This email address has not been registered.
 Try again to register now, or change another address.</source>
         <translation>此邮件地址尚未被注册。
 再次登录以现在注册，或更换另一个已经注册的地址。</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="275"/>
+        <location filename="../../view/register_window.py" line="277"/>
         <source>This email address has been activated.</source>
         <translation>此电子邮件地址已被激活。</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="285"/>
+        <location filename="../../view/register_window.py" line="287"/>
         <source>Activated successful</source>
         <translation>激活成功</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="254"/>
+        <location filename="../../view/register_window.py" line="256"/>
         <source>Please input right activation code to login this account</source>
         <translation>请输入正确的激活码以登录此用户</translation>
     </message>
@@ -465,27 +483,27 @@ Try again to register now, or change another address.</source>
         <translation>通过 ifanspace.top 登录</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="87"/>
+        <location filename="../../view/register_window.py" line="88"/>
         <source>Please login in this window as soon as possible ~</source>
         <translation>请在此窗口中尽快完成登录……~</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="180"/>
+        <location filename="../../view/register_window.py" line="182"/>
         <source>Using your FanSpace account on ifanspace.top to login.&lt;br&gt;ifanspace.top is a website powered by WordPress, designed by MangoFanFan.&lt;br&gt;You need to take actions on another window.</source>
         <translation>使用你在 ifanspace.top 上的帆域账户完成登录。&lt;br&gt;ifanspace.top是一个由芒果帆帆设计、基于WordPress实现的网站。&lt;br&gt;你需要在另一窗口中操作登录。</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="206"/>
+        <location filename="../../view/register_window.py" line="208"/>
         <source>Login with an unchecked email address...</source>
         <translation>使用一个不会经过检查的电子邮件地址登录...</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="329"/>
+        <location filename="../../view/register_window.py" line="334"/>
         <source>Login successful</source>
         <translation>登录成功</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="329"/>
+        <location filename="../../view/register_window.py" line="334"/>
         <source>Successfully login with a FanSpace account.</source>
         <translation>成功通过帆域账户登录。</translation>
     </message>
@@ -505,19 +523,24 @@ Try again to register now, or change another address.</source>
         <translation>你可能想要先在浏览器中打开帆域来创建一个账户？</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="169"/>
+        <location filename="../../view/register_window.py" line="170"/>
         <source>Version:</source>
         <translation>版本：</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="170"/>
+        <location filename="../../view/register_window.py" line="171"/>
         <source>Picture left from pixiv.</source>
         <translation>左图来自 Pixiv。</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="362"/>
+        <location filename="../../view/register_window.py" line="371"/>
         <source>You need to login first to get a saved token.</source>
         <translation>你需要先完成一次登录来获取凭证。</translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="172"/>
+        <source>FanTools need Internet connections to use.</source>
+        <translation>芒果工具箱需要网络连接来使用。</translation>
     </message>
 </context>
 <context>
@@ -768,7 +791,7 @@ Try again to register now, or change another address.</source>
     <message>
         <location filename="../../view/widgets/tool_info_box.py" line="57"/>
         <source>This tool can be launched without FanTools Main Software.</source>
-        <translation>此工具可以不经由芒果工具箱主程序启动。</translation>
+        <translation type="obsolete">此工具可以不经由芒果工具箱主程序启动。</translation>
     </message>
     <message>
         <location filename="../../view/widgets/tool_info_box.py" line="51"/>
@@ -793,18 +816,28 @@ Try again to register now, or change another address.</source>
     <message>
         <location filename="../../view/widgets/tool_info_box.py" line="59"/>
         <source>This tool can only be launched with FanTools Main Software.</source>
-        <translation>此工具只能经过芒果工具箱主程序启动。</translation>
+        <translation type="obsolete">此工具只能经过芒果工具箱主程序启动。</translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/tool_info_box.py" line="57"/>
+        <source>This tool can be launched with FanTools Main Software directly.</source>
+        <translation>此工具可以被芒果工具箱主程序直接运行。</translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/tool_info_box.py" line="59"/>
+        <source>This tool can be launched in an independent process..</source>
+        <translation>此工具可以在一个独立进程中运行。</translation>
     </message>
 </context>
 <context>
     <name>ToolInterface</name>
     <message>
-        <location filename="../../view/tool_interface.py" line="30"/>
+        <location filename="../../view/tool_interface.py" line="36"/>
         <source>Tools</source>
         <translation>工具</translation>
     </message>
     <message>
-        <location filename="../../view/tool_interface.py" line="59"/>
+        <location filename="../../view/tool_interface.py" line="69"/>
         <source>All Tools</source>
         <translation>所有工具</translation>
     </message>
@@ -817,6 +850,19 @@ Try again to register now, or change another address.</source>
         <location filename="../../view/tool_interface.py" line="47"/>
         <source>Calculate Hash of anything.</source>
         <translation type="obsolete">计算任意文件的哈希值。</translation>
+    </message>
+</context>
+<context>
+    <name>ToolLaunchInfoBar</name>
+    <message>
+        <location filename="../../view/widgets/tool_load_info_bar.py" line="40"/>
+        <source>Failed to launch this tool multiply!</source>
+        <translation>重复启动工具失败！</translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/tool_load_info_bar.py" line="40"/>
+        <source>This tool could not be launched multiply at one time.</source>
+        <translation>此工具无法在同一时间被重复启动。</translation>
     </message>
 </context>
 <context>

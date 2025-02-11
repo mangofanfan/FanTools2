@@ -169,6 +169,7 @@ class RegisterWindow(Window):
         self.vBoxLayout_ChooseLoginMode.addSpacing(5)
         self.vBoxLayout_ChooseLoginMode.addWidget(CaptionLabel(self.tr("Version:") + VERSION))
         self.vBoxLayout_ChooseLoginMode.addWidget(CaptionLabel(self.tr("Picture left from pixiv.")))
+        self.vBoxLayout_ChooseLoginMode.addWidget(CaptionLabel(self.tr("FanTools need Internet connections to use.")))
         self.vBoxLayout_ChooseLoginMode.addStretch(1)
 
         # 帆域登录模式

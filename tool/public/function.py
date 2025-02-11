@@ -1,5 +1,14 @@
 ﻿import os
+from typing import overload
 
 
-def getToolDir() -> str:
-    return os.getcwd()+"/tool/"
+@overload
+def getToolDir(toolName: str) -> str: ...
+
+@overload
+def getToolDir() -> str: ...
+
+def getToolDir(toolName: str=None) -> str:
+    if not toolName:
+        return os.getcwd() + "/tool/"
+    return os.getcwd() + "/tool/" + toolName + "/"

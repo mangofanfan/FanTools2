@@ -1,11 +1,14 @@
 # coding: utf-8
-from PySide6.QtCore import QUrl, QSize
-from PySide6.QtGui import QIcon, QColor
-from PySide6.QtWidgets import QApplication
+from functools import partial
 
-from qfluentwidgets import NavigationItemPosition, MSFluentWindow, SplashScreen
+from PySide6.QtCore import QUrl, QSize
+from PySide6.QtGui import QIcon, QColor, QCloseEvent, QResizeEvent, QDesktopServices
+from PySide6.QtWidgets import QApplication, QSystemTrayIcon
+
+from qfluentwidgets import NavigationItemPosition, MSFluentWindow, SplashScreen, SystemTrayMenu, Action
 from qfluentwidgets import FluentIcon as FIF
 
+from common.setting import DOC_URL
 from .main_interface import MainInterface
 from .setting_interface import SettingInterface
 from .tool_interface import ToolInterface
@@ -38,6 +41,8 @@ class MainWindow(MSFluentWindow):
         if cfg.get(cfg.checkUpdateAtStartUp):
             logger.debug("由于相关设置，开始启动时检查版本更新。")
             self.checkUpdate()
+
+        self.icon = FanSystemTrayIcon(self)
 
         logger.success("工具箱主窗口初始化完毕。")
 
@@ -92,10 +97,14 @@ class MainWindow(MSFluentWindow):
 
         logger.trace("工具箱主窗口初始化完毕。")
 
-    def resizeEvent(self, e):
+    def resizeEvent(self, e: QResizeEvent):
         super().resizeEvent(e)
         if hasattr(self, 'splashScreen'):
             self.splashScreen.resize(self.size())
+
+    def closeEvent(self, e: QCloseEvent):
+        e.ignore()
+        self.hide()
 
     def checkUpdate(self):
         """检查版本更新"""
@@ -109,3 +118,22 @@ class MainWindow(MSFluentWindow):
         else:
             logger.info("工具箱当前版本已是最新。")
             uib.update_false(self, self.updateChecker.getLatestVersion())
+
+
+class FanSystemTrayIcon(QSystemTrayIcon):
+
+    def __init__(self, parent: MSFluentWindow):
+        super().__init__(parent=parent)
+        self.setIcon(parent.windowIcon())
+        self._parent = parent
+
+        self.menu = SystemTrayMenu(parent=parent)
+        self.menu.addActions([
+            Action(text=self.tr("💡 Show Main Window"), triggered=self._parent.show),
+            Action(text=self.tr("📖 Open FanTools Docs"), triggered=lambda: QDesktopServices.openUrl(QUrl(DOC_URL))),
+            Action(text=self.tr("🚪 Exit FanTools"), triggered=QApplication.instance().quit),
+        ])
+        self.setContextMenu(self.menu)
+
+        self.show()
+

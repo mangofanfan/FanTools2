@@ -16,7 +16,7 @@ class FanTitleBar(FluentTitleBar):
 
 
 class FanWindow(BackgroundAnimationWidget, FramelessWindow):
-
+    """只能在launchMode为0时使用"""
     windowResizeSignal = Signal()
     def __init__(self, parent=None):
         super().__init__(parent=parent)

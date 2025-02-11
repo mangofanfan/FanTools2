@@ -197,6 +197,24 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
     </message>
 </context>
 <context>
+    <name>FanSystemTrayIcon</name>
+    <message>
+        <location filename="../../view/main_window.py" line="131"/>
+        <source>💡 Show Main Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/main_window.py" line="131"/>
+        <source>📖 Open FanTools Docs</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/main_window.py" line="131"/>
+        <source>🚪 Exit FanTools</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FileHashInfoBox</name>
     <message>
         <location filename="../../../tool/hashCalculator/widgets/file_hash_info_box.py" line="44"/>
@@ -294,27 +312,27 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../view/main_window.py" line="61"/>
+        <location filename="../../view/main_window.py" line="66"/>
         <source>Settings</source>
         <translation type="unfinished">設置</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="59"/>
+        <location filename="../../view/main_window.py" line="64"/>
         <source>About</source>
         <translation type="unfinished">關於</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="53"/>
+        <location filename="../../view/main_window.py" line="58"/>
         <source>Main</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="55"/>
+        <location filename="../../view/main_window.py" line="60"/>
         <source>Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="72"/>
+        <location filename="../../view/main_window.py" line="77"/>
         <source>FanTools-Main</source>
         <translation type="unfinished"></translation>
     </message>
@@ -355,27 +373,27 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
 <context>
     <name>RegisterWindow</name>
     <message>
-        <location filename="../../view/register_window.py" line="95"/>
+        <location filename="../../view/register_window.py" line="96"/>
         <source>Email</source>
         <translation type="unfinished">郵箱</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="99"/>
+        <location filename="../../view/register_window.py" line="100"/>
         <source>Activation Code</source>
         <translation type="unfinished">激活碼</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="102"/>
+        <location filename="../../view/register_window.py" line="103"/>
         <source>Remember me</source>
         <translation type="unfinished">記住我</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="104"/>
+        <location filename="../../view/register_window.py" line="105"/>
         <source>Login</source>
         <translation type="unfinished">登錄</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="254"/>
+        <location filename="../../view/register_window.py" line="256"/>
         <source>Activate failed</source>
         <translation type="unfinished">激活失敗</translation>
     </message>
@@ -385,7 +403,7 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <translation type="obsolete">請檢查你的激活碼是否正確</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="285"/>
+        <location filename="../../view/register_window.py" line="287"/>
         <source>Success</source>
         <translation type="unfinished">激活成功</translation>
     </message>
@@ -395,43 +413,43 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <translation type="obsolete">正在打開主界麵</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="117"/>
+        <location filename="../../view/register_window.py" line="118"/>
         <source>Type in here if you have ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="133"/>
+        <location filename="../../view/register_window.py" line="134"/>
         <source>FanTools-Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="245"/>
+        <location filename="../../view/register_window.py" line="247"/>
         <source>Please input a legal email address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="254"/>
+        <location filename="../../view/register_window.py" line="256"/>
         <source>Please input right activation code to login this account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="263"/>
+        <location filename="../../view/register_window.py" line="265"/>
         <source>Wait for activation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="263"/>
+        <location filename="../../view/register_window.py" line="265"/>
         <source>This email address has not been registered.
 Try again to register now, or change another address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="275"/>
+        <location filename="../../view/register_window.py" line="277"/>
         <source>This email address has been activated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="285"/>
+        <location filename="../../view/register_window.py" line="287"/>
         <source>Activated successful</source>
         <translation type="unfinished"></translation>
     </message>
@@ -456,27 +474,27 @@ Try again to register now, or change another address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="87"/>
+        <location filename="../../view/register_window.py" line="88"/>
         <source>Please login in this window as soon as possible ~</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="180"/>
+        <location filename="../../view/register_window.py" line="182"/>
         <source>Using your FanSpace account on ifanspace.top to login.&lt;br&gt;ifanspace.top is a website powered by WordPress, designed by MangoFanFan.&lt;br&gt;You need to take actions on another window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="206"/>
+        <location filename="../../view/register_window.py" line="208"/>
         <source>Login with an unchecked email address...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="329"/>
+        <location filename="../../view/register_window.py" line="334"/>
         <source>Login successful</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="329"/>
+        <location filename="../../view/register_window.py" line="334"/>
         <source>Successfully login with a FanSpace account.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -496,18 +514,23 @@ Try again to register now, or change another address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="169"/>
+        <location filename="../../view/register_window.py" line="170"/>
         <source>Version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="170"/>
+        <location filename="../../view/register_window.py" line="171"/>
         <source>Picture left from pixiv.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="362"/>
+        <location filename="../../view/register_window.py" line="371"/>
         <source>You need to login first to get a saved token.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/register_window.py" line="172"/>
+        <source>FanTools need Internet connections to use.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -762,11 +785,6 @@ Try again to register now, or change another address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/widgets/tool_info_box.py" line="57"/>
-        <source>This tool can be launched without FanTools Main Software.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../view/widgets/tool_info_box.py" line="40"/>
         <source>Needed modules:</source>
         <translation type="unfinished"></translation>
@@ -782,21 +800,39 @@ Try again to register now, or change another address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../../view/widgets/tool_info_box.py" line="57"/>
+        <source>This tool can be launched with FanTools Main Software directly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../../view/widgets/tool_info_box.py" line="59"/>
-        <source>This tool can only be launched with FanTools Main Software.</source>
+        <source>This tool can be launched in an independent process..</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ToolInterface</name>
     <message>
-        <location filename="../../view/tool_interface.py" line="30"/>
+        <location filename="../../view/tool_interface.py" line="36"/>
         <source>Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/tool_interface.py" line="59"/>
+        <location filename="../../view/tool_interface.py" line="69"/>
         <source>All Tools</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ToolLaunchInfoBar</name>
+    <message>
+        <location filename="../../view/widgets/tool_load_info_bar.py" line="40"/>
+        <source>Failed to launch this tool multiply!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/widgets/tool_load_info_bar.py" line="40"/>
+        <source>This tool could not be launched multiply at one time.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
