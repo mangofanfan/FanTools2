@@ -80,7 +80,7 @@ class LicenseService:
         logger.success("许可证管理器已保存帆域 Oauth 登录结果。")
         return None
 
-    def getUserInfo(self, avatarFunc, nameFunc) -> None:
+    def getUserInfo(self, avatarFunc: callable, nameFunc: callable) -> None:
         """
         在主程序初始化之后，使用此方法获取email的头像和用户名。
         :return: None
