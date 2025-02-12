@@ -71,6 +71,8 @@ class MainInterface(QWidget, MainForm):
                                      self.ls.email,
                                      self._parent)
         infoBox.successSignal.connect(self._closeEditAccountInfoBox)
+        if not self.ls.license:  # 若使用帆域Oauth登录，则禁用编辑用户资料
+            infoBox.disableEditing()
         infoBox.show()
         logger.info("打开工具箱主页的用户信息编辑框。")
         return None
