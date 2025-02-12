@@ -102,7 +102,7 @@ class LicenseService:
             .then(lambda t: avatarFunc(image))
             .done()
         )
-        logger.trace(f"开始异步加载尺寸为 {size} 的用户头像。（若为 Oauth 登录方式无法指定大小）")
+        logger.trace(f"开始异步加载尺寸为 {size} 的用户头像。")
 
         return None
 
