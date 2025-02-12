@@ -99,7 +99,7 @@ class LicenseService:
             QRequestReady(QApplication.instance())
             .get(url)
             .then(lambda t: image.loadFromData(t))
-            .then(lambda t: avatarFunc(image))
+            .then(lambda _: avatarFunc(image))
             .done()
         )
         logger.trace(f"开始异步加载尺寸为 {size} 的用户头像。")
