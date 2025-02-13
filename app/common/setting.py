@@ -7,7 +7,7 @@ DEBUG = "__compiled__" not in globals()
 
 YEAR = 2024
 AUTHOR = "MangoFanFanw"
-VERSION = "0.2.4"
+VERSION = "0.2.5"
 APP_NAME = "FanTools"
 HELP_URL = "https://ifanspace.top/"
 REPO_URL = "https://github.com/mangofanfan/FanTools2"
