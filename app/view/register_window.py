@@ -165,7 +165,7 @@ class RegisterWindow(Window):
         self.stackedWidget.addWidget(self.widget_ChooseLoginMode)
         self.widget_ChooseLoginMode.setLayout(self.vBoxLayout_ChooseLoginMode)
 
-        self.vBoxLayout_ChooseLoginMode.addStretch(3)
+        self.vBoxLayout_ChooseLoginMode.addStretch(4)
         self.vBoxLayout_ChooseLoginMode.addWidget(self.pushButton_LoginWithFan)
         self.vBoxLayout_ChooseLoginMode.addSpacing(2)
         self.vBoxLayout_ChooseLoginMode.addWidget(self.pushButton_LoginWithEmail)
