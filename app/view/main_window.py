@@ -1,6 +1,4 @@
 # coding: utf-8
-from functools import partial
-
 from PySide6.QtCore import QUrl, QSize
 from PySide6.QtGui import QIcon, QColor, QCloseEvent, QResizeEvent, QDesktopServices
 from PySide6.QtWidgets import QApplication, QSystemTrayIcon
@@ -25,6 +23,7 @@ class MainWindow(MSFluentWindow):
 
     def __init__(self):
         super().__init__()
+        self.isExited = False
         self.initWindow()
 
         self.mainInterface = MainInterface(self)
@@ -42,7 +41,7 @@ class MainWindow(MSFluentWindow):
             logger.debug("由于相关设置，开始启动时检查版本更新。")
             self.checkUpdate()
 
-        self.icon = FanSystemTrayIcon(self)
+        self.systemTrayIcon = FanSystemTrayIcon(self)
 
         logger.success("工具箱主窗口初始化完毕。")
 
@@ -84,11 +83,6 @@ class MainWindow(MSFluentWindow):
         self.splashScreen.setIconSize(QSize(106, 106))
         self.splashScreen.raise_()
 
-        # add style
-        self.setStatusTip('QScrollArea {background: transparent; }'
-                          'QFrame {background: transparent; }'
-                          'QWidget {background: transparent; }')
-
         desktop = QApplication.primaryScreen().availableGeometry()
         w, h = desktop.width(), desktop.height()
         self.move(w//2 - self.width()//2, h//2 - self.height()//2)
@@ -103,8 +97,18 @@ class MainWindow(MSFluentWindow):
             self.splashScreen.resize(self.size())
 
     def closeEvent(self, e: QCloseEvent):
-        e.ignore()
-        self.hide()
+        if not self.isExited:
+            e.ignore()
+            self.systemTrayIcon.showHideTip()
+            self.hide()
+        return None
+
+    def exitFanTools(self) -> None:
+        """真正退出工具箱的函数"""
+        self.isExited = True
+        QApplication.instance().quit()
+        logger.success("工具箱已退出，感谢使用。")
+        return None
 
     def checkUpdate(self):
         """检查版本更新"""
@@ -131,9 +135,23 @@ class FanSystemTrayIcon(QSystemTrayIcon):
         self.menu.addActions([
             Action(text=self.tr("💡 Show Main Window"), triggered=self._parent.show),
             Action(text=self.tr("📖 Open FanTools Docs"), triggered=lambda: QDesktopServices.openUrl(QUrl(DOC_URL))),
-            Action(text=self.tr("🚪 Exit FanTools"), triggered=QApplication.instance().quit),
+            Action(text=self.tr("🚪 Exit FanTools"), triggered=self._parent.exitFanTools),
         ])
         self.setContextMenu(self.menu)
 
         self.show()
+
+        logger.trace("初始化并显示系统托盘图标。")
+
+    def showHideTip(self) -> None:
+        """工具箱方法，如果系统支持，向桌面发送窗口关闭的消息，否则不做处理。"""
+        if self.supportsMessages():
+            self.showMessage(self.tr("FanTools Main Window has been hidden."),
+                             self.tr("You can re-open it by right-clicking FanTools icon in System Tray."),
+                             QIcon(':/app/images/logo.png'),
+                             5000)
+            logger.trace("向桌面发送工具箱窗口关闭消息。")
+        else:
+            logger.trace("系统不支持桌面消息，因此未向桌面发送窗口关闭消息。")
+        return None
 
