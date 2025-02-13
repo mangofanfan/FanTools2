@@ -162,6 +162,11 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <source>Unknown Error. Please try again.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../../view/widgets/account_edit_info_box.py" line="121"/>
+        <source>You can not edit your account details when login with FanSpace.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BilingualWritingWindow</name>
@@ -199,18 +204,28 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
 <context>
     <name>FanSystemTrayIcon</name>
     <message>
-        <location filename="../../view/main_window.py" line="131"/>
+        <location filename="../../view/main_window.py" line="135"/>
         <source>💡 Show Main Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="131"/>
+        <location filename="../../view/main_window.py" line="135"/>
         <source>📖 Open FanTools Docs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="131"/>
+        <location filename="../../view/main_window.py" line="135"/>
         <source>🚪 Exit FanTools</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/main_window.py" line="149"/>
+        <source>FanTools Main Window has been hidden.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/main_window.py" line="149"/>
+        <source>You can re-open it by right-clicking FanTools icon in System Tray.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -284,7 +299,7 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
 <context>
     <name>MainInterface</name>
     <message>
-        <location filename="../../view/main_interface.py" line="79"/>
+        <location filename="../../view/main_interface.py" line="81"/>
         <source>Success</source>
         <translation type="unfinished">激活成功</translation>
     </message>
@@ -294,45 +309,45 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/main_interface.py" line="36"/>
-        <source>Account UUID:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../view/main_interface.py" line="39"/>
         <source>Software Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/main_interface.py" line="79"/>
+        <location filename="../../view/main_interface.py" line="81"/>
         <source>Your Account Info has been changed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../view/main_interface.py" line="36"/>
+        <source>FanTools is now in early development stages.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../view/main_window.py" line="66"/>
+        <location filename="../../view/main_window.py" line="65"/>
         <source>Settings</source>
         <translation type="unfinished">設置</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="64"/>
+        <location filename="../../view/main_window.py" line="63"/>
         <source>About</source>
         <translation type="unfinished">關於</translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="58"/>
+        <location filename="../../view/main_window.py" line="57"/>
         <source>Main</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="60"/>
+        <location filename="../../view/main_window.py" line="59"/>
         <source>Tools</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/main_window.py" line="77"/>
+        <location filename="../../view/main_window.py" line="76"/>
         <source>FanTools-Main</source>
         <translation type="unfinished"></translation>
     </message>
@@ -378,22 +393,22 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <translation type="unfinished">郵箱</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="100"/>
+        <location filename="../../view/register_window.py" line="99"/>
         <source>Activation Code</source>
         <translation type="unfinished">激活碼</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="103"/>
+        <location filename="../../view/register_window.py" line="101"/>
         <source>Remember me</source>
         <translation type="unfinished">記住我</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="105"/>
+        <location filename="../../view/register_window.py" line="102"/>
         <source>Login</source>
         <translation type="unfinished">登錄</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="256"/>
+        <location filename="../../view/register_window.py" line="261"/>
         <source>Activate failed</source>
         <translation type="unfinished">激活失敗</translation>
     </message>
@@ -403,7 +418,7 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <translation type="obsolete">請檢查你的激活碼是否正確</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="287"/>
+        <location filename="../../view/register_window.py" line="292"/>
         <source>Success</source>
         <translation type="unfinished">激活成功</translation>
     </message>
@@ -413,43 +428,43 @@ Whatever you do here on your account, your Old Code is needed to confirm them.</
         <translation type="obsolete">正在打開主界麵</translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="118"/>
+        <location filename="../../view/register_window.py" line="121"/>
         <source>Type in here if you have ...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="134"/>
+        <location filename="../../view/register_window.py" line="137"/>
         <source>FanTools-Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="247"/>
+        <location filename="../../view/register_window.py" line="252"/>
         <source>Please input a legal email address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="256"/>
+        <location filename="../../view/register_window.py" line="261"/>
         <source>Please input right activation code to login this account</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="265"/>
+        <location filename="../../view/register_window.py" line="270"/>
         <source>Wait for activation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="265"/>
+        <location filename="../../view/register_window.py" line="270"/>
         <source>This email address has not been registered.
 Try again to register now, or change another address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="277"/>
+        <location filename="../../view/register_window.py" line="282"/>
         <source>This email address has been activated.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="287"/>
+        <location filename="../../view/register_window.py" line="292"/>
         <source>Activated successful</source>
         <translation type="unfinished"></translation>
     </message>
@@ -479,22 +494,22 @@ Try again to register now, or change another address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="182"/>
+        <location filename="../../view/register_window.py" line="185"/>
         <source>Using your FanSpace account on ifanspace.top to login.&lt;br&gt;ifanspace.top is a website powered by WordPress, designed by MangoFanFan.&lt;br&gt;You need to take actions on another window.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="208"/>
+        <location filename="../../view/register_window.py" line="211"/>
         <source>Login with an unchecked email address...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="334"/>
+        <location filename="../../view/register_window.py" line="344"/>
         <source>Login successful</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="334"/>
+        <location filename="../../view/register_window.py" line="344"/>
         <source>Successfully login with a FanSpace account.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -514,22 +529,17 @@ Try again to register now, or change another address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="170"/>
+        <location filename="../../view/register_window.py" line="173"/>
         <source>Version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="171"/>
+        <location filename="../../view/register_window.py" line="174"/>
         <source>Picture left from pixiv.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/register_window.py" line="371"/>
-        <source>You need to login first to get a saved token.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../view/register_window.py" line="172"/>
+        <location filename="../../view/register_window.py" line="175"/>
         <source>FanTools need Internet connections to use.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -818,7 +828,7 @@ Try again to register now, or change another address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../view/tool_interface.py" line="69"/>
+        <location filename="../../view/tool_interface.py" line="70"/>
         <source>All Tools</source>
         <translation type="unfinished"></translation>
     </message>
