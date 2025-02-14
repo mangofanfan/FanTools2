@@ -4,7 +4,7 @@ from qfluentwidgets import (SwitchSettingCard, FolderListSettingCard,
                             HyperlinkCard, PrimaryPushSettingCard, ScrollArea,
                             ComboBoxSettingCard, ExpandLayout, Theme, CustomColorSettingCard,
                             setTheme, setThemeColor, isDarkTheme, setFont, SmoothScrollArea, BodyLabel, CheckBox,
-                            RangeSettingCard, ExpandGroupSettingCard, SimpleExpandGroupSettingCard)
+                            RangeSettingCard, ExpandGroupSettingCard, SimpleExpandGroupSettingCard, ToolTipFilter)
 from qfluentwidgets import FluentIcon as FIC
 from qfluentwidgets import SettingCardGroup as CardGroup
 from qfluentwidgets import InfoBar
@@ -85,6 +85,8 @@ class SettingInterface(SmoothScrollArea):
             content=self.tr('Allow FanTools to stay in System Tray when closing Main Window.'),
             parent=self.personalGroup
         )
+        self.trayIconCard.setToolTip(self.tr("Whatever you choose here, Quit button at the bottom of navigation bar is always useful."))
+        self.trayIconCard.installEventFilter(ToolTipFilter(self.trayIconCard))
 
         # function
         self.functionGroup = SettingCardGroup(self.tr("Functions"), self.scrollWidget)

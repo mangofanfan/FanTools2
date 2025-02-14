@@ -10,6 +10,7 @@ from qfluentwidgets import (MSFluentTitleBar, isDarkTheme, ImageLabel, BodyLabel
                             PasswordLineEdit, PrimaryPushButton, HyperlinkButton, CheckBox, InfoBar,
                             InfoBarPosition, setThemeColor, PushButton, CaptionLabel, ToolTipFilter)
 from qfluentwidgets.window.stacked_widget import StackedWidget
+from qfluentwidgetspro import ProgressInfoBar
 
 from requests_oauthlib import OAuth2Session
 
@@ -88,6 +89,12 @@ class RegisterWindow(Window):
         self.webEngineView.setWindowTitle(self.tr("Please login in this window as soon as possible ~"))
         self.webEngineView.setWindowIcon(QIcon(':/app/images/logo.png'))
         self.webEngineView.setFixedSize(QSize(640, 800))
+
+        self.oauthInfoBar = ProgressInfoBar(title=self.tr("FanSpace Oauth Client loading..."),
+                                            content=self.tr("Please wait for loading result..."),
+                                            isClosable=False,
+                                            position=InfoBarPosition.BOTTOM,
+                                            parent=self)
 
         # Email 模式的组件
         self.widget_LoginWithEmail = QWidget(self)
@@ -232,6 +239,7 @@ class RegisterWindow(Window):
             lambda: cfg.set(cfg.rememberMe, self.rememberCheckBox.isChecked()))
         logger.trace("根据相关设置调整「记住我」选择框状态。")
         self.oauthThread.tokenAvailable.connect(self.pushButton_UseSavedToken.setEnabled)
+        self.oauthThread.tokenAvailable.connect(self.oauthInfoBar.hide)
         self.finalOauthThread.datasSignal.connect(self.finalLoginWithFan)
 
     def loginWithEmail(self):
@@ -311,6 +319,7 @@ class RegisterWindow(Window):
 
         def urlChanged():
             if self.webEngineView.url().toString().startswith("http://localhost:8080/"):
+                self.oauthInfoBar.show()
                 AUTH_RES = self.webEngineView.url().toString()
                 self.webEngineView.close()
                 token_datas = self.oauthClient.fetch_token(token_url=fanlive_token, client_secret=CLIENT_SECRET, authorization_response=AUTH_RES)
@@ -340,6 +349,7 @@ class RegisterWindow(Window):
 
         datas = input_datas[0]
         token_datas = input_datas[1]
+        self.oauthInfoBar.close()
 
         InfoBar.success(title=self.tr("Login successful"),
                         content=self.tr("Successfully login with a FanSpace account."),
@@ -360,6 +370,7 @@ class RegisterWindow(Window):
 
     def loadFanToken(self) -> bool:
         """返回布尔值指示是否允许使用保存的令牌快速登录。"""
+        self.oauthInfoBar.show()
         logger.trace("开始加载帆域 Oauth 登录的准备工作。")
         if (token_datas := token_loader()) == {}:
             return False
@@ -441,4 +452,5 @@ class FanOauthThread_2(QThread):
         self.token_datas = token
 
     def run(self) -> None:
+        self._parent.oauthInfoBar.show()
         self.datasSignal.emit((self.oauthClient.get(fanlive_me).json(), self.token_datas))

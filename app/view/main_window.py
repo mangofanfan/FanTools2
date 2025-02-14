@@ -1,6 +1,6 @@
 # coding: utf-8
 from PySide6.QtCore import QUrl, QSize
-from PySide6.QtGui import QIcon, QColor, QCloseEvent, QResizeEvent, QDesktopServices
+from PySide6.QtGui import QIcon, QColor, QCloseEvent, QResizeEvent, QDesktopServices, QShowEvent
 from PySide6.QtWidgets import QApplication, QSystemTrayIcon
 
 from qfluentwidgets import NavigationItemPosition, MSFluentWindow, SplashScreen, SystemTrayMenu, Action
@@ -41,7 +41,9 @@ class MainWindow(MSFluentWindow):
             logger.debug("由于相关设置，开始启动时检查版本更新。")
             self.checkUpdate()
 
-        self.systemTrayIcon = FanSystemTrayIcon(self)
+        # 如果设置允许系统托盘图标功能
+        if cfg.get(cfg.trayIcon):
+            self.systemTrayIcon = FanSystemTrayIcon(self)
 
         logger.success("工具箱主窗口初始化完毕。")
 
@@ -64,6 +66,7 @@ class MainWindow(MSFluentWindow):
             self.aboutInterface, FIF.QUESTION, self.tr("About"), FIF.QUESTION, NavigationItemPosition.BOTTOM)
         self.addSubInterface(
             self.settingInterface, Icon.SETTINGS, self.tr('Settings'), Icon.SETTINGS_FILLED, NavigationItemPosition.BOTTOM)
+        self.navigationInterface.addItem("Quit", FIF.STOP_WATCH, self.tr("Quit"), self.exitFanTools, True, FIF.STOP_WATCH, NavigationItemPosition.BOTTOM)
 
         logger.trace("工具箱侧边导航初始化完毕。")
 
@@ -97,10 +100,20 @@ class MainWindow(MSFluentWindow):
             self.splashScreen.resize(self.size())
 
     def closeEvent(self, e: QCloseEvent):
+        if not cfg.get(cfg.trayIcon):
+            super().closeEvent(e)
+            return None
         if not self.isExited:
             e.ignore()
             self.systemTrayIcon.showHideTip()
             self.hide()
+            logger.info("工具箱已经隐藏至系统托盘。")
+        return None
+
+    def showEvent(self, e: QShowEvent):
+        if cfg.get(cfg.trayIcon):
+            logger.info("工具箱已经重新显示。")
+        super().showEvent(e)
         return None
 
     def exitFanTools(self) -> None:
