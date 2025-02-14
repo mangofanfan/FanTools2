@@ -51,9 +51,12 @@ class AboutInterface(QWidget, AboutForm):
         self.pushButton_OpenAPPDataFolder.setText(self.tr("Open AppData Folder"))
         self.pushButton_OpenVersionList = PushButton()
         self.pushButton_OpenVersionList.setText(self.tr("Open Version List"))
+        self.pushButton_RaiseError = PushButton()
+        self.pushButton_RaiseError.setText(self.tr("Raise an Error NOW !!"))
         hLayout = QHBoxLayout()
         hLayout.addWidget(self.pushButton_OpenAPPDataFolder)
         hLayout.addWidget(self.pushButton_OpenVersionList)
+        hLayout.addWidget(self.pushButton_RaiseError)
         hLayout.addStretch()
         headerCardLayout.addLayout(hLayout)
         headerCardLayout.addStretch()
@@ -106,6 +109,7 @@ class AboutInterface(QWidget, AboutForm):
     def _connectSignals(self):
         self.pushButton_OpenVersionList.clicked.connect(lambda: QDesktopServices.openUrl(QUrl("https://docs-fantools.mangofanfan.cn/version/")))
         self.pushButton_OpenAPPDataFolder.clicked.connect(lambda: os.startfile(basicFunc.getHerePath() + "/AppData/"))
+        self.pushButton_RaiseError.clicked.connect(lambda: 114514 / 0)
 
         self.CardWidget_Docs.clicked.connect(lambda: QDesktopServices.openUrl(QUrl("https://docs-fantools.mangofanfan.cn")))
         self.CardWidget_GitHub.clicked.connect(lambda: QDesktopServices.openUrl(QUrl("https://github.com/mangofanfan/FanTools2")))
