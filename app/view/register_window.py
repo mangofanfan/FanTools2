@@ -137,8 +137,7 @@ class RegisterWindow(Window):
         if isWin11():
             self.windowEffect.setMicaEffect(self.winId(), isDarkTheme())
         else:
-            color = QColor(25, 33, 42) if isDarkTheme(
-            ) else QColor(240, 244, 249)
+            color = QColor(25, 33, 42) if isDarkTheme() else QColor(240, 244, 249)
             self.setStyleSheet(f"RegisterWindow{{background: {color.name()}}}")
 
         self.setWindowTitle(self.tr('FanTools-Login'))
