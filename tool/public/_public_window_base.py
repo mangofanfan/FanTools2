@@ -1,25 +1,17 @@
-﻿from typing import Union
-import sys
+﻿import sys
 
-from PySide6.QtCore import Qt, QSize, QRect
-from PySide6.QtGui import QIcon, QPainter, QColor
-from PySide6.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QApplication
-
-from qfluentwidgets.common.config import qconfig
-from qfluentwidgets.common.icon import FluentIconBase
-from qfluentwidgets.common.router import qrouter
-from qfluentwidgets.common.style_sheet import FluentStyleSheet, isDarkTheme, setTheme, Theme
+from PySide6.QtCore import Qt, QSize, QRect, Signal
+from PySide6.QtGui import QPainter, QColor
 from qfluentwidgets.common.animation import BackgroundAnimationWidget
+from qfluentwidgets.common.config import qconfig
+from qfluentwidgets.common.style_sheet import isDarkTheme
 from qfluentwidgets.components.widgets.frameless_window import FramelessWindow
-from qfluentwidgets.components.navigation import (NavigationInterface, NavigationBar, NavigationItemPosition,
-                                     NavigationBarPushButton, NavigationTreeWidget)
-from qfluentwidgets.window.stacked_widget import StackedWidget
-
-from qframelesswindow import TitleBar, TitleBarBase
+from qframelesswindow import TitleBarBase
 
 
 class FanWindowBase(BackgroundAnimationWidget, FramelessWindow):
-    """ Fluent window base class """
+    """ 从 FluentWindowBase 复制并魔改 """
+    windowResizeSignal = Signal()
 
     def __init__(self, parent=None):
         self._isMicaEnabled = False
@@ -99,3 +91,8 @@ class FanWindowBase(BackgroundAnimationWidget, FramelessWindow):
             titleBar.minBtn.hide()
             titleBar.maxBtn.hide()
             titleBar.closeBtn.hide()
+
+    def resizeEvent(self, event):
+        self.windowResizeSignal.emit()
+        super().resizeEvent(event)
+        return None
