@@ -45,7 +45,7 @@ class Config(QConfig):
         "MainWindow", "DpiScale", "Auto", OptionsValidator([1, 1.25, 1.5, 1.75, 2, "Auto"]), restart=True)
     language = OptionsConfigItem(
         "MainWindow", "Language", Language.AUTO, OptionsValidator(Language), LanguageSerializer(), restart=True)
-    trayIcon = ConfigItem("MainWindow", "TrayIcon", True, BoolValidator())
+    trayIcon = ConfigItem("MainWindow", "TrayIcon", True, BoolValidator(), restart=True)
 
     # software update
     checkUpdateAtStartUp = ConfigItem("Update", "CheckUpdateAtStartUp", True, BoolValidator())
