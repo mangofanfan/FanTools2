@@ -3,7 +3,6 @@ from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout
 from qfluentwidgets import MessageBoxBase, AvatarWidget, StrongBodyLabel, LineEdit, BodyLabel, PrimaryPushButton
 
-from app.common.error import UserCodeWrongError
 from app.common.license_service import LicenseService
 
 

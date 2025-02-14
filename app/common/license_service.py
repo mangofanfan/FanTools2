@@ -6,7 +6,6 @@ from PySide6.QtCore import QEventLoop
 from PySide6.QtGui import QImage
 from PySide6.QtWidgets import QApplication
 
-from .error import UserCodeWrongError, APIError
 from .function import Singleton
 from .network import QRequestReady
 from .logger import logger
