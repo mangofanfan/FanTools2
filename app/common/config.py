@@ -34,10 +34,8 @@ def isWin11():
 class Config(QConfig):
     """ Config of application """
 
-    # TODO: ADD YOUR CONFIG GROUP HERE
-
     # register
-    rememberMe = ConfigItem("Register", "RememberMe", True)
+    rememberMe = ConfigItem("Register", "RememberMe", True, BoolValidator())
     email = ConfigItem("Register", "Email", "")
     activationCode = ConfigItem("Register", "ActivationCode", "")
 
@@ -47,6 +45,7 @@ class Config(QConfig):
         "MainWindow", "DpiScale", "Auto", OptionsValidator([1, 1.25, 1.5, 1.75, 2, "Auto"]), restart=True)
     language = OptionsConfigItem(
         "MainWindow", "Language", Language.AUTO, OptionsValidator(Language), LanguageSerializer(), restart=True)
+    trayIcon = ConfigItem("MainWindow", "TrayIcon", True, BoolValidator())
 
     # software update
     checkUpdateAtStartUp = ConfigItem("Update", "CheckUpdateAtStartUp", True, BoolValidator())
