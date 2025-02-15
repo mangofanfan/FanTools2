@@ -33,7 +33,7 @@ class MainInterface(QWidget, MainForm):
 
         # 设置信息卡片组
         self.BodyLabel_SoftwareInfo.setText(self.tr("Software Version:") + VERSION)
-        self.BodyLabel_AccountInfo.setText(self.tr("Account UUID:") + "Unknown QAQ")
+        self.BodyLabel_AccountInfo.setText(self.tr("FanTools is now in early development stages."))
 
         # 设置软件简介卡片
         self.HeaderCardWidget.setTitle(self.tr("Software Information"))
@@ -71,6 +71,8 @@ class MainInterface(QWidget, MainForm):
                                      self.ls.email,
                                      self._parent)
         infoBox.successSignal.connect(self._closeEditAccountInfoBox)
+        if not self.ls.license:  # 若使用帆域Oauth登录，则禁用编辑用户资料
+            infoBox.disableEditing()
         infoBox.show()
         logger.info("打开工具箱主页的用户信息编辑框。")
         return None

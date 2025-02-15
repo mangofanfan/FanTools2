@@ -6,7 +6,6 @@ from PySide6.QtCore import QEventLoop
 from PySide6.QtGui import QImage
 from PySide6.QtWidgets import QApplication
 
-from .error import UserCodeWrongError, APIError
 from .function import Singleton
 from .network import QRequestReady
 from .logger import logger
@@ -80,7 +79,7 @@ class LicenseService:
         logger.success("许可证管理器已保存帆域 Oauth 登录结果。")
         return None
 
-    def getUserInfo(self, avatarFunc, nameFunc) -> None:
+    def getUserInfo(self, avatarFunc: callable, nameFunc: callable) -> None:
         """
         在主程序初始化之后，使用此方法获取email的头像和用户名。
         :return: None
@@ -93,20 +92,21 @@ class LicenseService:
     def getAvatar(self, avatarFunc: callable, size: int) -> None:
         image = QImage()
 
-        url = f"https://cravatar.cn/avatar/{self.__md5(self.email.lower())}?s={size}" if not self.license else self.datas["other"]["custom_avatar"]
+        url = f"https://cravatar.cn/avatar/{self.__md5(self.email.lower())}?s={size}" if self.license else self.datas["other"]["custom_avatar"]
 
         (
             QRequestReady(QApplication.instance())
             .get(url)
             .then(lambda t: image.loadFromData(t))
-            .then(lambda t: avatarFunc(image))
+            .then(lambda _: avatarFunc(image))
             .done()
         )
-        logger.trace(f"开始异步加载尺寸为 {size} 的用户头像。（若为 Oauth 登录方式无法指定大小）")
+        logger.trace(f"开始异步加载尺寸为 {size} 的用户头像。")
 
         return None
 
     def changeUserInfo(self, oldCode: str, name: str, newCode: str = "") -> int:
+        """ 在使用帆域 Oauth 登录时无效 """
         if not self.license:
             logger.error("无法更改 Oauth 方式登录的用户信息！")
             return -2

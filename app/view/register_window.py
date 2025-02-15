@@ -1,15 +1,16 @@
 # coding:utf-8
 import json
 import sys
-from PySide6.QtCore import Qt, QTimer, QUrl, QSize
-from PySide6.QtGui import QPixmap, QPainter, QColor, QIcon, QDesktopServices
+from PySide6.QtCore import Qt, QTimer, QUrl, QSize, QThread, Signal
+from PySide6.QtGui import  QColor, QIcon, QDesktopServices
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtWidgets import QWidget, QApplication, QHBoxLayout, QVBoxLayout
 
 from qfluentwidgets import (MSFluentTitleBar, isDarkTheme, ImageLabel, BodyLabel, LineEdit,
                             PasswordLineEdit, PrimaryPushButton, HyperlinkButton, CheckBox, InfoBar,
-                            InfoBarPosition, setThemeColor, PushButton, CaptionLabel, ToolTip, ToolTipFilter)
+                            InfoBarPosition, setThemeColor, PushButton, CaptionLabel, ToolTipFilter)
 from qfluentwidgets.window.stacked_widget import StackedWidget
+from qfluentwidgetspro import ProgressInfoBar
 
 from requests_oauthlib import OAuth2Session
 
@@ -77,7 +78,7 @@ class RegisterWindow(Window):
         self.pushButton_OpenOauthWeb.clicked.connect(self._loginWithFan)
         self.pushButton_UseSavedToken = PushButton(self)
         self.pushButton_UseSavedToken.setText(self.tr('Use saved token to login'))
-        self.pushButton_UseSavedToken.setEnabled(self._loadFanToken())
+        self.pushButton_UseSavedToken.setEnabled(False)
         self.linkButton_Fan = HyperlinkButton(self)
         self.linkButton_Fan.setText(self.tr('Open ifanspace.top'))
         self.linkButton_Fan.clicked.connect(lambda: QDesktopServices.openUrl(QUrl('https://ifanspace.top')))
@@ -89,6 +90,12 @@ class RegisterWindow(Window):
         self.webEngineView.setWindowIcon(QIcon(':/app/images/logo.png'))
         self.webEngineView.setFixedSize(QSize(640, 800))
 
+        self.oauthInfoBar = ProgressInfoBar(title=self.tr("FanSpace Oauth Client loading..."),
+                                            content=self.tr("Please wait for loading result..."),
+                                            isClosable=False,
+                                            position=InfoBarPosition.BOTTOM,
+                                            parent=self)
+
         # Email 模式的组件
         self.widget_LoginWithEmail = QWidget(self)
         self.vBoxLayout_LoginWithEmail = QVBoxLayout()
@@ -96,16 +103,19 @@ class RegisterWindow(Window):
         self.emailLabel = BodyLabel(self.tr('Email'), self)
         self.emailLineEdit = LineEdit(self)
         self.emailLineEdit.textEdited.connect(self._emailChanged)
-
         self.activateCodeLabel = BodyLabel(self.tr('Activation Code'))
         self.activateCodeLineEdit = PasswordLineEdit(self)
-
         self.rememberCheckBox = CheckBox(self.tr('Remember me'), self)
-
         self.loginButton_Email = PrimaryPushButton(self.tr('Login'), self)
 
+        # 子线程
+        self.oauthThread = FanOauthThread_1(self)
+        self.finalOauthThread = FanOauthThread_2(self)
 
         self.__initWidgets()
+
+        # 预加载保存的帆域 Oauth 令牌
+        self.oauthThread.start()
 
         logger.success("登录窗口初始化完成。")
 
@@ -121,14 +131,13 @@ class RegisterWindow(Window):
             self.emailLineEdit.setText(cfg.get(cfg.email))
             self.activateCodeLineEdit.setText(cfg.get(cfg.activationCode))
 
-        self.__connectSignalToSlot()
+        self.__connect()
         self.__initLayout()
 
         if isWin11():
             self.windowEffect.setMicaEffect(self.winId(), isDarkTheme())
         else:
-            color = QColor(25, 33, 42) if isDarkTheme(
-            ) else QColor(240, 244, 249)
+            color = QColor(25, 33, 42) if isDarkTheme() else QColor(240, 244, 249)
             self.setStyleSheet(f"RegisterWindow{{background: {color.name()}}}")
 
         self.setWindowTitle(self.tr('FanTools-Login'))
@@ -162,13 +171,14 @@ class RegisterWindow(Window):
         self.stackedWidget.addWidget(self.widget_ChooseLoginMode)
         self.widget_ChooseLoginMode.setLayout(self.vBoxLayout_ChooseLoginMode)
 
-        self.vBoxLayout_ChooseLoginMode.addStretch(3)
+        self.vBoxLayout_ChooseLoginMode.addStretch(4)
         self.vBoxLayout_ChooseLoginMode.addWidget(self.pushButton_LoginWithFan)
         self.vBoxLayout_ChooseLoginMode.addSpacing(2)
         self.vBoxLayout_ChooseLoginMode.addWidget(self.pushButton_LoginWithEmail)
         self.vBoxLayout_ChooseLoginMode.addSpacing(5)
         self.vBoxLayout_ChooseLoginMode.addWidget(CaptionLabel(self.tr("Version:") + VERSION))
         self.vBoxLayout_ChooseLoginMode.addWidget(CaptionLabel(self.tr("Picture left from pixiv.")))
+        self.vBoxLayout_ChooseLoginMode.addWidget(CaptionLabel(self.tr("FanTools need Internet connections to use.")))
         self.vBoxLayout_ChooseLoginMode.addStretch(1)
 
         # 帆域登录模式
@@ -222,13 +232,16 @@ class RegisterWindow(Window):
         self.vBoxLayout_LoginWithEmail.addSpacing(8)
         self.vBoxLayout_LoginWithEmail.addStretch(1)
 
-    def __connectSignalToSlot(self):
-        self.loginButton_Email.clicked.connect(self._loginWithEmail)
+    def __connect(self):
+        self.loginButton_Email.clicked.connect(self.loginWithEmail)
         self.rememberCheckBox.stateChanged.connect(
             lambda: cfg.set(cfg.rememberMe, self.rememberCheckBox.isChecked()))
         logger.trace("根据相关设置调整「记住我」选择框状态。")
+        self.oauthThread.tokenAvailable.connect(self.pushButton_UseSavedToken.setEnabled)
+        self.oauthThread.tokenAvailable.connect(self.oauthInfoBar.hide)
+        self.finalOauthThread.datasSignal.connect(self.finalLoginWithFan)
 
-    def _loginWithEmail(self):
+    def loginWithEmail(self):
         logger.trace("尝试执行登录。")
         email = self.emailLineEdit.text().strip()
         code = self.activateCodeLineEdit.text().strip()
@@ -294,6 +307,8 @@ class RegisterWindow(Window):
 
         logger.debug(f"本次登录使用用户：{email}")
 
+        return None
+
     def _emailChanged(self):
         self.signupFlag = False
         logger.debug("电子邮件地址更改，待激活状态取消。")
@@ -303,11 +318,14 @@ class RegisterWindow(Window):
 
         def urlChanged():
             if self.webEngineView.url().toString().startswith("http://localhost:8080/"):
+                self.oauthInfoBar.show()
                 AUTH_RES = self.webEngineView.url().toString()
                 self.webEngineView.close()
                 token_datas = self.oauthClient.fetch_token(token_url=fanlive_token, client_secret=CLIENT_SECRET, authorization_response=AUTH_RES)
 
-                self.__loginWithFan(token_datas)
+                self.finalOauthThread.setOauthClient(self.oauthClient)
+                self.finalOauthThread.setToken(token_datas)
+                self.finalOauthThread.start()
             return None
 
         # 禁用使用保存凭证登录按钮
@@ -326,9 +344,11 @@ class RegisterWindow(Window):
 
         return None
 
-    def __loginWithFan(self, token_datas: dict[str, str]) -> None:
+    def finalLoginWithFan(self, input_datas: tuple) -> None:
 
-        datas = self.oauthClient.get(fanlive_me).json()
+        datas = input_datas[0]
+        token_datas = input_datas[1]
+        self.oauthInfoBar.close()
 
         InfoBar.success(title=self.tr("Login successful"),
                         content=self.tr("Successfully login with a FanSpace account."),
@@ -347,7 +367,10 @@ class RegisterWindow(Window):
 
         return None
 
-    def _loadFanToken(self) -> bool:
+    def loadFanToken(self) -> bool:
+        """返回布尔值指示是否允许使用保存的令牌快速登录。"""
+        self.oauthInfoBar.show()
+        logger.trace("开始加载帆域 Oauth 登录的准备工作。")
         if (token_datas := token_loader()) == {}:
             return False
 
@@ -367,11 +390,12 @@ class RegisterWindow(Window):
             self.oauthClient.refresh_token(fanlive_token)
             logger.debug("已刷新保存的帆域 Oauth 令牌，可快速登录。")
         except:
-            self.pushButton_UseSavedToken.setToolTip(self.tr("You need to login first to get a saved token."))
-            self.pushButton_UseSavedToken.installEventFilter(ToolTipFilter(self.pushButton_UseSavedToken))
+            logger.debug("保存的帆域 Oauth 令牌已失效。")
             return False
 
-        self.pushButton_UseSavedToken.clicked.connect(lambda: self.__loginWithFan(token_datas))
+        self.finalOauthThread.setOauthClient(self.oauthClient)
+        self.finalOauthThread.setToken(token_datas)
+        self.pushButton_UseSavedToken.clicked.connect(self.finalOauthThread.start)
         return True
 
     def _showMainWindow(self):
@@ -400,3 +424,32 @@ def token_loader() -> dict[str, str]:
     except FileNotFoundError:
         logger.trace("未发现已保存的帆域 Oauth 登录凭证。")
         return {}
+
+
+class FanOauthThread_1(QThread):
+    tokenAvailable = Signal(bool)
+    def __init__(self, parent: RegisterWindow):
+        QThread.__init__(self)
+        self._parent = parent
+
+    def run(self) -> None:
+        self.tokenAvailable.emit(self._parent.loadFanToken())
+
+
+class FanOauthThread_2(QThread):
+    datasSignal = Signal(tuple)
+    def __init__(self, parent: RegisterWindow):
+        QThread.__init__(self)
+        self._parent = parent
+        self.oauthClient: OAuth2Session = None
+        self.token_datas = {}
+
+    def setOauthClient(self, oauthClient: OAuth2Session):
+        self.oauthClient = oauthClient
+
+    def setToken(self, token: dict[str, str]) -> None:
+        self.token_datas = token
+
+    def run(self) -> None:
+        self._parent.oauthInfoBar.show()
+        self.datasSignal.emit((self.oauthClient.get(fanlive_me).json(), self.token_datas))

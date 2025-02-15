@@ -4,7 +4,7 @@ from qfluentwidgets import (SwitchSettingCard, FolderListSettingCard,
                             HyperlinkCard, PrimaryPushSettingCard, ScrollArea,
                             ComboBoxSettingCard, ExpandLayout, Theme, CustomColorSettingCard,
                             setTheme, setThemeColor, isDarkTheme, setFont, SmoothScrollArea, BodyLabel, CheckBox,
-                            RangeSettingCard, ExpandGroupSettingCard, SimpleExpandGroupSettingCard)
+                            RangeSettingCard, ExpandGroupSettingCard, SimpleExpandGroupSettingCard, ToolTipFilter)
 from qfluentwidgets import FluentIcon as FIC
 from qfluentwidgets import SettingCardGroup as CardGroup
 from qfluentwidgets import InfoBar
@@ -78,6 +78,15 @@ class SettingInterface(SmoothScrollArea):
             texts=['简体中文', '繁體中文', 'English', self.tr('Use system setting')],
             parent=self.personalGroup
         )
+        self.trayIconCard = SwitchSettingCard(
+            configItem=cfg.trayIcon,
+            icon=FIC.BACK_TO_WINDOW,
+            title=self.tr('Enable System Tray Icon'),
+            content=self.tr('Allow FanTools to stay in System Tray when closing Main Window.'),
+            parent=self.personalGroup
+        )
+        self.trayIconCard.setToolTip(self.tr("Whatever you choose here, Quit button at the bottom of navigation bar is always useful."))
+        self.trayIconCard.installEventFilter(ToolTipFilter(self.trayIconCard))
 
         # function
         self.functionGroup = SettingCardGroup(self.tr("Functions"), self.scrollWidget)
@@ -246,6 +255,7 @@ class SettingInterface(SmoothScrollArea):
         self.personalGroup.addSettingCard(self.themeCard)
         self.personalGroup.addSettingCard(self.zoomCard)
         self.personalGroup.addSettingCard(self.languageCard)
+        self.personalGroup.addSettingCard(self.trayIconCard)
 
         self.functionGroup.addSettingCard(self.Card_YiYanEnable)
         self.functionGroup.addSettingCard(self.Card_YiYanAPI)

@@ -3,7 +3,6 @@ from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout
 from qfluentwidgets import MessageBoxBase, AvatarWidget, StrongBodyLabel, LineEdit, BodyLabel, PrimaryPushButton
 
-from app.common.error import UserCodeWrongError
 from app.common.license_service import LicenseService
 
 
@@ -24,8 +23,8 @@ class AccountEditInfoBox(MessageBoxBase):
         self.hBox.addLayout(self.aBox)
 
         self.AvatarWidget = AvatarWidget()
-        self.AvatarWidget.setFixedSize(QSize(200, 200))
-        self.AvatarWidget.setRadius(100)
+        self.AvatarWidget.setFixedSize(QSize(96, 96))
+        self.AvatarWidget.setRadius(48)
         self.aBox.addWidget(self.AvatarWidget)
 
         self.Push_Avatar = PrimaryPushButton()
@@ -90,7 +89,7 @@ class AccountEditInfoBox(MessageBoxBase):
 
     def _loadAvatar(self) -> None:
         ls = LicenseService()
-        ls.getAvatar(self.AvatarWidget.setImage, 200)
+        ls.getAvatar(self.AvatarWidget.setImage, 96)
         return None
 
 
@@ -109,3 +108,15 @@ class AccountEditInfoBox(MessageBoxBase):
             self.ErrorLabel.setText(self.tr("Unknown Error. Please try again."))
             self.ErrorLabel.setVisible(True)
             return False
+
+        return True
+
+    def disableEditing(self) -> None:
+        self.yesButton.setDisabled(True)
+        self.Push_Avatar.setDisabled(True)
+        self.lineE_NewCode.setDisabled(True)
+        self.lineE_OldCode.setDisabled(True)
+        self.lineE_Name.setDisabled(True)
+        self.ErrorLabel.setText(self.tr("You can not edit your account details when login with FanSpace."))
+        self.ErrorLabel.setVisible(True)
+        return None

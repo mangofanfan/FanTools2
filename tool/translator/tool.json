@@ -1,0 +1,10 @@
+{
+  "name": "Translator",
+  "module": "translator",
+  "icon": ":app/images/icons/IconTranslate.png",
+  "ver": "0.1.0",
+  "author": "MangoFanFan",
+  "tip": "Allow you to translate any language-file simply.",
+  "launchMode": 0,
+  "modules": []
+}

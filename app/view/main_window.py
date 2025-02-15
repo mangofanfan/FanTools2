@@ -1,16 +1,17 @@
 # coding: utf-8
 from PySide6.QtCore import QUrl, QSize
-from PySide6.QtGui import QIcon, QColor
-from PySide6.QtWidgets import QApplication
+from PySide6.QtGui import QIcon, QColor, QCloseEvent, QResizeEvent, QDesktopServices, QShowEvent
+from PySide6.QtWidgets import QApplication, QSystemTrayIcon
 
-from qfluentwidgets import NavigationItemPosition, MSFluentWindow, SplashScreen
+from qfluentwidgets import NavigationItemPosition, MSFluentWindow, SplashScreen, SystemTrayMenu, Action
 from qfluentwidgets import FluentIcon as FIF
 
+from common.setting import DOC_URL, VERSION
 from .main_interface import MainInterface
 from .setting_interface import SettingInterface
 from .tool_interface import ToolInterface
 from .about_interface import AboutInterface
-from .widgets.check_update import UpdateChecker
+from .widgets.check_update import UpdateChecker, UpdateStatus
 from ..common.config import cfg
 from ..common.icon import Icon
 from ..common.signal_bus import signalBus
@@ -22,6 +23,7 @@ class MainWindow(MSFluentWindow):
 
     def __init__(self):
         super().__init__()
+        self.isExited = False
         self.initWindow()
 
         self.mainInterface = MainInterface(self)
@@ -38,6 +40,10 @@ class MainWindow(MSFluentWindow):
         if cfg.get(cfg.checkUpdateAtStartUp):
             logger.debug("由于相关设置，开始启动时检查版本更新。")
             self.checkUpdate()
+
+        # 如果设置允许系统托盘图标功能
+        if cfg.get(cfg.trayIcon):
+            self.systemTrayIcon = FanSystemTrayIcon(self)
 
         logger.success("工具箱主窗口初始化完毕。")
 
@@ -60,13 +66,14 @@ class MainWindow(MSFluentWindow):
             self.aboutInterface, FIF.QUESTION, self.tr("About"), FIF.QUESTION, NavigationItemPosition.BOTTOM)
         self.addSubInterface(
             self.settingInterface, Icon.SETTINGS, self.tr('Settings'), Icon.SETTINGS_FILLED, NavigationItemPosition.BOTTOM)
+        self.navigationInterface.addItem("Quit", FIF.STOP_WATCH, self.tr("Quit"), self.exitFanTools, True, FIF.STOP_WATCH, NavigationItemPosition.BOTTOM)
 
         logger.trace("工具箱侧边导航初始化完毕。")
 
         self.splashScreen.finish()
 
     def initWindow(self):
-        self.resize(960, 780)
+        self.resize(QSize(1000, 680))
         self.setMinimumWidth(760)
         self.setWindowIcon(QIcon(':/app/images/logo.png'))
         self.setWindowTitle(self.tr('FanTools-Main'))
@@ -79,11 +86,6 @@ class MainWindow(MSFluentWindow):
         self.splashScreen.setIconSize(QSize(106, 106))
         self.splashScreen.raise_()
 
-        # add style
-        self.setStatusTip('QScrollArea {background: transparent; }'
-                          'QFrame {background: transparent; }'
-                          'QWidget {background: transparent; }')
-
         desktop = QApplication.primaryScreen().availableGeometry()
         w, h = desktop.width(), desktop.height()
         self.move(w//2 - self.width()//2, h//2 - self.height()//2)
@@ -92,10 +94,34 @@ class MainWindow(MSFluentWindow):
 
         logger.trace("工具箱主窗口初始化完毕。")
 
-    def resizeEvent(self, e):
+    def resizeEvent(self, e: QResizeEvent):
         super().resizeEvent(e)
         if hasattr(self, 'splashScreen'):
             self.splashScreen.resize(self.size())
+
+    def closeEvent(self, e: QCloseEvent):
+        if not cfg.get(cfg.trayIcon):
+            super().closeEvent(e)
+            return None
+        if not self.isExited:
+            e.ignore()
+            self.systemTrayIcon.showHideTip()
+            self.hide()
+            logger.info("工具箱已经隐藏至系统托盘。")
+        return None
+
+    def showEvent(self, e: QShowEvent):
+        if cfg.get(cfg.trayIcon):
+            logger.info("工具箱已经重新显示。")
+        super().showEvent(e)
+        return None
+
+    def exitFanTools(self) -> None:
+        """真正退出工具箱的函数"""
+        self.isExited = True
+        QApplication.instance().quit()
+        logger.success("工具箱已退出，感谢使用。")
+        return None
 
     def checkUpdate(self):
         """检查版本更新"""
@@ -103,9 +129,47 @@ class MainWindow(MSFluentWindow):
         from .widgets.need_update_info_bar import UpdateInfoBar
         uib = UpdateInfoBar(self)
         self.updateChecker = UpdateChecker()
-        if self.updateChecker.isNeedUpdate():
-            logger.info("发现更新版本，需要更新工具箱。")
+        if (status := self.updateChecker.isNeedUpdate()) == UpdateStatus.NeedUpdate:
+            logger.info("发现更新的版本，需要更新工具箱。")
             uib.update_true(self, self.updateChecker.getLatestVersion())
+        elif status == UpdateStatus.Dev:
+            logger.info("正在运行开发版本的工具箱。")
+            uib.dev_version(self, self.updateChecker.getDevVersion())
         else:
             logger.info("工具箱当前版本已是最新。")
+            logger.trace(f"如果您是从仓库的 Dev 分支获取的工具箱源码，这意味着该版本（{VERSION}）已经完成开发并发布。")
+            logger.trace("若需要继续查看或编辑工具箱的源码，请将您的代码与 Dev 分支同步。")
             uib.update_false(self, self.updateChecker.getLatestVersion())
+
+
+class FanSystemTrayIcon(QSystemTrayIcon):
+
+    def __init__(self, parent: MSFluentWindow):
+        super().__init__(parent=parent)
+        self.setIcon(parent.windowIcon())
+        self._parent = parent
+
+        self.menu = SystemTrayMenu(parent=parent)
+        self.menu.addActions([
+            Action(text=self.tr("💡 Show Main Window"), triggered=self._parent.show),
+            Action(text=self.tr("📖 Open FanTools Docs"), triggered=lambda: QDesktopServices.openUrl(QUrl(DOC_URL))),
+            Action(text=self.tr("🚪 Exit FanTools"), triggered=self._parent.exitFanTools),
+        ])
+        self.setContextMenu(self.menu)
+
+        self.show()
+
+        logger.trace("初始化并显示系统托盘图标。")
+
+    def showHideTip(self) -> None:
+        """工具箱方法，如果系统支持，向桌面发送窗口关闭的消息，否则不做处理。"""
+        if self.supportsMessages():
+            self.showMessage(self.tr("FanTools Main Window has been hidden."),
+                             self.tr("You can re-open it by right-clicking FanTools icon in System Tray."),
+                             QIcon(':/app/images/logo.png'),
+                             5000)
+            logger.trace("向桌面发送工具箱窗口关闭消息。")
+        else:
+            logger.trace("系统不支持桌面消息，因此未向桌面发送窗口关闭消息。")
+        return None
+

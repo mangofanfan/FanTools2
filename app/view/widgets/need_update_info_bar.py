@@ -26,3 +26,15 @@ class UpdateInfoBar(QObject):
             parent=_parent,
         )
         return None
+
+    def dev_version(self, _parent, version: str):
+        """当前版本是开发中版本。"""
+        InfoBar.info(
+            title=self.tr("In Development Version"),
+            content=self.tr("FanTools v{} now in development. Check FanTools' repo to get early information.").format(version),
+            duration=4000,
+            isClosable=True,
+            position=InfoBarPosition.TOP_RIGHT,
+            parent=_parent,
+        )
+        return None
