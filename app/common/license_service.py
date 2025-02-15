@@ -106,6 +106,7 @@ class LicenseService:
         return None
 
     def changeUserInfo(self, oldCode: str, name: str, newCode: str = "") -> int:
+        """ 在使用帆域 Oauth 登录时无效 """
         if not self.license:
             logger.error("无法更改 Oauth 方式登录的用户信息！")
             return -2

@@ -6,12 +6,12 @@ from PySide6.QtWidgets import QApplication, QSystemTrayIcon
 from qfluentwidgets import NavigationItemPosition, MSFluentWindow, SplashScreen, SystemTrayMenu, Action
 from qfluentwidgets import FluentIcon as FIF
 
-from common.setting import DOC_URL
+from common.setting import DOC_URL, VERSION
 from .main_interface import MainInterface
 from .setting_interface import SettingInterface
 from .tool_interface import ToolInterface
 from .about_interface import AboutInterface
-from .widgets.check_update import UpdateChecker
+from .widgets.check_update import UpdateChecker, UpdateStatus
 from ..common.config import cfg
 from ..common.icon import Icon
 from ..common.signal_bus import signalBus
@@ -129,11 +129,16 @@ class MainWindow(MSFluentWindow):
         from .widgets.need_update_info_bar import UpdateInfoBar
         uib = UpdateInfoBar(self)
         self.updateChecker = UpdateChecker()
-        if self.updateChecker.isNeedUpdate():
-            logger.info("发现更新版本，需要更新工具箱。")
+        if (status := self.updateChecker.isNeedUpdate()) == UpdateStatus.NeedUpdate:
+            logger.info("发现更新的版本，需要更新工具箱。")
             uib.update_true(self, self.updateChecker.getLatestVersion())
+        elif status == UpdateStatus.Dev:
+            logger.info("正在运行开发版本的工具箱。")
+            uib.dev_version(self, self.updateChecker.getDevVersion())
         else:
             logger.info("工具箱当前版本已是最新。")
+            logger.trace(f"如果您是从仓库的 Dev 分支获取的工具箱源码，这意味着该版本（{VERSION}）已经完成开发并发布。")
+            logger.trace("若需要继续查看或编辑工具箱的源码，请将您的代码与 Dev 分支同步。")
             uib.update_false(self, self.updateChecker.getLatestVersion())
 
 
