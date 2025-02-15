@@ -73,7 +73,7 @@ class MainWindow(MSFluentWindow):
         self.splashScreen.finish()
 
     def initWindow(self):
-        self.resize(960, 780)
+        self.resize(QSize(1000, 680))
         self.setMinimumWidth(760)
         self.setWindowIcon(QIcon(':/app/images/logo.png'))
         self.setWindowTitle(self.tr('FanTools-Main'))
