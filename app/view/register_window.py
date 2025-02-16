@@ -44,6 +44,7 @@ class RegisterWindow(Window):
         self.setResizeEnabled(False)
         self.setTitleBar(MSFluentTitleBar(self))
         self.register = LicenseService()
+        self._loginFinished = False
         self.hBoxLayout = QHBoxLayout(self)
 
         self.stackedWidget = StackedWidget(self)
@@ -399,6 +400,7 @@ class RegisterWindow(Window):
         return True
 
     def _showMainWindow(self):
+        self._loginFinished = True
         self.close()
         setThemeColor('#009faa')
 
@@ -410,7 +412,8 @@ class RegisterWindow(Window):
 
     def closeEvent(self, e: QCloseEvent) -> None:
         super().closeEvent(e)
-        QApplication.instance().quit()
+        if not self._loginFinished:
+            QApplication.instance().quit()
         return None
 
 
