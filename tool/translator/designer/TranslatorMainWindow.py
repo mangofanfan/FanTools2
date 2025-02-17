@@ -11,7 +11,7 @@
 from PySide6 import QtCore, QtGui, QtWidgets
 
 import qfluentwidgets
-
+import qfluentwidgetspro
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -21,10 +21,11 @@ class Ui_Form(object):
         self.horizontalLayout.setContentsMargins(-1, 35, -1, -1)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.ScrollArea = ScrollArea(Form)
+        self.ScrollArea.setMaximumSize(QtCore.QSize(300, 16777215))
         self.ScrollArea.setWidgetResizable(True)
         self.ScrollArea.setObjectName("ScrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 403, 909))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 298, 909))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.ScrollArea.setWidget(self.scrollAreaWidgetContents)
         self.horizontalLayout.addWidget(self.ScrollArea)
@@ -40,15 +41,32 @@ class Ui_Form(object):
         self.SimpleCardWidget_Translate.setObjectName("SimpleCardWidget_Translate")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.SimpleCardWidget_Translate)
         self.verticalLayout.setObjectName("verticalLayout")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.BodyLabel = BodyLabel(self.SimpleCardWidget_Translate)
         self.BodyLabel.setObjectName("BodyLabel")
-        self.verticalLayout.addWidget(self.BodyLabel)
+        self.horizontalLayout_2.addWidget(self.BodyLabel)
+        self.CommandBar = CommandBar(self.SimpleCardWidget_Translate)
+        self.CommandBar.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.CommandBar.setObjectName("CommandBar")
+        self.horizontalLayout_2.addWidget(self.CommandBar, 0, QtCore.Qt.AlignRight)
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
         self.LineEdit_Text_Original = LineEdit(self.SimpleCardWidget_Translate)
         self.LineEdit_Text_Original.setObjectName("LineEdit_Text_Original")
         self.verticalLayout.addWidget(self.LineEdit_Text_Original)
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.BodyLabel_2 = BodyLabel(self.SimpleCardWidget_Translate)
         self.BodyLabel_2.setObjectName("BodyLabel_2")
-        self.verticalLayout.addWidget(self.BodyLabel_2)
+        self.horizontalLayout_3.addWidget(self.BodyLabel_2)
+        self.Tag_TranslatedTextAccepted = qfluentwidgetspro.Tag(self.SimpleCardWidget_Translate)
+        self.Tag_TranslatedTextAccepted.setObjectName("Tag_TranslatedTextAccepted")
+        self.horizontalLayout_3.addWidget(self.Tag_TranslatedTextAccepted)
+        self.Tag_TranslatedTextEdited = qfluentwidgetspro.Tag(self.SimpleCardWidget_Translate)
+        self.Tag_TranslatedTextEdited.setObjectName("Tag_TranslatedTextEdited")
+        self.horizontalLayout_3.addWidget(self.Tag_TranslatedTextEdited)
+        self.horizontalLayout_3.setStretch(0, 10086)
+        self.verticalLayout.addLayout(self.horizontalLayout_3)
         self.LineEdit_Text_Translated = LineEdit(self.SimpleCardWidget_Translate)
         self.LineEdit_Text_Translated.setObjectName("LineEdit_Text_Translated")
         self.verticalLayout.addWidget(self.LineEdit_Text_Translated)
@@ -61,7 +79,6 @@ class Ui_Form(object):
         self.verticalLayout_2.addWidget(self.SimpleCardWidget_Translate)
         self.verticalLayout_2.setStretch(0, 1)
         self.verticalLayout_2.setStretch(1, 1)
-        self.verticalLayout_2.setStretch(2, 3)
         self.horizontalLayout.addLayout(self.verticalLayout_2)
         self.horizontalLayout.setStretch(0, 1)
         self.horizontalLayout.setStretch(1, 3)
@@ -75,5 +92,5 @@ class Ui_Form(object):
         self.BodyLabel.setText(_translate("Form", "Original Text"))
         self.BodyLabel_2.setText(_translate("Form", "Translated Text"))
         self.BodyLabel_3.setText(_translate("Form", "Translate Suggestions"))
-from qfluentwidgets import BodyLabel, LineEdit, ScrollArea, SimpleCardWidget
+from qfluentwidgets import BodyLabel, CommandBar, LineEdit, ScrollArea, SimpleCardWidget
 from qfluentwidgetspro import RoundListWidget

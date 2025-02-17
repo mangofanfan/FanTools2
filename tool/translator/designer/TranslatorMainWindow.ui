@@ -19,6 +19,12 @@
    </property>
    <item>
     <widget class="ScrollArea" name="ScrollArea">
+     <property name="maximumSize">
+      <size>
+       <width>300</width>
+       <height>16777215</height>
+      </size>
+     </property>
      <property name="widgetResizable">
       <bool>true</bool>
      </property>
@@ -27,7 +33,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>403</width>
+        <width>298</width>
         <height>909</height>
        </rect>
       </property>
@@ -35,7 +41,7 @@
     </widget>
    </item>
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,1,3">
+    <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,1,0">
      <item>
       <widget class="SimpleCardWidget" name="SimpleCardWidget_Control"/>
      </item>
@@ -46,21 +52,50 @@
       <widget class="SimpleCardWidget" name="SimpleCardWidget_Translate">
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="BodyLabel" name="BodyLabel">
-          <property name="text">
-           <string>Original Text</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="BodyLabel" name="BodyLabel">
+            <property name="text">
+             <string>Original Text</string>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignRight">
+           <widget class="CommandBar" name="CommandBar">
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="LineEdit" name="LineEdit_Text_Original"/>
         </item>
         <item>
-         <widget class="BodyLabel" name="BodyLabel_2">
-          <property name="text">
-           <string>Translated Text</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="10086,0,0">
+          <item>
+           <widget class="BodyLabel" name="BodyLabel_2">
+            <property name="text">
+             <string>Translated Text</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Tag" name="Tag_TranslatedTextAccepted">
+            <property name="infoLevel">
+             <number>1</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Tag" name="Tag_TranslatedTextEdited">
+            <property name="infoLevel">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
          <widget class="LineEdit" name="LineEdit_Text_Translated"/>
@@ -83,6 +118,16 @@
   </layout>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>PushButton</class>
+   <extends>QPushButton</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>FilledPushButton</class>
+   <extends>PushButton</extends>
+   <header>qfluentwidgetspro</header>
+  </customwidget>
   <customwidget>
    <class>CardWidget</class>
    <extends>QFrame</extends>
@@ -107,8 +152,18 @@
    <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>
+   <class>Tag</class>
+   <extends>FilledPushButton</extends>
+   <header>qfluentwidgetspro</header>
+  </customwidget>
+  <customwidget>
    <class>LineEdit</class>
    <extends>QLineEdit</extends>
+   <header>qfluentwidgets</header>
+  </customwidget>
+  <customwidget>
+   <class>CommandBar</class>
+   <extends>QFrame</extends>
    <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>
