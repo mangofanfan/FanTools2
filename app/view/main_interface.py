@@ -77,8 +77,9 @@ class MainInterface(QWidget, MainForm):
             if self.ls.datas.get("test", False) is True:
                 infoBox.disableEditing(DisableEditingReason.TestMode)
                 logger.trace("由于在测试模式下运行，禁止编辑用户信息。")
-            infoBox.disableEditing(DisableEditingReason.FanSpaceOauth)
-            logger.trace("由于使用帆域 Oauth 登录，禁止编辑用户信息。")
+            else:
+                infoBox.disableEditing(DisableEditingReason.FanSpaceOauth)
+                logger.trace("由于使用帆域 Oauth 登录，禁止编辑用户信息。")
 
         infoBox.show()
         logger.info("打开工具箱主页的用户信息编辑框。")

@@ -3,6 +3,9 @@
 from PySide6.QtCore import QFile, QIODevice
 
 from app.common import resource
+from app.common.logger import logger
+
+logger.info("启动翻译工具！翻译工具的日志也会输出在工具箱的主日志系统中哦！")
 
 from .widgets.text_line_widget import TextLineWidget
 from .widgets.window import TranslatorMainWindow
