@@ -13,5 +13,15 @@ class PoFileObject:
         """ 按顺序获取所有文本 """
         _list = []
         for entry in self._poFile:
-            _list.append(TextObject(entry.msgid, entry.msgstr))
+            _list.append(TextObject(entry.msgid, entry.msgstr, self.updateTextObject))
         return _list
+
+    def updateTextObject(self, textObject: TextObject):
+        """ 更新有变化的翻译文本 """
+        for entry in self._poFile:
+            if entry.msgid == textObject.getOriginalText():
+                entry.msgstr = textObject.getTranslatedText()
+
+    def save(self):
+        """ 将变化保存到po文件 """
+        self._poFile.save(self._filePath)

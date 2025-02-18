@@ -3,9 +3,10 @@
     翻译文本对象，一个翻译词条对应一个此对象
     """
     id_count = 0
-    def __init__(self, originalText: str, translatedText: str):
+    def __init__(self, originalText: str, translatedText: str, updateFunc: callable):
         self._originalText = originalText
         self._translatedText = translatedText
+        self._updateFunc = updateFunc
 
         # 自动增加编号
         TextObject.id_count += 1
@@ -19,3 +20,4 @@
 
     def setTranslatedText(self, translatedText: str):
         self._translatedText = translatedText
+        self._updateFunc(self)

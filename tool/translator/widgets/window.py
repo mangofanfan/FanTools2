@@ -1,11 +1,11 @@
 ﻿from PySide6.QtCore import QSize, Signal
-from PySide6.QtGui import QIcon
+from PySide6.QtGui import QIcon, QCloseEvent
 from PySide6.QtWidgets import QVBoxLayout
 from qfluentwidgets import Action, InfoLevel
 from qfluentwidgets import FluentIcon as FIC
 
 from app.common import resource
-
+from .language_file import PoFileObject
 from .text_line_widget import TextLineWidget
 from .text_object import TextObject
 from ..designer.TranslatorMainWindow import Ui_Form as Ui_TranslatorMainWindow
@@ -35,9 +35,9 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
 
         self.CommandBar.addActions([
             Action(FIC.SAVE, self.tr("Save"),
-                   triggered=self._onTranslatedTextChangAccepted),
+                   triggered=self._saveTranslatedText),
             Action(FIC.RETURN, self.tr("Return"),
-                   triggered=self._onTranslatedTextChangAccepted),
+                   triggered=self._returnTranslatedText),
         ])
 
         self.CommandBar.addSeparator()
@@ -51,12 +51,17 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self._textLineList: list[TextLineWidget] = []
         self._onChosenTextObject: TextObject = None
         self._isTranslatedTextEdited = False
+        self._poFileObject: PoFileObject = None
 
         # 工作区组建设置
         self.Tag_TranslatedTextAccepted.setHidden(False)
         self.Tag_TranslatedTextEdited.setHidden(True)
         self.LineEdit_Text_Original.setReadOnly(True)
         self.LineEdit_Text_Translated.textEdited.connect(self._onTranslatedTextEdited)
+
+    def setPoFileObject(self, poFileObject: PoFileObject):
+        self. _poFileObject = poFileObject
+        return None
 
     def addTextLineWidget(self, textLine: TextLineWidget) -> None:
         self._scrollLayout.addWidget(textLine)
@@ -84,7 +89,13 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self._onChosenTextObject = textObject
         return None
 
+    def _saveTranslatedText(self):
+        """ 与 save 按钮绑定，用来将 LineEdit 中编辑过的翻译文本保存"""
+        self._onChosenTextObject.setTranslatedText(self.LineEdit_Text_Translated.text())
+        self._onTranslatedTextChangAccepted()
+
     def _returnTranslatedText(self):
+        """ 与 return 按钮绑定，用来回退 LineEdit 中的翻译文本到原始状态 """
         self.LineEdit_Text_Translated.setText(self._onChosenTextObject.getTranslatedText())
         # 由于已经在翻译文本变动的绑定方法中检测文本是否一致，因而这里不用手动调用 self._onTranslatedTextChangAccepted()
 
@@ -104,4 +115,8 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self._isTranslatedTextEdited = False
         self.Tag_TranslatedTextAccepted.setHidden(False)
         self.Tag_TranslatedTextEdited.setHidden(True)
+
+    def closeEvent(self, event: QCloseEvent) -> None:
+        self._poFileObject.save()
+        super().closeEvent(event)
 
