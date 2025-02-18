@@ -1,9 +1,16 @@
+from enum import Enum
+
 from PySide6.QtCore import QSize, Qt, Signal, QUrl
 from PySide6.QtGui import QDesktopServices
 from PySide6.QtWidgets import QHBoxLayout, QVBoxLayout
 from qfluentwidgets import MessageBoxBase, AvatarWidget, StrongBodyLabel, LineEdit, BodyLabel, PrimaryPushButton
 
 from app.common.license_service import LicenseService
+
+
+class DisableEditingReason(Enum):
+    FanSpaceOauth = "FanSpaceOauth"
+    TestMode = "TestMode"
 
 
 class AccountEditInfoBox(MessageBoxBase):
@@ -89,7 +96,7 @@ class AccountEditInfoBox(MessageBoxBase):
 
     def _loadAvatar(self) -> None:
         ls = LicenseService()
-        ls.getAvatar(self.AvatarWidget.setImage, 96)
+        ls.setAvatar(self.AvatarWidget.setImage, 96)
         return None
 
 
@@ -111,12 +118,17 @@ class AccountEditInfoBox(MessageBoxBase):
 
         return True
 
-    def disableEditing(self) -> None:
+    def disableEditing(self, reason: DisableEditingReason) -> None:
         self.yesButton.setDisabled(True)
         self.Push_Avatar.setDisabled(True)
         self.lineE_NewCode.setDisabled(True)
         self.lineE_OldCode.setDisabled(True)
         self.lineE_Name.setDisabled(True)
-        self.ErrorLabel.setText(self.tr("You can not edit your account details when login with FanSpace."))
+        if reason == DisableEditingReason.FanSpaceOauth:
+            self.ErrorLabel.setText(self.tr("You can not edit your account details when login with FanSpace."))
+        elif reason == DisableEditingReason.TestMode:
+            self.ErrorLabel.setText(self.tr("You can not edit your account details when in Test Mode."))
+        else:
+            raise ValueError("Invalid reason")
         self.ErrorLabel.setVisible(True)
         return None

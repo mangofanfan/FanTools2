@@ -6,7 +6,7 @@ from qfluentwidgets import BodyLabel, InfoBar, InfoBarPosition
 from qfluentwidgets import FluentIcon as FIC
 
 from .designer.main_interface import Ui_Form as MainForm
-from .widgets.account_edit_info_box import AccountEditInfoBox
+from .widgets.account_edit_info_box import AccountEditInfoBox, DisableEditingReason
 from ..common import resource
 from ..common.license_service import LicenseService
 from ..common.hitokoto import HitokotoManager
@@ -71,8 +71,15 @@ class MainInterface(QWidget, MainForm):
                                      self.ls.email,
                                      self._parent)
         infoBox.successSignal.connect(self._closeEditAccountInfoBox)
-        if not self.ls.license:  # 若使用帆域Oauth登录，则禁用编辑用户资料
-            infoBox.disableEditing()
+
+        # 禁用用户资料编辑
+        if not self.ls.license:
+            if self.ls.datas.get("test", False) is True:
+                infoBox.disableEditing(DisableEditingReason.TestMode)
+                logger.trace("由于在测试模式下运行，禁止编辑用户信息。")
+            infoBox.disableEditing(DisableEditingReason.FanSpaceOauth)
+            logger.trace("由于使用帆域 Oauth 登录，禁止编辑用户信息。")
+
         infoBox.show()
         logger.info("打开工具箱主页的用户信息编辑框。")
         return None
