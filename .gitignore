@@ -2,6 +2,7 @@
 /runtime/Scripts/
 /AppData
 /examples
+/tool/private
 *.env
 main.py
 deploy.py
