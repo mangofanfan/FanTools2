@@ -46,3 +46,7 @@ class TextLineWidget(ClickableCardWidget):
             else:
                 super().setChosen(isChosen)
         return None
+
+    @property
+    def textObject(self):
+        return self._textObject

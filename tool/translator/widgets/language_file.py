@@ -14,7 +14,7 @@ class PoFileObject:
         """ 按顺序获取所有文本 """
         _list = []
         for entry in self._poFile:
-            _list.append(TextObject(entry.msgid, entry.msgstr, self.updateTextObject))
+            _list.append(TextObject(entry.msgid, entry.msgstr, entry.comment, entry.fuzzy, entry.flags, self.updateTextObject))
         return _list
 
     def updateTextObject(self, textObject: TextObject) -> None:
@@ -22,6 +22,8 @@ class PoFileObject:
         for entry in self._poFile:
             if entry.msgid == textObject.getOriginalText():
                 entry.msgstr = textObject.getTranslatedText()
+                entry.comment = textObject.getComment()
+                entry.flags = textObject.getFlags()
 
     def save(self) -> None:
         """ 将变化保存到po文件 """
@@ -34,16 +36,18 @@ class PoFileObject:
 
     def getTranslatedTextTotal(self) -> int:
         """ 获取已翻译的词条总数 """
-        count = 0
-        for entry in self._poFile:
-            # 将翻译文本不为空字符串的词条认为已被翻译
-            if entry.msgstr != "":
-                count += 1
-            else:
-                # 将两个都是空字符串的翻译词条认为已被翻译
-                if entry.msgid == "":
-                    count += 1
-        return count
+        return len(self._poFile.translated_entries())
+
+    def getUnTranslatedTextTotal(self) -> int:
+        """ 获取已翻译的词条总数 """
+        return len(self._poFile.untranslated_entries())
+
+    def getFuzzyTextTotal(self) -> int:
+        return len(self._poFile.fuzzy_entries())
+
+    def getPercentTranslatedTotal(self) -> int:
+        """ 获取已翻译的词条总数 """
+        return self._poFile.percent_translated()
 
     def getPoFilePath(self) -> str:
         """ 获取po文件路径 """

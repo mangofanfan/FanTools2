@@ -19,6 +19,12 @@
    </property>
    <item>
     <widget class="ScrollArea" name="ScrollArea">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>0</height>
+      </size>
+     </property>
      <property name="maximumSize">
       <size>
        <width>300</width>
@@ -46,7 +52,7 @@
       <widget class="SimpleCardWidget" name="SimpleCardWidget_Control">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
+         <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,0,0">
           <item>
            <widget class="TitleLabel" name="TitleLabel_PoFileName">
             <property name="text">
@@ -55,9 +61,16 @@
            </widget>
           </item>
           <item>
-           <widget class="SubtitleLabel" name="SubtitleLabel_FromFileName">
+           <widget class="CaptionLabel" name="SubtitleLabel_FromFileName">
             <property name="text">
-             <string>Subtitle label</string>
+             <string>Caption label</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="CaptionLabel" name="SubtitleLabel_NickName">
+            <property name="text">
+             <string>Caption label</string>
             </property>
            </widget>
           </item>
@@ -86,6 +99,13 @@
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="BodyLabel" name="BodyLabel_FuzzyTotal">
+            <property name="text">
+             <string>Body label</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </item>
         <item>
@@ -103,7 +123,7 @@
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0">
           <item>
-           <widget class="BodyLabel" name="BodyLabel">
+           <widget class="BodyLabel" name="BodyLabel_OriginalText">
             <property name="text">
              <string>Original Text</string>
             </property>
@@ -125,14 +145,37 @@
          </layout>
         </item>
         <item>
-         <widget class="LineEdit" name="LineEdit_Text_Original"/>
+         <widget class="LineEdit" name="LineEdit_Text_Original">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>33</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="10086,0,0">
+         <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="10086,0,0,0">
           <item>
-           <widget class="BodyLabel" name="BodyLabel_2">
+           <widget class="BodyLabel" name="BodyLabel_TranslatedText">
             <property name="text">
              <string>Translated Text</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Tag" name="Tag_Fuzzy">
+            <property name="infoLevel">
+             <number>2</number>
             </property>
            </widget>
           </item>
@@ -153,10 +196,52 @@
          </layout>
         </item>
         <item>
-         <widget class="LineEdit" name="LineEdit_Text_Translated"/>
+         <widget class="LineEdit" name="LineEdit_Text_Translated">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>100</height>
+           </size>
+          </property>
+         </widget>
         </item>
         <item>
-         <widget class="BodyLabel" name="BodyLabel_3">
+         <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="114514,0,0">
+          <item>
+           <widget class="BodyLabel" name="BodyLabel_Comment">
+            <property name="text">
+             <string>Comment</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Tag" name="Tag_CommentAccepted">
+            <property name="infoLevel">
+             <number>1</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Tag" name="Tag_CommentEdited">
+            <property name="infoLevel">
+             <number>3</number>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="LineEdit" name="LineEdit_Comment">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>100</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="BodyLabel" name="BodyLabel_TranslateSuggestions">
           <property name="text">
            <string>Translate Suggestions</string>
           </property>
@@ -202,12 +287,12 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>BodyLabel</class>
+   <class>CaptionLabel</class>
    <extends>QLabel</extends>
    <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>
-   <class>SubtitleLabel</class>
+   <class>BodyLabel</class>
    <extends>QLabel</extends>
    <header>qfluentwidgets</header>
   </customwidget>

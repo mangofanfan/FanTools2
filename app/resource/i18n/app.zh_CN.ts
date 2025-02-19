@@ -951,49 +951,89 @@ Try again to register now, or change another address.</source>
         <translation>翻译文本被编辑！</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="41"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="54"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="41"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="54"/>
         <source>Return</source>
         <translation>返回</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="48"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="61"/>
         <source>Copy</source>
         <translation>复制</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="48"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="61"/>
         <source>Clear</source>
         <translation>清除</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="55"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="68"/>
         <source>Mark Fuzzy</source>
         <translation>标记为模糊</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="67"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="81"/>
         <source>.po File From:</source>
         <translation>.po 文件来自：</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="68"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="82"/>
         <source>Text Total:</source>
         <translation>词条总数：</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="69"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="83"/>
         <source>Translated Total:</source>
         <translation>已翻译总数：</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="70"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="84"/>
         <source>Left Total:</source>
         <translation>待翻译总数：</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="41"/>
+        <source>Comment Accepted.</source>
+        <translation>注释文本已接受。</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="43"/>
+        <source>Comment has been Edited!</source>
+        <translation>注释文本被编辑！</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="47"/>
+        <source>Original Text</source>
+        <translation>原文本</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="48"/>
+        <source>Translated Text</source>
+        <translation>翻译文本</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="49"/>
+        <source>Comment</source>
+        <translation>注释</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="45"/>
+        <source>Fuzzy.</source>
+        <translation>模糊。</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="50"/>
+        <source>Translated Suggestions</source>
+        <translation>翻译建议</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="85"/>
+        <source>Fuzzy Total:</source>
+        <translation>模糊总数：</translation>
     </message>
 </context>
 <context>
