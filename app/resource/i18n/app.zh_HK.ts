@@ -902,98 +902,123 @@ Try again to register now, or change another address.</source>
 <context>
     <name>TranslatorMainWindow</name>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="37"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="43"/>
         <source>Translated Text Accepted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="39"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="45"/>
         <source>Translated Text has been Edited!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="54"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="62"/>
         <source>Save</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="54"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="62"/>
         <source>Return</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="61"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="69"/>
         <source>Copy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="61"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="69"/>
         <source>Clear</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="68"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="76"/>
         <source>Mark Fuzzy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="81"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="90"/>
         <source>.po File From:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="82"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="91"/>
         <source>Text Total:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="83"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="92"/>
         <source>Translated Total:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="84"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="93"/>
         <source>Left Total:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="41"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="47"/>
         <source>Comment Accepted.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="43"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="49"/>
         <source>Comment has been Edited!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="47"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="57"/>
         <source>Original Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="48"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="58"/>
         <source>Translated Text</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="49"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="59"/>
         <source>Comment</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="45"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="51"/>
         <source>Fuzzy.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="50"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="60"/>
         <source>Translated Suggestions</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="85"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="94"/>
         <source>Fuzzy Total:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="29"/>
+        <source>Translator</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="40"/>
+        <source>Test API status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="53"/>
+        <source>Start Thinking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="54"/>
+        <source>Local Thinking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="55"/>
+        <source>API Thinking</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

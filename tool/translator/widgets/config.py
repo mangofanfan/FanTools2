@@ -1,0 +1,13 @@
+﻿from qfluentwidgets import QConfig, ConfigItem, qconfig
+
+from ...public.function import getToolDir
+
+
+class TranslatorConfig(QConfig):
+    # 有道翻译
+    YouDaoAPPKey = ConfigItem("YouDao", "YouDaoAPPKey", "")
+    YouDaoKey = ConfigItem("YouDao", "YouDaoKey", "")
+
+
+translator_config = TranslatorConfig()
+qconfig.load(f"{getToolDir()}/private/translator_config.json", translator_config)

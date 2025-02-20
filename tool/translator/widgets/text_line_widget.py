@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QHBoxLayout
 from qfluentwidgets import BodyLabel
 
 from .text_object import TextObject
-from ...public.public_card import ClickableCardWidget
+from ...public.public_widget import ClickableCardWidget
 
 
 class TextLineWidget(ClickableCardWidget):

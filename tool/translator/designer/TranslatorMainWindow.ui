@@ -115,7 +115,21 @@
       </widget>
      </item>
      <item>
-      <widget class="SimpleCardWidget" name="SimpleCardWidget_TextInfo"/>
+      <widget class="SimpleCardWidget" name="SimpleCardWidget_TextInfo">
+       <widget class="PushButton" name="PushButton_TestAPIStatus">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>60</y>
+          <width>102</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Push button</string>
+        </property>
+       </widget>
+      </widget>
      </item>
      <item>
       <widget class="SimpleCardWidget" name="SimpleCardWidget_Translate">
@@ -241,14 +255,39 @@
          </widget>
         </item>
         <item>
-         <widget class="BodyLabel" name="BodyLabel_TranslateSuggestions">
-          <property name="text">
-           <string>Translate Suggestions</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="985413,0,0,0">
+          <item>
+           <widget class="BodyLabel" name="BodyLabel_TranslateSuggestions">
+            <property name="text">
+             <string>Translate Suggestions</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="PushButton" name="PushButton_StartThink">
+            <property name="text">
+             <string>Push button</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="ToggleButton" name="ToggleButton_APIThinking">
+            <property name="text">
+             <string>Toggle button</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="ToggleButton" name="ToggleButton_LocalThinking">
+            <property name="text">
+             <string>Toggle button</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
         <item>
-         <widget class="RoundListWidget" name="RoundListWidget_Text_Suggested"/>
+         <widget class="FanRoundListWidget" name="RoundListWidget_Text_Suggested"/>
         </item>
        </layout>
       </widget>
@@ -267,6 +306,11 @@
    <class>FilledPushButton</class>
    <extends>PushButton</extends>
    <header>qfluentwidgetspro</header>
+  </customwidget>
+  <customwidget>
+   <class>ToggleButton</class>
+   <extends>PushButton</extends>
+   <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>
    <class>CardWidget</class>
@@ -327,14 +371,9 @@
    <header>qfluentwidgets</header>
   </customwidget>
   <customwidget>
-   <class>ListWidget</class>
+   <class>FanRoundListWidget</class>
    <extends>QListWidget</extends>
-   <header>qfluentwidgets</header>
-  </customwidget>
-  <customwidget>
-   <class>RoundListWidget</class>
-   <extends>ListWidget</extends>
-   <header>qfluentwidgetspro</header>
+   <header>...public.qfluentwidgetsfanaddons</header>
   </customwidget>
  </customwidgets>
  <resources/>

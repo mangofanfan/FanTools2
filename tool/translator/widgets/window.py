@@ -1,15 +1,19 @@
 ﻿from PySide6.QtCore import QSize
 from PySide6.QtGui import QIcon, QCloseEvent, Qt
-from PySide6.QtWidgets import QVBoxLayout
-from qfluentwidgets import Action, InfoLevel
+from PySide6.QtWidgets import QVBoxLayout, QListWidgetItem
+from qfluentwidgets import Action, InfoLevel, RoundMenu
 from qfluentwidgets import FluentIcon as FIC
 
 from app.common import resource
 from app.common.logger import logger
 
+from .config import translator_config
+from .icon import TranslatorIcon
 from .language_file import PoFileObject
 from .text_line_widget import TextLineWidget
 from .text_object import TextObject
+from .translate_core import TranslateCore
+from .translateapi import Language, API
 from ..designer.TranslatorMainWindow import Ui_Form as Ui_TranslatorMainWindow
 from ...public.public_window import FanWindow
 
@@ -22,7 +26,7 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
 
         # 窗口进阶设计
         self.resize(QSize(1000, 800))
-        self.setWindowTitle("Translator")
+        self.setWindowTitle(self.tr("Translator"))
         self.setWindowIcon(QIcon(":app/images/icons/IconTranslate.png"))
 
         self.ProgressRing.setRange(0, 100)
@@ -32,6 +36,8 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self._scrollLayout.setContentsMargins(0, 5, 12, 0)
         self.scrollAreaWidgetContents.setLayout(self._scrollLayout)
         self.ScrollArea.setWidgetResizable(True)
+
+        self.PushButton_TestAPIStatus.setText(self.tr("Test API status"))
 
         self.Tag_TranslatedTextAccepted.setLevel(InfoLevel.SUCCESS)
         self.Tag_TranslatedTextAccepted.setText(self.tr("Translated Text Accepted."))
@@ -44,12 +50,14 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self.Tag_Fuzzy.setLevel(InfoLevel.INFOAMTION)
         self.Tag_Fuzzy.setText(self.tr("Fuzzy."))
 
+        self.PushButton_StartThink.setText(self.tr("Start Thinking"))
+        self.ToggleButton_LocalThinking.setText(self.tr("Local Thinking"))
+        self.ToggleButton_APIThinking.setText(self.tr("API Thinking"))
+
         self.BodyLabel_OriginalText.setText(self.tr("Original Text"))
         self.BodyLabel_TranslatedText.setText(self.tr("Translated Text"))
         self.BodyLabel_Comment.setText(self.tr("Comment"))
         self.BodyLabel_TranslateSuggestions.setText(self.tr("Translated Suggestions"))
-        # self.LineEdit_Comment.setTextInteractionFlags(Qt.TextInteractionFlag.TextEditorInteraction)
-        # self.LineEdit_Comment.setTextFormat(Qt.TextFormat.RichText)
 
         self.CommandBar.addActions([
             Action(FIC.SAVE, self.tr("Save"),
@@ -70,12 +78,21 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
                    triggered=self._markFuzzy),
         ])
 
+        self.SuggestionsPopMenu = RoundMenu()
+        self.SuggestionsPopMenu.addActions([
+            Action(FIC.DELETE, self.tr("Clear suggestions"),
+                   triggered=self._clearThinking)
+        ])
+        self.RoundListWidget_Text_Suggested.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
+        self.RoundListWidget_Text_Suggested.setRightClickMenu(self.SuggestionsPopMenu)
+
         # 魔改窗口逻辑
         self._textLineList: list[TextLineWidget] = []
         self._onChosenTextObject: TextObject = None
         self._isTranslatedTextEdited = False
         self._isCommentEdited = False
         self._poFileObject: PoFileObject = None
+        self._translateCore = TranslateCore()
 
         # 信息区组件设置
         self._tr_poFileFrom = self.tr(".po File From:")
@@ -83,6 +100,9 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self._tr_translatedTotal = self.tr("Translated Total:")
         self._tr_leftTotal = self.tr("Left Total:")
         self._tr_fuzzyTotal = self.tr("Fuzzy Total:")
+
+        # 控制区组件设置
+        self.PushButton_TestAPIStatus.clicked.connect(self._translateCore.test)
 
         # 工作区组件设置
         self.Tag_TranslatedTextAccepted.setHidden(False)
@@ -93,19 +113,13 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self.LineEdit_Text_Original.setReadOnly(True)
         self.LineEdit_Text_Translated.textChanged.connect(self._onTranslatedTextEdited)
         self.LineEdit_Comment.textChanged.connect(self._onCommentEdited)
+        self.PushButton_StartThink.clicked.connect(self.startThinking)
 
         logger.trace("翻译工具主窗口初始化完毕。")
 
     def setPoFileObject(self, poFileObject: PoFileObject):
         self. _poFileObject = poFileObject
-        # 信息区显示文件信息
-        self.TitleLabel_PoFileName.setText(poFileObject.getPoFilePath())
-        self.SubtitleLabel_FromFileName.setText(self._tr_poFileFrom)
-        self.BodyLabel_TextTotal.setText(self._tr_textTotal + str(poFileObject.getTextTotal()))
-        self.BodyLabel_TranslatedTextTotal.setText(self._tr_translatedTotal + str(poFileObject.getTranslatedTextTotal()))
-        self.BodyLabel_LeftTextTotal.setText(self._tr_leftTotal + str(poFileObject.getUnTranslatedTextTotal()))
-        self.BodyLabel_FuzzyTotal.setText(self._tr_fuzzyTotal + str(poFileObject.getFuzzyTextTotal()))
-        self.ProgressRing.setValue(poFileObject.getPercentTranslatedTotal())
+        self._updateProjectDisplay()
         logger.trace("为翻译工具主窗口设置了 PoFileObject")
         return None
 
@@ -113,13 +127,11 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self._scrollLayout.addWidget(textLine)
         self._textLineList.append(textLine)
         textLine.isChosenSignal.connect(self.onTextLineChosen)
-        logger.trace("在翻译工具主窗口中添加一个 TextLineWidget")
+        logger.trace(f"在翻译工具主窗口中添加 {textLine.textObject} 对应的 TextLineWidget")
         return None
 
-    def removeTextLineWidget(self, textLine: TextLineWidget) -> None:
-        ...
-
     def addTextLineWidgetFinished(self) -> None:
+        """ 在所有词条卡片添加完毕后调用 """
         self._scrollLayout.addStretch()
         self._textLineList[0].setChosen(True)
         self.onTextLineChosen(self._textLineList[0].textObject)
@@ -149,7 +161,30 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         else:
             self.Tag_Fuzzy.setHidden(True)
             logger.trace(f"词条 {textObject} 没有 Fuzzy 标签。")
+        self._clearThinking()
         logger.info(f"在翻译工具主窗口中选中了词条 {textObject} 所在卡片。")
+        return None
+
+    def startThinking(self) -> None:
+        """ 主动开始思考，获取所有可用的翻译思考渠道的结果并添加到翻译建议中 """
+        self._translateCore.translate(self._onChosenTextObject.getOriginalText(),
+                                      Language.en,
+                                      Language.zh_CHS,
+                                      API.YouDao,
+                                      self._addSuggestion)
+        return None
+
+    def _clearThinking(self) -> None:
+        """ 清空思考结果，应当在选中其他词条卡片时自动调用 """
+        self.RoundListWidget_Text_Suggested.clear()
+        return None
+
+    def _addSuggestion(self, targetText: str, api: API) -> None:
+        """ 在翻译建议中添加建议 """
+        item = QListWidgetItem()
+        item.setText(targetText)
+        item.setIcon(QIcon((getattr(TranslatorIcon, api.value)).path()))
+        self.RoundListWidget_Text_Suggested.addItem(item)
         return None
 
     def _saveTranslatedText(self):
@@ -164,6 +199,7 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         if self._isCommentEdited:
             self._onChosenTextObject.setComment(self.LineEdit_Comment.text())
             self._onCommentChangedAccepted()
+        self._updateProjectDisplay()
         logger.info(f"在翻译工具主窗口中保存了当前修改的词条 {self._onChosenTextObject}")
 
     def _returnTranslatedText(self):
@@ -192,6 +228,7 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         """ 与 fuzzy 按钮绑定，用来将词条标注为 Fuzzy """
         self.Tag_Fuzzy.setHidden(False)
         self._onChosenTextObject.setFuzzy(True)
+        self._updateProjectDisplay()
         logger.info(f"在翻译工具主窗口中将当前词条 {self._onChosenTextObject} 标注为 Fuzzy。")
 
     def _onTranslatedTextEdited(self):
@@ -204,6 +241,7 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self._isTranslatedTextEdited = True
         self.Tag_TranslatedTextAccepted.setHidden(True)
         self.Tag_TranslatedTextEdited.setHidden(False)
+        self._updateProjectDisplay()
         logger.trace(f"在翻译工具主窗口中检测到词条 {self._onChosenTextObject} 被编辑，已将其标记。")
 
     def _onTranslatedTextChangedAccepted(self):
@@ -212,6 +250,7 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self._isTranslatedTextEdited = False
         self.Tag_TranslatedTextAccepted.setHidden(False)
         self.Tag_TranslatedTextEdited.setHidden(True)
+        self._updateProjectDisplay()
         logger.trace(f"在翻译工具主窗口中，词条 {self._onChosenTextObject} 的编辑已被接受。")
 
     def _onCommentEdited(self):
@@ -233,6 +272,18 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self.Tag_CommentAccepted.setHidden(False)
         self.Tag_CommentEdited.setHidden(True)
         logger.trace(f"在翻译工具主窗口中，词条 {self._onChosenTextObject} 的注释的编辑已被接受。")
+
+    def _updateProjectDisplay(self):
+        """ 更新主窗口中的项目统计信息 """
+        self.TitleLabel_PoFileName.setText(self._poFileObject.getPoFilePath())
+        self.SubtitleLabel_FromFileName.setText(self._tr_poFileFrom)
+        self.BodyLabel_TextTotal.setText(self._tr_textTotal + str(self._poFileObject.getTextTotal()))
+        self.BodyLabel_TranslatedTextTotal.setText(self._tr_translatedTotal + str(self._poFileObject.getTranslatedTextTotal()))
+        self.BodyLabel_LeftTextTotal.setText(self._tr_leftTotal + str(self._poFileObject.getUnTranslatedTextTotal()))
+        self.BodyLabel_FuzzyTotal.setText(self._tr_fuzzyTotal + str(self._poFileObject.getFuzzyTextTotal()))
+        self.ProgressRing.setValue(self._poFileObject.getPercentTranslatedTotal())
+        logger.trace("在翻译工具主窗口中更新了统计信息面板。")
+        return None
 
     def closeEvent(self, event: QCloseEvent) -> None:
         self._poFileObject.save()
