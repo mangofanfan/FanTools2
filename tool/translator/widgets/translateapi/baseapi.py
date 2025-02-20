@@ -17,6 +17,7 @@ class API(Enum):
 
 class TranslateAPI(ABC):
     """ 翻译 API 的基类，基础属性必须实现 """
+    @abstractmethod
     def __init__(self):
         self._ApiName = "BaseAPI"
         self._ApiWeb = "BaseAPIWeb"

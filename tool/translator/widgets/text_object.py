@@ -3,10 +3,11 @@
     翻译文本对象，一个翻译词条对应一个此对象
     """
     id_count = 0
-    def __init__(self, originalText: str, translatedText: str, comment: str, fuzzy: bool, flags: list[str], updateFunc: callable):
+    def __init__(self, originalText: str, translatedText: str, comment: str, translated: bool, fuzzy: bool, flags: list[str], updateFunc: callable):
         self._originalText = originalText
         self._translatedText = translatedText
         self._comment = comment
+        self._translated = translated
         self._fuzzy = fuzzy
         self._flags = flags
         self._updateFunc = updateFunc
@@ -23,6 +24,9 @@
 
     def getComment(self):
         return self._comment
+
+    def getTranslated(self):
+        return self._translated
 
     def getFuzzy(self):
         return self._fuzzy

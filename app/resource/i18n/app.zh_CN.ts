@@ -941,124 +941,154 @@ Try again to register now, or change another address.</source>
 <context>
     <name>TranslatorMainWindow</name>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="43"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="44"/>
         <source>Translated Text Accepted.</source>
         <translation>翻译文本已接受。</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="45"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="46"/>
         <source>Translated Text has been Edited!</source>
         <translation>翻译文本被编辑！</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="62"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="69"/>
         <source>Save</source>
         <translation>保存</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="62"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="69"/>
         <source>Return</source>
         <translation>返回</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="69"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="76"/>
         <source>Copy</source>
         <translation>复制</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="69"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="76"/>
         <source>Clear</source>
         <translation>清除</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="76"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="83"/>
         <source>Mark Fuzzy</source>
         <translation>标记为模糊</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="90"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="113"/>
         <source>.po File From:</source>
         <translation>.po 文件来自：</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="91"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="114"/>
         <source>Text Total:</source>
         <translation>词条总数：</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="92"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="115"/>
         <source>Translated Total:</source>
         <translation>已翻译总数：</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="93"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="116"/>
         <source>Left Total:</source>
         <translation>待翻译总数：</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="47"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="48"/>
         <source>Comment Accepted.</source>
         <translation>注释文本已接受。</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="49"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="50"/>
         <source>Comment has been Edited!</source>
         <translation>注释文本被编辑！</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="57"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="64"/>
         <source>Original Text</source>
         <translation>原文本</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="58"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="65"/>
         <source>Translated Text</source>
         <translation>翻译文本</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="59"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="66"/>
         <source>Comment</source>
         <translation>注释</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="51"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="52"/>
         <source>Fuzzy.</source>
         <translation>模糊。</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="60"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="67"/>
         <source>Translated Suggestions</source>
         <translation>翻译建议</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="94"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="117"/>
         <source>Fuzzy Total:</source>
         <translation>模糊总数：</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="29"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="30"/>
         <source>Translator</source>
         <translation>翻译家</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="40"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="41"/>
         <source>Test API status</source>
         <translation>测试API状态</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="53"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="54"/>
         <source>Start Thinking</source>
         <translation>开始思考</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="54"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="57"/>
         <source>Local Thinking</source>
         <translation>本地思考</translation>
     </message>
     <message>
-        <location filename="../../../tool/translator/widgets/window.py" line="55"/>
+        <location filename="../../../tool/translator/widgets/window.py" line="60"/>
         <source>API Thinking</source>
         <translation>API思考</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="55"/>
+        <source>Manually start Thinking. Automatically thinking is always enabled.</source>
+        <translation>手动开始思考。自动思考总是可用的。</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="58"/>
+        <source>Think through data collected from local translations.</source>
+        <translation>基于从本翻译项目中收集的数据思考。</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="61"/>
+        <source>Think through APIs configured.</source>
+        <translation>通过配置的 API 思考。</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="94"/>
+        <source>Clear suggestions</source>
+        <translation>清除建议</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="94"/>
+        <source>Apply suggestion</source>
+        <translation>应用建议</translation>
+    </message>
+    <message>
+        <location filename="../../../tool/translator/widgets/window.py" line="214"/>
+        <source>[ {}% Similarity ] Apply to view this text</source>
+        <translation>[ {}% 相似 ] 应用以审阅此词条</translation>
     </message>
 </context>
 <context>

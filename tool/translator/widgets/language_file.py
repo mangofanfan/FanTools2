@@ -14,7 +14,7 @@ class PoFileObject:
         """ 按顺序获取所有文本 """
         _list = []
         for entry in self._poFile:
-            _list.append(TextObject(entry.msgid, entry.msgstr, entry.comment, entry.fuzzy, entry.flags, self.updateTextObject))
+            _list.append(TextObject(entry.msgid, entry.msgstr, entry.comment, entry.translated(), entry.fuzzy, entry.flags, self.updateTextObject))
         return _list
 
     def updateTextObject(self, textObject: TextObject) -> None:
@@ -52,3 +52,9 @@ class PoFileObject:
     def getPoFileName(self) -> str:
         """ 获取po文件名 """
         return pathlib.Path(self._filePath).name
+
+    def getOriginalTextList(self) -> list[str]:
+        _list = []
+        for entry in self._poFile:
+            _list.append(entry.msgid)
+        return _list

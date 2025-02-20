@@ -1,7 +1,7 @@
 ﻿from PySide6.QtCore import QSize
 from PySide6.QtGui import QIcon, QCloseEvent, Qt
 from PySide6.QtWidgets import QVBoxLayout, QListWidgetItem
-from qfluentwidgets import Action, InfoLevel, RoundMenu
+from qfluentwidgets import Action, InfoLevel, RoundMenu, ToolTip, ToolTipFilter
 from qfluentwidgets import FluentIcon as FIC
 
 from app.common import resource
@@ -16,6 +16,7 @@ from .translate_core import TranslateCore
 from .translateapi import Language, API
 from ..designer.TranslatorMainWindow import Ui_Form as Ui_TranslatorMainWindow
 from ...public.public_window import FanWindow
+from ...public.qfluentwidgetsfanaddons.enum import RightClickMenuMode
 
 
 class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
@@ -51,8 +52,14 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self.Tag_Fuzzy.setText(self.tr("Fuzzy."))
 
         self.PushButton_StartThink.setText(self.tr("Start Thinking"))
+        self.PushButton_StartThink.setToolTip(self.tr("Manually start Thinking. Automatically thinking is always enabled."))
+        self.PushButton_StartThink.installEventFilter(ToolTipFilter(self.PushButton_StartThink))
         self.ToggleButton_LocalThinking.setText(self.tr("Local Thinking"))
+        self.ToggleButton_LocalThinking.setToolTip(self.tr("Think through data collected from local translations."))
+        self.ToggleButton_LocalThinking.installEventFilter(ToolTipFilter(self.ToggleButton_LocalThinking))
         self.ToggleButton_APIThinking.setText(self.tr("API Thinking"))
+        self.ToggleButton_APIThinking.setToolTip(self.tr("Think through APIs configured."))
+        self.ToggleButton_APIThinking.installEventFilter(ToolTipFilter(self.ToggleButton_APIThinking))
 
         self.BodyLabel_OriginalText.setText(self.tr("Original Text"))
         self.BodyLabel_TranslatedText.setText(self.tr("Translated Text"))
@@ -78,17 +85,25 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
                    triggered=self._markFuzzy),
         ])
 
-        self.SuggestionsPopMenu = RoundMenu()
-        self.SuggestionsPopMenu.addActions([
+        self.SuggestionsPopMenu1 = RoundMenu()
+        self.SuggestionsPopMenu1.addActions([
+            Action(FIC.DELETE, self.tr("Clear suggestions"),
+                   triggered=self._clearThinking)
+        ])
+        self.SuggestionsPopMenu2 = RoundMenu()
+        self.SuggestionsPopMenu2.addActions([
+            Action(FIC.UP, self.tr("Apply suggestion"),
+                   triggered=self._onApplySuggestion),
             Action(FIC.DELETE, self.tr("Clear suggestions"),
                    triggered=self._clearThinking)
         ])
         self.RoundListWidget_Text_Suggested.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
-        self.RoundListWidget_Text_Suggested.setRightClickMenu(self.SuggestionsPopMenu)
+        self.RoundListWidget_Text_Suggested.setRightClickMenu(self.SuggestionsPopMenu1, self.SuggestionsPopMenu2)
 
         # 魔改窗口逻辑
         self._textLineList: list[TextLineWidget] = []
         self._onChosenTextObject: TextObject = None
+        self._onChangingTextObject = False
         self._isTranslatedTextEdited = False
         self._isCommentEdited = False
         self._poFileObject: PoFileObject = None
@@ -114,6 +129,7 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self.LineEdit_Text_Translated.textChanged.connect(self._onTranslatedTextEdited)
         self.LineEdit_Comment.textChanged.connect(self._onCommentEdited)
         self.PushButton_StartThink.clicked.connect(self.startThinking)
+        self.RoundListWidget_Text_Suggested.RightClickItem.connect(self._onRightClickListWidgetItem)
 
         logger.trace("翻译工具主窗口初始化完毕。")
 
@@ -121,6 +137,9 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self. _poFileObject = poFileObject
         self._updateProjectDisplay()
         logger.trace("为翻译工具主窗口设置了 PoFileObject")
+        self._translateCore.initLocal(poFileObject.getOriginalTextList())
+        self._translateCore.initYouDao()
+        logger.debug("翻译家已经加载本地思考模块。")
         return None
 
     def addTextLineWidget(self, textLine: TextLineWidget) -> None:
@@ -133,9 +152,16 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
     def addTextLineWidgetFinished(self) -> None:
         """ 在所有词条卡片添加完毕后调用 """
         self._scrollLayout.addStretch()
-        self._textLineList[0].setChosen(True)
         self.onTextLineChosen(self._textLineList[0].textObject)
+        self._textLineList[0].setChosen(True)
         logger.success("在翻译工具主窗口中的 TextLineWidget 全部添加完毕。")
+        return None
+
+    def setTextLineWidgetAccepted(self, isAccepted: bool) -> None:
+        for textLine in self._textLineList:
+            if textLine.textObject == self._onChosenTextObject:
+                if isAccepted: textLine.setAccept()
+                else: textLine.setUnAccept()
         return None
 
     def onTextLineChosen(self, textObject: TextObject) -> None:
@@ -149,6 +175,7 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
             return
 
         # 工作区更新为选中的词条数据
+        self._onChangingTextObject = True
         self.LineEdit_Text_Original.setText(textObject.getOriginalText())
         self.LineEdit_Text_Translated.setText(textObject.getTranslatedText())
         self.LineEdit_Comment.setText(textObject.getComment())
@@ -162,15 +189,18 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
             self.Tag_Fuzzy.setHidden(True)
             logger.trace(f"词条 {textObject} 没有 Fuzzy 标签。")
         self._clearThinking()
+        self._delRightClickListWidgetItem()
+        self._onChangingTextObject = False
         logger.info(f"在翻译工具主窗口中选中了词条 {textObject} 所在卡片。")
         return None
 
     def startThinking(self) -> None:
         """ 主动开始思考，获取所有可用的翻译思考渠道的结果并添加到翻译建议中 """
+        self._clearThinking()
+
         self._translateCore.translate(self._onChosenTextObject.getOriginalText(),
                                       Language.en,
                                       Language.zh_CHS,
-                                      API.YouDao,
                                       self._addSuggestion)
         return None
 
@@ -179,10 +209,15 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self.RoundListWidget_Text_Suggested.clear()
         return None
 
-    def _addSuggestion(self, targetText: str, api: API) -> None:
+    def _addSuggestion(self, originalText: str, targetText: str, api: API) -> None:
         """ 在翻译建议中添加建议 """
         item = QListWidgetItem()
-        item.setText(targetText)
+        applyTranslation = True
+        if type(originalText) == int:
+            applyTranslation = False
+            originalText = self.tr("[ {}% Similarity ] Apply to view this text").format(originalText)
+        item.setText(f"{originalText}\n{targetText}")
+        item.setData(Qt.ItemDataRole.UserRole, (applyTranslation, targetText))
         item.setIcon(QIcon((getattr(TranslatorIcon, api.value)).path()))
         self.RoundListWidget_Text_Suggested.addItem(item)
         return None
@@ -199,6 +234,7 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         if self._isCommentEdited:
             self._onChosenTextObject.setComment(self.LineEdit_Comment.text())
             self._onCommentChangedAccepted()
+        self.setTextLineWidgetAccepted(True)
         self._updateProjectDisplay()
         logger.info(f"在翻译工具主窗口中保存了当前修改的词条 {self._onChosenTextObject}")
 
@@ -228,10 +264,12 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         """ 与 fuzzy 按钮绑定，用来将词条标注为 Fuzzy """
         self.Tag_Fuzzy.setHidden(False)
         self._onChosenTextObject.setFuzzy(True)
+        self.setTextLineWidgetAccepted(False)
         self._updateProjectDisplay()
         logger.info(f"在翻译工具主窗口中将当前词条 {self._onChosenTextObject} 标注为 Fuzzy。")
 
     def _onTranslatedTextEdited(self):
+        if self._onChangingTextObject: return  # 如果正在切换词条，则忽略
         if self._isTranslatedTextEdited:
             # 如果翻译文本已经变化，检查是否与原翻译文本一致。
             if self.LineEdit_Text_Translated.text() == self._onChosenTextObject.getTranslatedText():
@@ -241,6 +279,7 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self._isTranslatedTextEdited = True
         self.Tag_TranslatedTextAccepted.setHidden(True)
         self.Tag_TranslatedTextEdited.setHidden(False)
+        self.setTextLineWidgetAccepted(False)
         self._updateProjectDisplay()
         logger.trace(f"在翻译工具主窗口中检测到词条 {self._onChosenTextObject} 被编辑，已将其标记。")
 
@@ -250,6 +289,7 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self._isTranslatedTextEdited = False
         self.Tag_TranslatedTextAccepted.setHidden(False)
         self.Tag_TranslatedTextEdited.setHidden(True)
+        self.setTextLineWidgetAccepted(True)
         self._updateProjectDisplay()
         logger.trace(f"在翻译工具主窗口中，词条 {self._onChosenTextObject} 的编辑已被接受。")
 
@@ -275,7 +315,7 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
 
     def _updateProjectDisplay(self):
         """ 更新主窗口中的项目统计信息 """
-        self.TitleLabel_PoFileName.setText(self._poFileObject.getPoFilePath())
+        self.TitleLabel_PoFileName.setText(self._poFileObject.getPoFileName())
         self.SubtitleLabel_FromFileName.setText(self._tr_poFileFrom)
         self.BodyLabel_TextTotal.setText(self._tr_textTotal + str(self._poFileObject.getTextTotal()))
         self.BodyLabel_TranslatedTextTotal.setText(self._tr_translatedTotal + str(self._poFileObject.getTranslatedTextTotal()))
@@ -283,6 +323,23 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self.BodyLabel_FuzzyTotal.setText(self._tr_fuzzyTotal + str(self._poFileObject.getFuzzyTextTotal()))
         self.ProgressRing.setValue(self._poFileObject.getPercentTranslatedTotal())
         logger.trace("在翻译工具主窗口中更新了统计信息面板。")
+        return None
+
+    def _onApplySuggestion(self):
+        datas = self._listWidgetItemLastRightClick.data(Qt.ItemDataRole.UserRole)
+        if datas[0] is True:
+            self.LineEdit_Text_Translated.setText(datas[1])
+        else:
+            for textLine in self._textLineList:
+                if textLine.textObject.getOriginalText() == datas[1]:
+                    textLine.setChosen(True)
+
+    def _onRightClickListWidgetItem(self, item: QListWidgetItem) -> None:
+        self._listWidgetItemLastRightClick = item
+        return None
+
+    def _delRightClickListWidgetItem(self) -> None:
+        if hasattr(self, "_listWidgetItemLastRightClick"): del self._listWidgetItemLastRightClick
         return None
 
     def closeEvent(self, event: QCloseEvent) -> None:

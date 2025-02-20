@@ -1,3 +1,5 @@
 ﻿from .language import Language
-from .youdaoapi import YouDao
 from .baseapi import API
+
+from .localapi import Local
+from .youdaoapi import YouDao

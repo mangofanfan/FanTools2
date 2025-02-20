@@ -52,7 +52,7 @@ class YouDao(TranslateAPI):
             QRequestReady(QApplication.instance())
             .get(fanyi_url)
             .then(lambda _res: thenDo(json.loads(_res)))
-            .then(lambda targetText: (connect(targetText, API.YouDao), logger.debug(f"有道翻译结果：{originalText} => {targetText}")))
+            .then(lambda targetText: (connect(originalText, targetText, API.YouDao), logger.debug(f"有道翻译结果：{originalText} => {targetText}")))
             .done()
         )
 
