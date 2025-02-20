@@ -49,6 +49,6 @@ class PoFileObject:
         """ 获取已翻译的词条总数 """
         return self._poFile.percent_translated()
 
-    def getPoFilePath(self) -> str:
-        """ 获取po文件路径 """
+    def getPoFileName(self) -> str:
+        """ 获取po文件名 """
         return pathlib.Path(self._filePath).name
