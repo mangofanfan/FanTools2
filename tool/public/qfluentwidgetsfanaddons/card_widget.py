@@ -1,5 +1,4 @@
-﻿# coding:utf-8
-from PySide6.QtCore import Qt, Signal, Property
+﻿from PySide6.QtCore import Qt, Signal, Property
 from PySide6.QtGui import QPainter, QColor, QPainterPath
 from PySide6.QtWidgets import QFrame
 from qfluentwidgets.common.animation import BackgroundAnimationWidget
