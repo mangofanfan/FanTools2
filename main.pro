@@ -17,6 +17,8 @@ SOURCES      += app/common/hitokoto.py \
                 tool/bilingualWriting/widgets/tr_api.py \
                 tool/bilingualWriting/run.py \
                 tool/translator/widgets/window.py \
+                tool/translator/widgets/translator_panel.py \
+                tool/translator/designer/TranslatorPanel.py \
 
 TRANSLATIONS += app/resource/i18n/app.zh_CN.ts \
                 app/resource/i18n/app.zh_HK.ts
