@@ -2,6 +2,7 @@
 import json
 import random
 import time
+from enum import Enum
 from typing import NoReturn
 from urllib.parse import quote
 
@@ -35,7 +36,7 @@ class YouDao(TranslateAPI):
             input_ = originalText
         sign = hashlib.sha256((appKey + input_ + salt + utcTime + key).encode("utf-8")).hexdigest()
 
-        fanyi_url = f"{self._api}?q={quote(originalText)}&from={originalLan}&to={targetLan}&appKey={appKey}&salt={salt}&sign={sign}&signType=v3&curtime={utcTime}"
+        fanyi_url = f"{self._api}?q={quote(originalText)}&from={originalLan.value}&to={targetLan.value}&appKey={appKey}&salt={salt}&sign={sign}&signType=v3&curtime={utcTime}"
 
         logger.trace(f"正在调用有道文本翻译API执行翻译，目标URL为 {fanyi_url}")
 
@@ -45,8 +46,8 @@ class YouDao(TranslateAPI):
             except KeyError:
                 code = _res["errorCode"]
                 logger.error(
-                    f"有道翻译API调用错误，错误代码：{code} | 请参阅有道提供的文档 [ https://ai.youdao.com/DOCSIRMA/html/trans/api/wbfy/index.html#section-10 ] 查看详情。")
-                raise TranslateError(f"有道文本翻译 API 调用错误，返回值为 {code}")
+                    f"有道通用文本翻译API调用错误，错误代码：{code} | 请参阅有道提供的文档 [ https://ai.youdao.com/DOCSIRMA/html/trans/api/wbfy/index.html#section-10 ] 查看详情。")
+                raise TranslateError(f"有道通用文本翻译 API 调用错误，返回值为 {code}")
 
         (
             QRequestReady(QApplication.instance())

@@ -1,10 +1,12 @@
 ﻿from .translateapi import *
-from .config import translator_config
 
 
 class TranslateCore:
     def __init__(self):
         pass
+
+    def initBaiDu(self):
+        self.BaiDu = BaiDu()
 
     def initYouDao(self):
         self.YouDao = YouDao()

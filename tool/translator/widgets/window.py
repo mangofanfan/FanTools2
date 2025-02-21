@@ -138,6 +138,7 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
         self._updateProjectDisplay()
         logger.trace("为翻译工具主窗口设置了 PoFileObject")
         self._translateCore.initLocal(poFileObject.getOriginalTextList())
+        self._translateCore.initBaiDu()
         self._translateCore.initYouDao()
         logger.debug("翻译家已经加载本地思考模块。")
         return None
