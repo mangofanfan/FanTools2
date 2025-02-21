@@ -97,8 +97,8 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
             Action(FIC.DELETE, self.tr("Clear suggestions"),
                    triggered=self._clearThinking)
         ])
-        self.RoundListWidget_Text_Suggested.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
         self.RoundListWidget_Text_Suggested.setRightClickMenu(self.SuggestionsPopMenu1, self.SuggestionsPopMenu2)
+        self.RoundListWidget_Text_Suggested.setLeftClickEnabled(False)
 
         # 魔改窗口逻辑
         self._textLineList: list[TextLineWidget] = []
