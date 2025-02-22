@@ -42,6 +42,8 @@ app.installTranslator(galleryTranslator)
 
 app.setStyleSheet("""QScrollArea { background: transparent; border: none; }
 QWidget#scrollAreaWidgetContents { background: transparent; }
+QWidget#scrollAreaWidgetContents_2 { background: transparent; }
+QWidget#scrollAreaWidgetContents_3 { background: transparent; }
 QFrame { background: transparent; border: none; }""")
 
 logger.debug("程序初始化完成。")
