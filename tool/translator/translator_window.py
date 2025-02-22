@@ -138,6 +138,7 @@ class TranslatorMainWindow(Ui_TranslatorMainWindow, FanWindow):
             tlw = TextLineWidget()
             tlw.setTextObject(textObject)
             self.addTextLineWidget(tlw)
+        self.addTextLineWidgetFinished()
         logger.trace("为翻译工具主窗口设置了 PoFileObject")
         self._translateCore.initLocal(poFileObject.getOriginalTextList())
         self._translateCore.initBaiDu()

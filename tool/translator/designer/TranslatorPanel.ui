@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1452</width>
+    <width>1532</width>
     <height>844</height>
    </rect>
   </property>
@@ -38,18 +38,35 @@
      </item>
      <item>
       <property name="text">
+       <string>Settings</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
        <string>About Translator</string>
       </property>
      </item>
     </widget>
    </item>
    <item>
-    <widget class="OpacityAniStackedWidget" name="StackedWidget">
+    <widget class="SlideAniStackedWidget" name="StackedWidget">
      <property name="currentIndex">
       <number>0</number>
      </property>
-     <widget class="QWidget" name="page">
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <widget class="QWidget" name="page_ProjectList">
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout">
          <item>
@@ -62,8 +79,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>1038</width>
-              <height>696</height>
+              <width>1144</width>
+              <height>722</height>
              </rect>
             </property>
             <layout class="QVBoxLayout" name="ScrollLayout">
@@ -129,7 +146,7 @@
         </layout>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
+        <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,98765">
          <item>
           <widget class="ToolButton" name="ToolButton_ImportNewProject"/>
          </item>
@@ -153,7 +170,75 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="page_2"/>
+     <widget class="QWidget" name="page_Settings">
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="ScrollArea" name="ScrollArea_2">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>1195</width>
+            <height>791</height>
+           </rect>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_AboutTranslator">
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="HeaderCardWidget" name="HeaderCardWidget_About">
+         <property name="title">
+          <string>About Translator</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>
@@ -182,15 +267,21 @@
    <container>1</container>
   </customwidget>
   <customwidget>
+   <class>HeaderCardWidget</class>
+   <extends>SimpleCardWidget</extends>
+   <header>qfluentwidgets</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
    <class>ScrollArea</class>
    <extends>QScrollArea</extends>
    <header>qfluentwidgets</header>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>OpacityAniStackedWidget</class>
+   <class>SlideAniStackedWidget</class>
    <extends>QStackedWidget</extends>
-   <header>qfluentwidgets</header>
+   <header>qfluentwidgetspro</header>
    <container>1</container>
   </customwidget>
   <customwidget>
@@ -223,12 +314,12 @@
    <slot>setCurrentIndex(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>86</x>
-     <y>252</y>
+     <x>209</x>
+     <y>328</y>
     </hint>
     <hint type="destinationlabel">
-     <x>443</x>
-     <y>224</y>
+     <x>515</x>
+     <y>347</y>
     </hint>
    </hints>
   </connection>

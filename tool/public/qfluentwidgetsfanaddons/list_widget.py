@@ -1,6 +1,6 @@
 ﻿from typing import overload
 
-from PySide6.QtCore import Signal
+from PySide6.QtCore import Signal, QPoint
 from PySide6.QtGui import QMouseEvent, Qt
 from PySide6.QtWidgets import QMenu, QListWidgetItem, QListWidget
 from qfluentwidgets import RoundMenu, ListWidget
@@ -9,7 +9,15 @@ from qfluentwidgetspro import RoundListWidget
 from .enum import RightClickMenuMode
 
 
-class MouseClickFanAddon:
+class QListWidgetProtocol:
+    def itemAt(self, pos: QPoint) -> QListWidgetItem | None: ...
+    def contextMenuPolicy(self) -> Qt.ContextMenuPolicy: ...
+    def setContextMenuPolicy(self, policy: Qt.ContextMenuPolicy) -> None: ...
+    def hasAttribute(self, attr: str) -> bool: ...
+    def mousePressEvent(self, e: QMouseEvent) -> None: ...
+
+
+class MouseClickFanAddon(QListWidgetProtocol):
     """ 增强处理鼠标事件的核心 """
 
     RightClickItem = Signal(QListWidgetItem)

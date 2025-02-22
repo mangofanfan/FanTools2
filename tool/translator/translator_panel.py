@@ -1,11 +1,16 @@
 ﻿import os
 
 from PySide6.QtCore import QFile, QIODevice
+from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import QVBoxLayout
 
+from .widgets.config import translator_config
+from .widgets.icon import TranslatorIcon
 from .widgets.language_file import PoFileObject
 from .translator_window import TranslatorMainWindow
 from .designer.TranslatorPanel import Ui_Form as Ui_TranslatorPanel
 from .widgets.project_widget import ProjectCardWidget
+from .widgets.setting_card_widget import APISettingCard
 from ..public.function import getToolDir
 from ..public.public_window import FanWindow
 
@@ -15,13 +20,38 @@ class TranslatorPanel(Ui_TranslatorPanel, FanWindow):
         super().__init__(parent)
         self.setupUi(self)
         self.resize(900, 600)
+        self.StackedWidget.setCurrentIndex(0)
+        self.RoundListWidget.setCurrentRow(0)
+        self.setWindowIcon(QIcon(":/app/images/icons/IconTranslate.png"))
 
         # 窗口进阶设计
-        self.RoundListWidget.setCurrentRow(0)
+        self._settingsLayout = QVBoxLayout()
+        self._settingsLayout.setContentsMargins(0, 0, 0, 0)
+        self.ScrollArea_2.setLayout(self._settingsLayout)
+        self.addAPISettingCards()
 
         # 窗口魔改逻辑
         self.MainWindow = TranslatorMainWindow()
         self.PushButton_CreateExampleProject.clicked.connect(self._createExampleProject)
+
+    def addAPISettingCards(self):
+        self._settingsLayout.addWidget(APISettingCard(icon=TranslatorIcon.BaiDu.path(),
+                                                      title=self.tr("百度通用文本翻译API"),
+                                                      content=self.tr("Provide free usage per month. See: https://fanyi-api.baidu.com/"),
+                                                      parent=self,
+                                                      arg1name="APPID",
+                                                      arg2name="Key",
+                                                      configItem1=translator_config.BaiDuAPPID,
+                                                      configItem2=translator_config.BaiDuKey))
+        self._settingsLayout.addWidget(APISettingCard(icon=TranslatorIcon.YouDao.path(),
+                                                      title=self.tr("有道文本翻译API"),
+                                                      content=self.tr("Provide free usage once you register. See: https://ai.youdao.com/product-fanyi-text.s"),
+                                                      parent=self,
+                                                      arg1name="APPKey",
+                                                      arg2name="Key",
+                                                      configItem1=translator_config.YouDaoAPPKey,
+                                                      configItem2=translator_config.YouDaoKey))
+        self._settingsLayout.addStretch()
 
     def addProjectCard(self, poFileObject: PoFileObject):
         card = ProjectCardWidget(self, poFileObject)
