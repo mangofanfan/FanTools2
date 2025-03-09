@@ -3,6 +3,8 @@
 
 此仓库目前是工具箱版本0.2.1及之后版本的源码，包含自动化翻译工具的工具箱更早期版本的源码位于[此仓库](https://github.com/mangofanfan/FanTools)，由于经历重构已不再维护。
 
+出于一些原因，Dev分支已经和master提前合并，但是0.3.0版本尚未制作完成，最近的分发版本是0.2.5。
+
 [**官方文档**](https://docs-fantools.mangofanfan.cn/) | [**开始使用**](https://github.com/mangofanfan/FanTools2/releases)
 
 请记得务必一定必须肯定应该不能忘记要看看文档！
@@ -77,3 +79,6 @@ root
 未来可能会更改协议。
 
 关于芒果工具箱使用到的其他外部项目、上游依赖，请参阅[文档中的外部项目](https://docs-fantools.mangofanfan.cn/about/include.html)。
+
+# 我的其他项目
+* [**智心💗心理健康评估预警平台**（附带社交网站的基础功能）](https://github.com/mangofanfan/MSOnlinePanel) - 由 Django 后端驱动，使用 Bootstrap 实现的响应式网站。
