@@ -3,3 +3,6 @@ pyside6~=6.7.2
 loguru~=0.7.3
 requests-oauthlib~=2.0.0
 cython~=3.0.11
+polib~=1.2.0
+python-dotenv~=1.0.1
+thefuzz~=0.22.1

@@ -3,6 +3,8 @@
 
 此仓库目前是工具箱版本0.2.1及之后版本的源码，包含自动化翻译工具的工具箱更早期版本的源码位于[此仓库](https://github.com/mangofanfan/FanTools)，由于经历重构已不再维护。
 
+出于一些原因，Dev分支已经和master提前合并，但是0.3.0版本尚未制作完成，最近的分发版本是0.2.5。
+
 [**官方文档**](https://docs-fantools.mangofanfan.cn/) | [**开始使用**](https://github.com/mangofanfan/FanTools2/releases)
 
 请记得务必一定必须肯定应该不能忘记要看看文档！
@@ -10,26 +12,27 @@
 ## 项目结构
 仓库拥有`master`和`dev`三个分支，请参阅[文档中的「项目结构」段落](https://docs-fantools.mangofanfan.cn/about/contribute.html)。简单来说，有且仅有`dev`分支应当接受commit。
 
-项目入口`main.py`已从仓库中删除。如您需要在本地运行项目，日后会提供可运行的最小代码量入口文件。
+项目入口`main.py`已从仓库中删除，同时，项目内嵌的一个独立 Python 运行环境也已从仓库中删除。如您需要在本地运行项目，请参阅测试模式。
 
-项目内嵌的Python Embedded运行环境已从仓库中删除，如您有需要，请使用常规方式调试项目。
+## 测试模式
+请查看 `FanWeather.py` 文件。运行该文件，并传入 `-test` 参数，即可通过测试模式运行工具箱本体，此时无法使用任何使用 QFluentWidgets Pro 组件的工具。
+
+或者，直接运行 `main_dev.py`。
 
 ## 文件结构
-
 是基于Fluent Widgets脚手架。:)
 
 ```
 root
 │  deploy.py                (Nuikta 打包脚本)
 │  main.pro                 (Qt 项目文件)
-│  main.py                  (入口脚本)
-│  mkdocs.yml               (文档配置)
+│  main.py                  (入口脚本，已从仓库删除)
+│  main_dev.py              (入口脚本-测试模式)
 │  requirements.txt         (依赖环境)
 │
 │─runtime
-│   │ 是一个3.11.9 Python嵌入环境，用于工具箱版本0.2.3及之后的新打包方式。
-│   │ 运行根目录下的FanTools.exe会调用此环境来运行工具箱。
-│   │ 更多细节请参见文档，折腾这个打包方式真是要了我的老命了QAQ
+│   │ 需要是一个 Python 3 安装版本，因为工具系统需要 Tkinter。
+│   │ 对 Python 版本似乎没有要求。分发的可安装版本中，使用的版本是 3.11.9。
 │
 │─app
 │   ├─common
@@ -71,8 +74,11 @@ root
 
 ## 许可证
 
-由于上游项目的开源许可证的传染性，目前采用GPL-v3协议。
+由于上游项目的开源许可证的传染性，采用GPL-v3协议。
 
-这只是暂时的决定，日后可能会更改？
+未来可能会更改协议。
 
 关于芒果工具箱使用到的其他外部项目、上游依赖，请参阅[文档中的外部项目](https://docs-fantools.mangofanfan.cn/about/include.html)。
+
+# 我的其他项目
+* [**智心💗心理健康评估预警平台**（附带社交网站的基础功能）](https://github.com/mangofanfan/MSOnlinePanel) - 由 Django 后端驱动，使用 Bootstrap 实现的响应式网站。

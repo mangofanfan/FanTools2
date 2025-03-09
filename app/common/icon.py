@@ -6,8 +6,6 @@ from qfluentwidgets import FluentIconBase, getIconColor, Theme
 
 class Icon(FluentIconBase, Enum):
 
-    # TODO: Add your icons here
-
     SETTINGS = "Settings"
     SETTINGS_FILLED = "SettingsFilled"
 

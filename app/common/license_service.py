@@ -1,6 +1,7 @@
 # coding: utf-8
 import hashlib
 import json
+import sys
 
 from PySide6.QtCore import QEventLoop
 from PySide6.QtGui import QImage
@@ -18,7 +19,8 @@ class LicenseService:
     def __init__(self):
         self.email: str = None
         self.license: str = None
-        self.datas: dict = None
+        # 设置测试模式下的默认用户信息
+        self.datas = {"name": "Test User", "id": "114514", "status": "Test Mode", "test": True}
 
         # self.url = "http://127.0.0.1:5000"
         self.url = "https://api-fan.mangofanfan.cn"
@@ -84,12 +86,19 @@ class LicenseService:
         在主程序初始化之后，使用此方法获取email的头像和用户名。
         :return: None
         """
-        self.getAvatar(avatarFunc, 96)
+        self.setAvatar(avatarFunc, 96)
         nameFunc(self.datas["name"])
 
         return None
 
-    def getAvatar(self, avatarFunc: callable, size: int) -> None:
+    def setAvatar(self, avatarFunc: callable, size: int) -> None:
+        """ 设置头像，指定 size 作为头像大小。在测试模式下使用默认头像。 """
+        # 测试模式下，返回默认头像
+        if "-test" in sys.argv:
+            image = QImage(":/app/images/avatar.png")
+            avatarFunc(image.scaledToHeight(size))
+            return
+
         image = QImage()
 
         url = f"https://cravatar.cn/avatar/{self.__md5(self.email.lower())}?s={size}" if self.license else self.datas["other"]["custom_avatar"]
@@ -98,7 +107,7 @@ class LicenseService:
             QRequestReady(QApplication.instance())
             .get(url)
             .then(lambda t: image.loadFromData(t))
-            .then(lambda _: avatarFunc(image))
+            .then(lambda _: avatarFunc(image.scaledToHeight(size)))
             .done()
         )
         logger.trace(f"开始异步加载尺寸为 {size} 的用户头像。")

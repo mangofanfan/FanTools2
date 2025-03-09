@@ -1,19 +1,14 @@
 import importlib
 import os
-import subprocess
-from dataclasses import dataclass
 from functools import partial
-from typing import Union
 
 from PySide6.QtCore import Qt, QProcess
-from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QWidget, QVBoxLayout
 from qfluentwidgets import SmoothScrollArea, TitleLabel, FlowLayout, LargeTitleLabel
 
 from .widgets.tool_info_box import ToolInfoBox
 from .widgets.tool_load import load_all_tools
 from .widgets.tool_widget import ToolWidget, Tool
-from .widgets.tool_load import ToolMultiLaunchError
 from .widgets.tool_load_info_bar import ToolLaunchInfoBar
 from ..common import resource
 from ..common.function import basicFunc

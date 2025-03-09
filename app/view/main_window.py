@@ -22,6 +22,7 @@ from ..common.logger import logger
 class MainWindow(MSFluentWindow):
 
     def __init__(self):
+        logger.trace("开始加载工具箱主窗口...")
         super().__init__()
         self.isExited = False
         self.initWindow()

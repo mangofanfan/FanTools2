@@ -17,6 +17,7 @@
 
         <file>texts/main_tip.md</file>
         <file>texts/about_tip.md</file>
+        <file>texts/langText_en_ES.po</file>
 
         <file>images/icons/IconDownload.png</file>
         <file>images/icons/IconHash.png</file>

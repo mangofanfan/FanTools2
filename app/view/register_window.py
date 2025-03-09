@@ -2,7 +2,7 @@
 import json
 import sys
 from PySide6.QtCore import Qt, QTimer, QUrl, QSize, QThread, Signal
-from PySide6.QtGui import  QColor, QIcon, QDesktopServices
+from PySide6.QtGui import QColor, QIcon, QDesktopServices, QCloseEvent
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from PySide6.QtWidgets import QWidget, QApplication, QHBoxLayout, QVBoxLayout
 
@@ -44,6 +44,7 @@ class RegisterWindow(Window):
         self.setResizeEnabled(False)
         self.setTitleBar(MSFluentTitleBar(self))
         self.register = LicenseService()
+        self._loginFinished = False
         self.hBoxLayout = QHBoxLayout(self)
 
         self.stackedWidget = StackedWidget(self)
@@ -399,6 +400,7 @@ class RegisterWindow(Window):
         return True
 
     def _showMainWindow(self):
+        self._loginFinished = True
         self.close()
         setThemeColor('#009faa')
 
@@ -407,6 +409,12 @@ class RegisterWindow(Window):
         w = MainWindow()
         w.show()
         logger.trace("工具箱主窗口已经显示，登录流程结束。")
+
+    def closeEvent(self, e: QCloseEvent) -> None:
+        super().closeEvent(e)
+        if not self._loginFinished:
+            QApplication.instance().quit()
+        return None
 
 
 
